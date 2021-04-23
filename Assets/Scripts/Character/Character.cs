@@ -8,13 +8,16 @@ public class Character : MonoBehaviour
   public float speed;
   public float max_speed;
   protected float speed_multiplier = 10;
-  public float max_jump_height;
+  public float jump_strenght;
   protected bool jumping = false;
-  protected float current_height;
+  protected bool sliding = false;
+  protected float current_height = 0;
   private Animator animator;
+  private Rigidbody rb;
   void Start()
   {
     animator = GetComponent<Animator>();
+    rb = GetComponent<Rigidbody>();
     speed = min_speed;
     // Changes the position to x:1, y:1, z:0
     transform.position = new Vector3(0, 0, 1);
@@ -28,12 +31,15 @@ public class Character : MonoBehaviour
   }
   private void Update()
   {
-    if (Input.GetButtonDown("Jump"))
+    if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow))
     {
       jump();
     }
-    transform.position += new Vector3(0, 0, 1 * (Time.deltaTime * speed * speed_multiplier));
-    if (isNotMaxSpeed()) speed += 0.001f;
+    if (Input.GetKeyDown(KeyCode.DownArrow))
+    {
+      slide();
+    }
+    run();
   }
   private bool isNotMaxSpeed()
   {
@@ -41,10 +47,30 @@ public class Character : MonoBehaviour
     return false;
   }
 
+  public void run()
+  {
+    transform.position = new Vector3(0, transform.position.y, transform.position.z + (Time.deltaTime * speed * speed_multiplier));
+    if (isNotMaxSpeed()) speed += 0.001f;
+  }
+
   public void jump()
   {
     print("Jump");
     animator.SetTrigger("isJumpping");
     jumping = true;
+  }
+  public void stopJump()
+  {
+    jumping = false;
+  }
+  public void slide()
+  {
+    print("Slide");
+    animator.SetTrigger("isSlide");
+    sliding = true;
+  }
+  public void stopSlide()
+  {
+    sliding = false;
   }
 }
