@@ -10,10 +10,11 @@ public class Character : MonoBehaviour
   protected float speed_multiplier = 10;
   public float max_jump_height;
   protected bool jumping = false;
-  private Rigidbody rb;
+  protected float current_height;
+  private Animator animator;
   void Start()
   {
-    rb = GetComponent<Rigidbody>();
+    animator = GetComponent<Animator>();
     speed = min_speed;
     // Changes the position to x:1, y:1, z:0
     transform.position = new Vector3(0, 0, 1);
@@ -30,15 +31,8 @@ public class Character : MonoBehaviour
     if (Input.GetButtonDown("Jump"))
     {
       jump();
-      return;
     }
-    if (!jumping)
-    {
-      transform.position += new Vector3(0, 0, 1 * (Time.deltaTime * speed * speed_multiplier));
-    }
-    // We add +1 to the x axis every frame.
-    // Time.deltaTime is the time it took to complete the last frame
-    // The result of this is that the object moves one unit on the x axis every second
+    transform.position += new Vector3(0, 0, 1 * (Time.deltaTime * speed * speed_multiplier));
     if (isNotMaxSpeed()) speed += 0.001f;
   }
   private bool isNotMaxSpeed()
@@ -50,7 +44,7 @@ public class Character : MonoBehaviour
   public void jump()
   {
     print("Jump");
-    rb.AddForce(Vector3.up * max_jump_height);
+    animator.SetTrigger("isJumpping");
     jumping = true;
   }
 }
