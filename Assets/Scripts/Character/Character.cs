@@ -40,6 +40,7 @@ public class Character : MonoBehaviour
       slide();
     }
     run();
+    if(animator.speed < 2) animator.speed = speed;
   }
   private bool isNotMaxSpeed()
   {
@@ -49,7 +50,7 @@ public class Character : MonoBehaviour
 
   public void run()
   {
-    transform.position = new Vector3(0, transform.position.y, transform.position.z + (Time.deltaTime * speed * speed_multiplier));
+    transform.position = new Vector3(0, transform.position.y, transform.position.z + (Time.deltaTime * speed * speed_multiplier) * 2);
     if (isNotMaxSpeed()) speed += 0.001f;
   }
 
