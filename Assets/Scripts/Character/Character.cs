@@ -14,46 +14,38 @@ public class Character : MonoBehaviour
   protected float current_height = 0;
   private Animator animator;
   private Rigidbody rb;
+  private int lens = 2;
+  public int lensOffset;
+  private bool isMoving = false;
   void Start()
   {
     animator = GetComponent<Animator>();
     rb = GetComponent<Rigidbody>();
     speed = min_speed;
-    // Changes the position to x:1, y:1, z:0
-    transform.position = new Vector3(0, 0, 1);
-    // It is also possible to set the position with a Vector2
-    // This automatically sets the Z axis to 0
-    transform.position = new Vector2(0, 0);
-    // Moving object on a single axis
-    Vector3 newPosition = transform.position; // We store the current position
-    newPosition.z = 0; // We set a axis, in this case the y axis
-    transform.position = newPosition; // We pass it back
+    transform.position = new Vector3(0, 0, 0);
   }
   private void Update()
   {
-    if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow))
+    if (isMoving)
     {
-      jump();
+      if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) jump();
+      if (Input.GetKeyDown(KeyCode.DownArrow)) slide();
+      if (Input.GetKeyDown(KeyCode.RightArrow)) changeLensRight();
+      if (Input.GetKeyDown(KeyCode.LeftArrow)) changeLensLeft();
+      run();
     }
-    if (Input.GetKeyDown(KeyCode.DownArrow))
-    {
-      slide();
-    }
-    run();
-    if(animator.speed < 2) animator.speed = speed;
   }
   private bool isNotMaxSpeed()
   {
     if (speed != max_speed) return true;
     return false;
   }
-
   public void run()
   {
-    transform.position = new Vector3(0, transform.position.y, transform.position.z + (Time.deltaTime * speed * speed_multiplier) * 2);
+    transform.position = new Vector3(lensOffset * Time.deltaTime, transform.position.y, transform.position.z + (Time.deltaTime * speed * speed_multiplier) * 2);
     if (isNotMaxSpeed()) speed += 0.001f;
+    if (animator.speed < 2) animator.speed = speed;
   }
-
   public void jump()
   {
     print("Jump");
@@ -73,5 +65,21 @@ public class Character : MonoBehaviour
   public void stopSlide()
   {
     sliding = false;
+  }
+  public void startMoving()
+  {
+    isMoving = true;
+  }
+  public void stopMoving()
+  {
+    isMoving = false;
+  }
+  public void changeLensRight()
+  {
+    if (lens < 3) lens++;
+  }
+  public void changeLensLeft()
+  {
+    if (lens > 1) lens--;
   }
 }
