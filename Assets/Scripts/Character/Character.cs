@@ -26,6 +26,8 @@ public class Character : MonoBehaviour
   }
   private void Update()
   {
+    if (Input.GetKeyDown(KeyCode.LeftShift)) startMoving();
+    if (Input.GetKeyDown(KeyCode.LeftControl)) stopMoving();
     if (isMoving)
     {
       if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) jump();
@@ -69,10 +71,12 @@ public class Character : MonoBehaviour
   public void startMoving()
   {
     isMoving = true;
+    animator.SetBool("isMoving",true);
   }
   public void stopMoving()
   {
     isMoving = false;
+     animator.SetBool("isMoving",false);
   }
   public void changeLensRight()
   {
