@@ -144,7 +144,7 @@ MonoBehaviour:
   speed: 0
   max_speed: 10
   jump_strenght: 1
-  lensOffset: 0
+  lensOffset: 40
 --- !u!95 &174146854
 Animator:
   serializedVersion: 3

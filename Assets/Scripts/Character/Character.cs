@@ -44,7 +44,7 @@ public class Character : MonoBehaviour
   }
   public void run()
   {
-    transform.position = new Vector3(lensOffset * Time.deltaTime, transform.position.y, transform.position.z + (Time.deltaTime * speed * speed_multiplier) * 2);
+    transform.position = new Vector3((lens * (lensOffset/2)) - lensOffset, transform.position.y, transform.position.z + (Time.deltaTime * speed * speed_multiplier) * 2);
     if (isNotMaxSpeed()) speed += 0.001f;
     if (animator.speed < 2) animator.speed = speed;
   }
