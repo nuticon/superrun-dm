@@ -6,6 +6,7 @@ public class Character : MonoBehaviour
 {
   public float min_speed;
   public float speed;
+  public float side_way_speed = 10;
   public float max_speed;
   protected float speed_multiplier = 10;
   public float jump_strenght;
@@ -14,8 +15,14 @@ public class Character : MonoBehaviour
   protected float current_height = 0;
   private Animator animator;
   private Rigidbody rb;
-  private int lens = 2;
-  public int lensOffset;
+  /**
+  * -1 left
+  * 0 center
+  * 1 center
+  */
+  [Range(-1, 1)]
+  private int lens = 0;
+  public int lensOffset = 15;
   private bool isMoving = false;
   private float curent_lens_offset;
   void Start()
@@ -44,7 +51,14 @@ public class Character : MonoBehaviour
   }
   public void run()
   {
+<<<<<<< HEAD
+    // transform.position = new Vector3((lens * (lensOffset/2)) - lensOffset, transform.position.y, transform.position.z + (Time.deltaTime * speed * speed_multiplier) * 2);
+    transform.position += Vector3.forward * Time.deltaTime * speed * speed_multiplier;
+        Vector3 interpolPostion = new Vector3((lens * lensOffset), transform.position.y, transform.position.z);
+    transform.position = Vector3.Lerp(Vector3.left, interpolPostion, 1f);
+=======
     transform.position = new Vector3(curent_lens_offset, transform.position.y, transform.position.z + (Time.deltaTime * speed * speed_multiplier) * 2);
+>>>>>>> ed912693b7f0a325e177a4ebf2473bc2beb19cbe
     if (isNotMaxSpeed()) speed += 0.001f;
     if (animator.speed < 2) animator.speed = speed;
   }
@@ -80,6 +94,13 @@ public class Character : MonoBehaviour
   }
   public void changeLensRight()
   {
+<<<<<<< HEAD
+    lens++;
+  }
+  public void changeLensLeft()
+  {
+    lens--;
+=======
     if (lens < 3)
     {
       lens++;
@@ -93,5 +114,6 @@ public class Character : MonoBehaviour
       lens--;
       curent_lens_offset = (lens * (lensOffset / 2)) - lensOffset;
     }
+>>>>>>> ed912693b7f0a325e177a4ebf2473bc2beb19cbe
   }
 }
