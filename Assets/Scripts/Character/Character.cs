@@ -4,190 +4,186 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-  public float min_speed;
-  public static float speed;
-  public float side_way_speed = 10;
-  public float max_speed;
-  public static float speed_multiplier = 25;
-  public float jump_strenght;
-  public float sliding_length;
-  private float calculated_sliding_length;
-  private float sliding_animator_pause;
-  protected bool jumping = false;
-  private int jumping_frame = 0;
-  protected bool sliding = false;
-  private int sliding_frame = 0;
-  protected float current_height = 0;
-  private Animator animator;
-  private Rigidbody rb;
-  private BoxCollider box_collider;
-  public static Vector3 position;
-  private Vector3 defaultColliderCenter;
-  private Vector3 defaultColliderSize;
-  private float tempAnimatorSpeed;
+  [Header("Character")]
+  public float MinSpeed;
+  public float MaxSpeed;
+  public float JumpStrength;
+  public float SlideLength;
+  public float SideWaySpeed = 10;
+
+  //Helper Value
+  public static float Speed;
+  public static float SpeedMultiplier = 25;
+  private float CalculatedSlideLength;
+  private float SlideAnimatorPauseAt;
+  private bool Jumping = false;
+  private int JumpingFrame = 0;
+  private float JumpFrame;
+  private float JumpFrameCenter;
+  private bool Sliding = false;
+  private int SlidingFrame = 0;
+  private float TempAnimatorSpeed;
   /**
-  * -1 left
-  * 0 center
-  * 1 center
-  */
+    * -1 left
+    * 0 center
+    * 1 center
+    */
   [Range(-1, 1)]
-  private int lens = 0;
-  public int lensOffset = 15;
-  public static bool isMoving = false;
-  private float curent_lens_offset;
-  private float jump_frame;
-  private float jump_frame_center;
+  private int Lens = 0;
+  public int LensOffset = 15;
+  public static bool IsMoving = false;
+  private float CurrentLensOffset;
+
+  //Instance
+  private Animator animator;
+  private BoxCollider Collider;
+  public static Vector3 Position;
+  private Vector3 DefaultColliderCenter;
+  private Vector3 DefaultColliderSize;
+
   void Start()
   {
     //Get Component
     animator = GetComponent<Animator>();
-    rb = GetComponent<Rigidbody>();
-    box_collider = GetComponent<BoxCollider>();
+    Collider = GetComponent<BoxCollider>();
+
     //Set default value
-    speed = min_speed;
-    jump_frame = jump_strenght * 50;
-    jump_frame_center = jump_frame / 2;
-    calculated_sliding_length = sliding_length * 50;
-    sliding_animator_pause = calculated_sliding_length / sliding_length;
+    Speed = MinSpeed;
+    JumpFrame = JumpStrength * 50;
+    JumpFrameCenter = JumpFrame / 2;
+    CalculatedSlideLength = SlideLength * 50;
+    SlideAnimatorPauseAt = CalculatedSlideLength / SlideLength;
     transform.position = new Vector3(0, 0, 0);
-    position = transform.position;
-    defaultColliderCenter = box_collider.center;
-    defaultColliderSize = box_collider.size;
+    Position = transform.position;
+    DefaultColliderCenter = Collider.center;
+    DefaultColliderSize = Collider.size;
+
     //Temporaly
-    startMoving();
+    StartMoving();
   }
-  private void Update()
+  void Update()
   {
-
-    if (isMoving && !Game.over)
+    //On Moving
+    if (IsMoving && !Game.Over)
     {
-      if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) jump();
-      if (Input.GetKeyDown(KeyCode.DownArrow)) slide();
-      if (Input.GetKeyDown(KeyCode.RightArrow)) changeLensRight();
-      if (Input.GetKeyDown(KeyCode.LeftArrow)) changeLensLeft();
-      run();
-      if (sliding) checkSlidingFrame();
-      if (jumping) checkJumpingFrame();
-    }
-    if (isMoving && Game.over)
-    {
-      over();
+      if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) Jump();
+      if (Input.GetKeyDown(KeyCode.DownArrow)) Slide();
+      if (Input.GetKeyDown(KeyCode.RightArrow)) ChangeLensRight();
+      if (Input.GetKeyDown(KeyCode.LeftArrow)) ChangeLensLeft();
+      Run();
+      if (Sliding) CheckSlidingFrame();
+      if (Jumping) CheckJumpingFrame();
     }
 
+    //On Game Over
+    if (IsMoving && Game.Over)
+    {
+      Over();
+    }
+
   }
-  private bool isNotMaxSpeed()
+  private bool IsNotMaxSpeed()
   {
-    if (speed != max_speed) return true;
+    if (Speed != MaxSpeed) return true;
     return false;
   }
-  private void over()
+  private void Over()
   {
-    stopMoving();
-    stopJump();
-    stopSlide();
-    animator.SetTrigger("isOver");
+    StopMoving();
+    StopJump();
+    StopSlide();
+    animator.SetTrigger("IsOver");
   }
-  public void stopAnimation()
+  private void Run()
   {
-    animator.speed = 0;
-  }
-  public void run()
-  {
-    // transform.position = new Vector3((lens * (lensOffset/2)) - lensOffset, transform.position.y, transform.position.z + (Time.deltaTime * speed * speed_multiplier) * 2);
-    transform.position += Vector3.forward * Time.deltaTime * speed * speed_multiplier;
-    Vector3 interpolPostion = new Vector3((lens * lensOffset), transform.position.y, transform.position.z);
+    transform.position += Vector3.forward * Time.deltaTime * Speed * SpeedMultiplier;
+    Vector3 interpolPostion = new Vector3((Lens * LensOffset), transform.position.y, transform.position.z);
     transform.position = Vector3.Lerp(Vector3.left, interpolPostion, 1f);
-    position = transform.position;
-    if (isNotMaxSpeed()) speed += 0.001f;
-    if (animator.speed < 2 && !jumping && !sliding)
+    Position = transform.position;
+    if (IsNotMaxSpeed()) Speed += 0.001f;
+    if (animator.speed < 2 && !Jumping && !Sliding)
     {
-      animator.speed = speed;
-      tempAnimatorSpeed = animator.speed;
+      animator.speed = Speed;
+      TempAnimatorSpeed = animator.speed;
     }
   }
-  public void jump()
+  private void Jump()
   {
-    if (!jumping)
+    if (!Jumping)
     {
-      print("Jump");
-      animator.SetTrigger("isJumpping");
-      jumping = true;
+      animator.SetTrigger("IsJumpping");
+      Jumping = true;
     }
   }
-  public void stopJump()
+  private void StopJump()
   {
-    jumping = false;
+    Jumping = false;
   }
-  public void checkJumpingFrame()
+  private void CheckJumpingFrame()
   {
-    if (jumping)
+    if (Jumping)
     {
-      if (jumping_frame < jump_frame)
+      if (JumpingFrame < JumpFrame)
       {
-        jumping_frame++;
-        if (jumping_frame < jump_frame_center) transform.position += Vector3.up * Time.deltaTime * jump_frame_center;
-        if (jumping_frame > jump_frame_center) transform.position += Vector3.down * Time.deltaTime * jump_frame_center;
-        if (jumping_frame == jump_frame_center) animator.speed = 0;
-        // box_collider.size = new Vector3 (defaultColliderSize.x, 0.02f, defaultColliderSize.z );
-        // box_collider.center = new Vector3(defaultColliderCenter.x, 0.015f, defaultColliderCenter.z);
+        JumpingFrame++;
+        if (JumpingFrame < JumpFrameCenter) transform.position += Vector3.up * Time.deltaTime * JumpFrameCenter;
+        if (JumpingFrame > JumpFrameCenter) transform.position += Vector3.down * Time.deltaTime * JumpFrameCenter;
+        if (JumpingFrame == JumpFrameCenter) animator.speed = 0;
       }
       else
       {
-        jumping = false;
-        jumping_frame = 0;
-        animator.speed = tempAnimatorSpeed;
-        // box_collider.size = defaultColliderSize;
-        // box_collider.center = defaultColliderCenter;
+        Jumping = false;
+        JumpingFrame = 0;
+        animator.speed = TempAnimatorSpeed;
       }
     }
   }
-  public void slide()
+  private void Slide()
   {
-    print("Slide");
-    animator.SetTrigger("isSlide");
-    sliding = true;
+    animator.SetTrigger("IsSlide");
+    Sliding = true;
   }
-  public void stopSlide()
+  private void StopSlide()
   {
-    sliding = false;
+    Sliding = false;
   }
-  public void checkSlidingFrame()
+  public void CheckSlidingFrame()
   {
-    if (sliding)
+    if (Sliding)
     {
-      if (sliding_frame < calculated_sliding_length)
+      if (SlidingFrame < CalculatedSlideLength)
       {
-        sliding_frame++;
-        if (sliding_frame == sliding_animator_pause) animator.speed = 0;
-        box_collider.size = new Vector3(defaultColliderSize.x, 0.02f, defaultColliderSize.z);
-        box_collider.center = new Vector3(defaultColliderCenter.x, 0.015f, defaultColliderCenter.z);
+        SlidingFrame++;
+        if (SlidingFrame == SlideAnimatorPauseAt) animator.speed = 0;
+        Collider.size = new Vector3(DefaultColliderSize.x, 0.02f, DefaultColliderSize.z);
+        Collider.center = new Vector3(DefaultColliderCenter.x, 0.015f, DefaultColliderCenter.z);
       }
       else
       {
-        sliding = false;
-        sliding_frame = 0;
-        animator.speed = tempAnimatorSpeed;
-        box_collider.size = defaultColliderSize;
-        box_collider.center = defaultColliderCenter;
+        Sliding = false;
+        SlidingFrame = 0;
+        animator.speed = TempAnimatorSpeed;
+        Collider.size = DefaultColliderSize;
+        Collider.center = DefaultColliderCenter;
       }
     }
   }
-  public void startMoving()
+  public void StartMoving()
   {
-    isMoving = true;
-    animator.SetBool("isMoving", true);
+    IsMoving = true;
+    animator.SetBool("IsMoving", true);
   }
-  public void stopMoving()
+  public void StopMoving()
   {
-    isMoving = false;
-    animator.SetBool("isMoving", false);
+    IsMoving = false;
+    animator.SetBool("IsMoving", false);
   }
-  public void changeLensRight()
+  public void ChangeLensRight()
   {
-    lens++;
+    Lens++;
   }
-  public void changeLensLeft()
+  public void ChangeLensLeft()
   {
-    lens--;
+    Lens--;
   }
 }
