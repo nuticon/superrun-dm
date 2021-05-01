@@ -51,14 +51,10 @@ public class Character : MonoBehaviour
   }
   public void run()
   {
-<<<<<<< HEAD
     // transform.position = new Vector3((lens * (lensOffset/2)) - lensOffset, transform.position.y, transform.position.z + (Time.deltaTime * speed * speed_multiplier) * 2);
     transform.position += Vector3.forward * Time.deltaTime * speed * speed_multiplier;
         Vector3 interpolPostion = new Vector3((lens * lensOffset), transform.position.y, transform.position.z);
     transform.position = Vector3.Lerp(Vector3.left, interpolPostion, 1f);
-=======
-    transform.position = new Vector3(curent_lens_offset, transform.position.y, transform.position.z + (Time.deltaTime * speed * speed_multiplier) * 2);
->>>>>>> ed912693b7f0a325e177a4ebf2473bc2beb19cbe
     if (isNotMaxSpeed()) speed += 0.001f;
     if (animator.speed < 2) animator.speed = speed;
   }
@@ -94,26 +90,10 @@ public class Character : MonoBehaviour
   }
   public void changeLensRight()
   {
-<<<<<<< HEAD
     lens++;
   }
   public void changeLensLeft()
   {
     lens--;
-=======
-    if (lens < 3)
-    {
-      lens++;
-      curent_lens_offset = (lens * (lensOffset / 2)) - lensOffset;
-    }
-  }
-  public void changeLensLeft()
-  {
-    if (lens > 1)
-    {
-      lens--;
-      curent_lens_offset = (lens * (lensOffset / 2)) - lensOffset;
-    }
->>>>>>> ed912693b7f0a325e177a4ebf2473bc2beb19cbe
   }
 }
