@@ -12,10 +12,14 @@ public class Character : MonoBehaviour
   public float jump_strenght;
   protected bool jumping = false;
   protected bool sliding = false;
+  private int sliding_frame = 0;
   protected float current_height = 0;
   private Animator animator;
   private Rigidbody rb;
+  private BoxCollider box_collider;
   public static Vector3 position;
+  private Vector3 defaultColliderCenter;
+  private Vector3 defaultColliderSize;
   /**
   * -1 left
   * 0 center
@@ -30,20 +34,24 @@ public class Character : MonoBehaviour
   {
     animator = GetComponent<Animator>();
     rb = GetComponent<Rigidbody>();
+    box_collider = GetComponent<BoxCollider>();
     speed = min_speed;
     transform.position = new Vector3(0, 0, 0);
     position = transform.position;
+    defaultColliderCenter = box_collider.center;
+    defaultColliderSize = box_collider.size;
     startMoving();
   }
   private void Update()
   {
-    if (isMoving)
+    if (isMoving && !Game.over)
     {
       if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) jump();
       if (Input.GetKeyDown(KeyCode.DownArrow)) slide();
       if (Input.GetKeyDown(KeyCode.RightArrow)) changeLensRight();
       if (Input.GetKeyDown(KeyCode.LeftArrow)) changeLensLeft();
       run();
+      if (sliding) checkSlidingFrame();
     }
   }
   private bool isNotMaxSpeed()
@@ -80,6 +88,22 @@ public class Character : MonoBehaviour
   public void stopSlide()
   {
     sliding = false;
+  }
+  public void checkSlidingFrame()
+  {
+    if(sliding)
+    {
+      if (sliding_frame < 60) {
+        sliding_frame++;
+        box_collider.size = new Vector3 (defaultColliderSize.x, 0.02f, defaultColliderSize.z );
+        box_collider.center = new Vector3(defaultColliderCenter.x, 0.015f, defaultColliderCenter.z);
+      } else {
+        sliding = false;
+        sliding_frame = 0;
+        box_collider.size = defaultColliderSize;
+        box_collider.center = defaultColliderCenter;
+      }
+    }
   }
   public void startMoving()
   {

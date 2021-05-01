@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    public static bool is_running = true;
+    public static bool over = false;
     // Start is called before the first frame update
     void Start()
     {
