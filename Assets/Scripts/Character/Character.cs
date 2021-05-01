@@ -58,6 +58,7 @@ public class Character : MonoBehaviour
   }
   private void Update()
   {
+
     if (isMoving && !Game.over)
     {
       if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) jump();
@@ -68,11 +69,27 @@ public class Character : MonoBehaviour
       if (sliding) checkSlidingFrame();
       if (jumping) checkJumpingFrame();
     }
+    if (isMoving && Game.over)
+    {
+      over();
+    }
+
   }
   private bool isNotMaxSpeed()
   {
     if (speed != max_speed) return true;
     return false;
+  }
+  private void over()
+  {
+    stopMoving();
+    stopJump();
+    stopSlide();
+    animator.SetTrigger("isOver");
+  }
+  public void stopAnimation()
+  {
+    animator.speed = 0;
   }
   public void run()
   {
@@ -159,13 +176,11 @@ public class Character : MonoBehaviour
   {
     isMoving = true;
     animator.SetBool("isMoving", true);
-    print("Run");
   }
   public void stopMoving()
   {
     isMoving = false;
     animator.SetBool("isMoving", false);
-    print("Stop");
   }
   public void changeLensRight()
   {
