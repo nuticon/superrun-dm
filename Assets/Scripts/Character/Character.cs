@@ -5,16 +5,17 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
   public float min_speed;
-  public float speed;
+  public static float speed;
   public float side_way_speed = 10;
   public float max_speed;
-  protected float speed_multiplier = 10;
+  public static float speed_multiplier = 10;
   public float jump_strenght;
   protected bool jumping = false;
   protected bool sliding = false;
   protected float current_height = 0;
   private Animator animator;
   private Rigidbody rb;
+  public static Vector3 position;
   /**
   * -1 left
   * 0 center
@@ -23,7 +24,7 @@ public class Character : MonoBehaviour
   [Range(-1, 1)]
   private int lens = 0;
   public int lensOffset = 15;
-  private bool isMoving = false;
+  public static bool isMoving = false;
   private float curent_lens_offset;
   void Start()
   {
@@ -31,10 +32,11 @@ public class Character : MonoBehaviour
     rb = GetComponent<Rigidbody>();
     speed = min_speed;
     transform.position = new Vector3(0, 0, 0);
+    position = transform.position;
+    startMoving();
   }
   private void Update()
   {
-    isMoving = Game.is_running;
     if (isMoving)
     {
       if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) jump();
@@ -55,6 +57,7 @@ public class Character : MonoBehaviour
     transform.position += Vector3.forward * Time.deltaTime * speed * speed_multiplier;
         Vector3 interpolPostion = new Vector3((lens * lensOffset), transform.position.y, transform.position.z);
     transform.position = Vector3.Lerp(Vector3.left, interpolPostion, 1f);
+    position = transform.position;
     if (isNotMaxSpeed()) speed += 0.001f;
     if (animator.speed < 2) animator.speed = speed;
   }
@@ -82,11 +85,13 @@ public class Character : MonoBehaviour
   {
     isMoving = true;
     animator.SetBool("isMoving", true);
+    print("Run");
   }
   public void stopMoving()
   {
     isMoving = false;
     animator.SetBool("isMoving", false);
+    print("Stop");
   }
   public void changeLensRight()
   {
