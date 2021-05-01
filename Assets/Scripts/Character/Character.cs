@@ -5,11 +5,16 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
   [Header("Character")]
-  public float MinSpeed;
-  public float MaxSpeed;
-  public float JumpStrength;
-  public float SlideLength;
-  public float SideWaySpeed = 10;
+
+  public float JumpStrength = 1.2f;
+  public float SlideLength = 1.0f;
+
+  [Header("Game")]
+  public float MinSpeed = 1.0f;
+  public float MaxSpeed = 10.0f;
+  public float PointDelay = 0.5f;
+  public float LensOffset = 7.0f;
+  public float SideWaySpeed = 1.0f;
 
   //Helper Value
   public static float Speed;
@@ -17,12 +22,15 @@ public class Character : MonoBehaviour
   private float CalculatedSlideLength;
   private float SlideAnimatorPauseAt;
   private bool Jumping = false;
+  private float CalculatedJumpStrength;
   private int JumpingFrame = 0;
   private float JumpFrame;
   private float JumpFrameCenter;
   private bool Sliding = false;
   private int SlidingFrame = 0;
+  private float CalculatedSideWaySpeed;
   private float TempAnimatorSpeed;
+  private float Timer;
   /**
     * -1 left
     * 0 center
@@ -30,10 +38,9 @@ public class Character : MonoBehaviour
     */
   [Range(-1, 1)]
   private int Lens = 0;
-  public int LensOffset = 15;
   public static bool IsMoving = false;
-  private float CurrentLensOffset;
-
+  private float TargetLenOffset;
+  public static bool RequireRestart = false;
   //Instance
   private Animator animator;
   private BoxCollider Collider;
@@ -51,18 +58,19 @@ public class Character : MonoBehaviour
     Speed = MinSpeed;
     JumpFrame = JumpStrength * 50;
     JumpFrameCenter = JumpFrame / 2;
+    CalculatedJumpStrength = JumpStrength * 5;
     CalculatedSlideLength = SlideLength * 50;
+    CalculatedSideWaySpeed = SideWaySpeed * 25;
     SlideAnimatorPauseAt = CalculatedSlideLength / SlideLength;
     transform.position = new Vector3(0, 0, 0);
     Position = transform.position;
     DefaultColliderCenter = Collider.center;
     DefaultColliderSize = Collider.size;
 
-    //Temporaly
-    StartMoving();
   }
   void Update()
   {
+    if (!IsMoving && RequireRestart) ResetState();
     //On Moving
     if (IsMoving && !Game.Over)
     {
@@ -76,11 +84,16 @@ public class Character : MonoBehaviour
     }
 
     //On Game Over
-    if (IsMoving && Game.Over)
-    {
-      Over();
-    }
-
+    if (IsMoving && Game.Over) Over();
+    if (!IsMoving && Game.GameStarted && !RequireRestart) StartMoving();
+  }
+  private void ResetState()
+  {
+    transform.position = new Vector3(0, 0, 0);
+    Position = transform.position;
+    Speed = MinSpeed;
+    StartMoving();
+    RequireRestart = false;
   }
   private bool IsNotMaxSpeed()
   {
@@ -97,14 +110,24 @@ public class Character : MonoBehaviour
   private void Run()
   {
     transform.position += Vector3.forward * Time.deltaTime * Speed * SpeedMultiplier;
-    Vector3 interpolPostion = new Vector3((Lens * LensOffset), transform.position.y, transform.position.z);
-    transform.position = Vector3.Lerp(Vector3.left, interpolPostion, 1f);
+    Vector3 interpolPostion = new Vector3(TargetLenOffset, transform.position.y, transform.position.z);
+    transform.position = Vector3.Lerp(transform.position, interpolPostion, Time.deltaTime * CalculatedSideWaySpeed);
     Position = transform.position;
     if (IsNotMaxSpeed()) Speed += 0.001f;
     if (animator.speed < 2 && !Jumping && !Sliding)
     {
-      animator.speed = Speed;
+      animator.speed = Speed - 0.5f;
       TempAnimatorSpeed = animator.speed;
+    }
+    CountPoint();
+  }
+  private void CountPoint()
+  {
+    Timer += Time.deltaTime;
+    if (Timer >= PointDelay)
+    {
+      Game.Point++;
+      Timer = 0;
     }
   }
   private void Jump()
@@ -123,11 +146,13 @@ public class Character : MonoBehaviour
   {
     if (Jumping)
     {
-      if (JumpingFrame < JumpFrame)
+      if (JumpingFrame <= JumpFrame)
       {
+        Vector3 interpolPostionUp = new Vector3(transform.position.x, CalculatedJumpStrength, transform.position.z);
+        Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
         JumpingFrame++;
-        if (JumpingFrame < JumpFrameCenter) transform.position += Vector3.up * Time.deltaTime * JumpFrameCenter;
-        if (JumpingFrame > JumpFrameCenter) transform.position += Vector3.down * Time.deltaTime * JumpFrameCenter;
+        if (JumpingFrame < JumpFrameCenter) transform.position = transform.position = Vector3.Lerp(transform.position, interpolPostionUp, Time.deltaTime * 10);
+        if (JumpingFrame > JumpFrameCenter) transform.position = transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * 10);
         if (JumpingFrame == JumpFrameCenter) animator.speed = 0;
       }
       else
@@ -135,6 +160,7 @@ public class Character : MonoBehaviour
         Jumping = false;
         JumpingFrame = 0;
         animator.speed = TempAnimatorSpeed;
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
       }
     }
   }
@@ -147,11 +173,11 @@ public class Character : MonoBehaviour
   {
     Sliding = false;
   }
-  public void CheckSlidingFrame()
+  private void CheckSlidingFrame()
   {
     if (Sliding)
     {
-      if (SlidingFrame < CalculatedSlideLength)
+      if (SlidingFrame <= CalculatedSlideLength)
       {
         SlidingFrame++;
         if (SlidingFrame == SlideAnimatorPauseAt) animator.speed = 0;
@@ -168,22 +194,30 @@ public class Character : MonoBehaviour
       }
     }
   }
-  public void StartMoving()
+  private void StartMoving()
   {
     IsMoving = true;
     animator.SetBool("IsMoving", true);
   }
-  public void StopMoving()
+  private void StopMoving()
   {
     IsMoving = false;
     animator.SetBool("IsMoving", false);
   }
-  public void ChangeLensRight()
+  private void ChangeLensRight()
   {
-    Lens++;
+    if (Lens < 1)
+    {
+      Lens++;
+      TargetLenOffset = Lens * LensOffset;
+    }
   }
-  public void ChangeLensLeft()
+  private void ChangeLensLeft()
   {
-    Lens--;
+    if (Lens > -1)
+    {
+      Lens--;
+      TargetLenOffset = Lens * LensOffset;
+    }
   }
 }
