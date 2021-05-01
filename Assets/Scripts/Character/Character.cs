@@ -27,8 +27,7 @@ public class Character : MonoBehaviour
   }
   private void Update()
   {
-    if (Input.GetKeyDown(KeyCode.LeftShift)) startMoving();
-    if (Input.GetKeyDown(KeyCode.LeftControl)) stopMoving();
+    isMoving = Game.is_running;
     if (isMoving)
     {
       if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) jump();
