@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6656796389725430236}
   - component: {fileID: 8900597504991499542}
   - component: {fileID: 5796803856122363659}
+  - component: {fileID: 5759911893290970810}
   m_Layer: 0
   m_Name: RoadWorksBarrierHigh
   m_TagString: Untagged
@@ -91,8 +92,20 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6955169939746501827}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.021251932, y: 0.021251932, z: 0.018957565}
-  m_Center: {x: 0, y: -5.114934e-18, z: 0.00052122993}
+  m_Size: {x: 0.021251932, y: 0.021251932, z: 0.020568684}
+  m_Center: {x: 0, y: 4.1371306e-18, z: -0.00028432885}
+--- !u!114 &5759911893290970810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6955169939746501827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f2e0dece04db84db428cd413ba0ef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

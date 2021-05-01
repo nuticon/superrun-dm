@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3270880855797738147}
   - component: {fileID: 756736159411068521}
   - component: {fileID: 6307473543630642968}
+  - component: {fileID: 4927027480383495308}
   m_Layer: 0
   m_Name: construction_light 1
   m_TagString: Untagged
@@ -93,8 +94,20 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261161789254303676}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.07500001, y: 0.23375, z: 0.115867876}
   m_Center: {x: -7.60313e-19, y: 0.116875, z: -0.00045946837}
+--- !u!114 &4927027480383495308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261161789254303676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f2e0dece04db84db428cd413ba0ef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
