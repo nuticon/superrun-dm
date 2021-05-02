@@ -9,7 +9,8 @@ public class CameraController : MonoBehaviour
   {
     if (Character.IsMoving)
     {
-      transform.position = new Vector3(transform.position.x, transform.position.y, Character.Position.z - 40);
+      Vector3 TargetPosition = new Vector3(transform.position.x, transform.position.y, Character.Position.z - 36.97f);
+      transform.position = Vector3.Lerp(transform.position, TargetPosition,Time.deltaTime * Character.Speed * Character.SpeedMultiplier);
     }
   }
 }
