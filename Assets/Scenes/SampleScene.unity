@@ -485,11 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9568b98fa8acd3f439a46f841d5ed27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  JumpStrength: 1.8
-=======
   JumpStrength: 1
->>>>>>> 750ad395c530a939718d109d97918158309f03fa
   SlideLength: 1
   MinSpeed: 1.5
   MaxSpeed: 5
