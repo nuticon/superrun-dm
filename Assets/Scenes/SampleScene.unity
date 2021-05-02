@@ -485,7 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9568b98fa8acd3f439a46f841d5ed27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpStrength: 1.25
+  JumpStrength: 1
   SlideLength: 1
   MinSpeed: 1.5
   MaxSpeed: 5
@@ -1594,6 +1594,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1397825549006574099, guid: 6660dbcf128808b46801d6c9a671bf3a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1507768623712268940, guid: 6660dbcf128808b46801d6c9a671bf3a, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1646,5 +1650,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5871580556533479846, guid: 6660dbcf128808b46801d6c9a671bf3a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6660dbcf128808b46801d6c9a671bf3a, type: 3}

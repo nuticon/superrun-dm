@@ -24,8 +24,6 @@ public class Character : MonoBehaviour
   private bool Jumping = false;
   private float CalculatedJumpStrength;
   private int JumpingFrame = 0;
-  private float JumpFrame;
-  private float JumpFrameCenter;
   private bool Sliding = false;
   private int SlidingFrame = 0;
   private float CalculatedSideWaySpeed;
@@ -47,7 +45,6 @@ public class Character : MonoBehaviour
   public static Vector3 Position;
   private Vector3 DefaultColliderCenter;
   private Vector3 DefaultColliderSize;
-
   void Start()
   {
     //Get Component
@@ -56,17 +53,15 @@ public class Character : MonoBehaviour
 
     //Set default value
     Speed = MinSpeed;
-    JumpFrame = JumpStrength * 50;
-    JumpFrameCenter = JumpFrame / 2;
-    CalculatedJumpStrength = JumpStrength * 5;
-    CalculatedSlideLength = SlideLength * 50;
+    CalculatedJumpStrength = JumpStrength * 20; //Base on animation used frame
+    CalculatedSlideLength = SlideLength * 46;
     CalculatedSideWaySpeed = SideWaySpeed * 25;
     SlideAnimatorPauseAt = CalculatedSlideLength / SlideLength;
     transform.position = new Vector3(0, 0, 0);
     Position = transform.position;
     DefaultColliderCenter = Collider.center;
     DefaultColliderSize = Collider.size;
-
+    TempAnimatorSpeed = animator.speed;
   }
   void Update()
   {
@@ -74,13 +69,13 @@ public class Character : MonoBehaviour
     //On Moving
     if (IsMoving && !Game.Over)
     {
+      if (Sliding) CheckSlidingFrame();
+      if (Jumping) CheckJumpingFrame();
+      Run();
       if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) Jump();
       if (Input.GetKeyDown(KeyCode.DownArrow)) Slide();
       if (Input.GetKeyDown(KeyCode.RightArrow)) ChangeLensRight();
       if (Input.GetKeyDown(KeyCode.LeftArrow)) ChangeLensLeft();
-      Run();
-      if (Sliding) CheckSlidingFrame();
-      if (Jumping) CheckJumpingFrame();
     }
 
     //On Game Over
@@ -110,13 +105,16 @@ public class Character : MonoBehaviour
   private void Run()
   {
     transform.position += Vector3.forward * Time.deltaTime * Speed * SpeedMultiplier;
-    Vector3 interpolPostion = new Vector3(TargetLenOffset, transform.position.y, transform.position.z);
-    transform.position = Vector3.Lerp(transform.position, interpolPostion, Time.deltaTime * CalculatedSideWaySpeed);
+    if (transform.position.x != TargetLenOffset)
+    {
+      Vector3 interpolPostion = new Vector3(TargetLenOffset, transform.position.y, transform.position.z);
+      transform.position = Vector3.Lerp(transform.position, interpolPostion, Time.deltaTime * CalculatedSideWaySpeed);
+    }
     Position = transform.position;
     if (IsNotMaxSpeed()) Speed += 0.001f;
-    if (animator.speed < 2 && !Jumping && !Sliding)
+    if (animator.speed < 1.5 && !Jumping && !Sliding)
     {
-      animator.speed = Speed - 0.5f;
+      animator.speed += Time.deltaTime;
       TempAnimatorSpeed = animator.speed;
     }
     CountPoint();
@@ -144,24 +142,22 @@ public class Character : MonoBehaviour
   }
   private void CheckJumpingFrame()
   {
-    if (Jumping)
+    JumpingFrame++;
+    if (JumpingFrame < CalculatedJumpStrength)
     {
-      if (JumpingFrame <= JumpFrame)
-      {
-        Vector3 interpolPostionUp = new Vector3(transform.position.x, CalculatedJumpStrength, transform.position.z);
-        Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
-        JumpingFrame++;
-        if (JumpingFrame < JumpFrameCenter) transform.position = transform.position = Vector3.Lerp(transform.position, interpolPostionUp, Time.deltaTime * 10);
-        if (JumpingFrame > JumpFrameCenter) transform.position = transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * 10);
-        if (JumpingFrame == JumpFrameCenter) animator.speed = 0;
-      }
-      else
-      {
-        Jumping = false;
-        JumpingFrame = 0;
-        animator.speed = TempAnimatorSpeed;
-        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-      }
+      Vector3 interpolPostionUp = new Vector3(transform.position.x, CalculatedJumpStrength / 2, transform.position.z);
+      transform.position = Vector3.Lerp(transform.position, interpolPostionUp, Time.deltaTime * 10);
+    }
+    if (JumpingFrame > CalculatedJumpStrength && JumpingFrame < CalculatedJumpStrength * 2)
+    {
+      Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
+      transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * 10);
+    }
+    if (JumpingFrame >= CalculatedJumpStrength * 2)
+    {
+      Jumping = false;
+      JumpingFrame = 0;
+      transform.position = new Vector3(transform.position.x, 0, transform.position.z);
     }
   }
   private void Slide()
@@ -175,23 +171,20 @@ public class Character : MonoBehaviour
   }
   private void CheckSlidingFrame()
   {
-    if (Sliding)
+    if (SlidingFrame < CalculatedSlideLength)
     {
-      if (SlidingFrame <= CalculatedSlideLength)
-      {
-        SlidingFrame++;
-        if (SlidingFrame == SlideAnimatorPauseAt) animator.speed = 0;
-        Collider.size = new Vector3(DefaultColliderSize.x, 0.02f, DefaultColliderSize.z);
-        Collider.center = new Vector3(DefaultColliderCenter.x, 0.015f, DefaultColliderCenter.z);
-      }
-      else
-      {
-        Sliding = false;
-        SlidingFrame = 0;
-        animator.speed = TempAnimatorSpeed;
-        Collider.size = DefaultColliderSize;
-        Collider.center = DefaultColliderCenter;
-      }
+      SlidingFrame++;
+      if (SlidingFrame >= SlideAnimatorPauseAt) animator.speed = 0;
+      Collider.size = new Vector3(DefaultColliderSize.x, 0.02f, DefaultColliderSize.z);
+      Collider.center = new Vector3(DefaultColliderCenter.x, 0.015f, DefaultColliderCenter.z);
+    }
+    else
+    {
+      animator.speed = TempAnimatorSpeed;
+      Collider.size = DefaultColliderSize;
+      Collider.center = DefaultColliderCenter;
+      Sliding = false;
+      SlidingFrame = 0;
     }
   }
   private void StartMoving()
