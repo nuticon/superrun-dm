@@ -1889,6 +1889,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoyColorFull
       objectReference: {fileID: 0}
+    - target: {fileID: 7640877960485620641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4114432544190819403, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
