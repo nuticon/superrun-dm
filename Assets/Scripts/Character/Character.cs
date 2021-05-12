@@ -140,6 +140,8 @@ public class Character : MonoBehaviour
   private void ResetState()
   {
     transform.position = new Vector3(0, 0, 0);
+    Lanes = 0;
+    TargetLenOffset = 0;
     Position = transform.position;
     Speed = MinSpeed;
     StartMoving();
