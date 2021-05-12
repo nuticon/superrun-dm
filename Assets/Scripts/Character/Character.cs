@@ -8,6 +8,7 @@ public class Character : MonoBehaviour
 
   public float JumpStrength = 1.2f;
   public float SlideLength = 1.0f;
+  public float JumpSpeed = 1;
 
   [Header("Game")]
   public float MinSpeed = 1.0f;
@@ -20,6 +21,7 @@ public class Character : MonoBehaviour
   public static float Speed;
   public static float SpeedMultiplier = 25;
   private float CalculatedSlideLength;
+  private float CalculatedJumpSpeed;
   private float SlideAnimatorPauseAt;
   private bool Jumping = false;
   private float CalculatedJumpStrength;
@@ -58,6 +60,7 @@ public class Character : MonoBehaviour
     CalculatedJumpStrength = JumpStrength * 20; //Base on animation used frame
     CalculatedSlideLength = SlideLength * 46;
     CalculatedSideWaySpeed = SideWaySpeed * 25;
+    CalculatedJumpSpeed = JumpSpeed * 10;
     SlideAnimatorPauseAt = CalculatedSlideLength / SlideLength;
     transform.position = new Vector3(0, 0, 0);
     Position = transform.position;
@@ -200,20 +203,22 @@ public class Character : MonoBehaviour
   private void CheckJumpingFrame()
   {
     JumpingFrame++;
+    animator.speed = JumpSpeed;
     if (JumpingFrame < CalculatedJumpStrength)
     {
       Vector3 interpolPostionUp = new Vector3(transform.position.x, CalculatedJumpStrength / 2, transform.position.z);
-      transform.position = Vector3.Lerp(transform.position, interpolPostionUp, Time.deltaTime * 10);
+      transform.position = Vector3.Lerp(transform.position, interpolPostionUp, Time.deltaTime * CalculatedJumpSpeed);
     }
     if (JumpingFrame > CalculatedJumpStrength && JumpingFrame < CalculatedJumpStrength * 2)
     {
       Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
-      transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * 10);
+      transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * CalculatedJumpSpeed);
     }
     if (JumpingFrame >= CalculatedJumpStrength * 2)
     {
       Jumping = false;
       JumpingFrame = 0;
+      animator.speed = TempAnimatorSpeed;
       transform.position = new Vector3(transform.position.x, 0, transform.position.z);
     }
   }
