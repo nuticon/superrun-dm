@@ -627,14 +627,10 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Point
-
-    Coin
-
-    Total'
+  m_Text: 
 --- !u!222 &496774469
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1964,6 +1960,10 @@ PrefabInstance:
     - target: {fileID: 7640877960485620641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: m_Name
       value: BoyColorFull
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640877960485620641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4114432544190819403, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}

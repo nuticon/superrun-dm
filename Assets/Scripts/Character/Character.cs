@@ -161,6 +161,7 @@ public class Character : MonoBehaviour
     StopJump();
     StopSlide();
     animator.SetTrigger("IsOver");
+    animator.speed = TempAnimatorSpeed;
   }
   private void Run()
   {
@@ -203,7 +204,6 @@ public class Character : MonoBehaviour
   private void CheckJumpingFrame()
   {
     JumpingFrame++;
-    animator.speed = JumpSpeed;
     if (JumpingFrame < CalculatedJumpStrength)
     {
       Vector3 interpolPostionUp = new Vector3(transform.position.x, CalculatedJumpStrength / 2, transform.position.z);
@@ -218,7 +218,6 @@ public class Character : MonoBehaviour
     {
       Jumping = false;
       JumpingFrame = 0;
-      animator.speed = TempAnimatorSpeed;
       transform.position = new Vector3(transform.position.x, 0, transform.position.z);
     }
   }
