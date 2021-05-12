@@ -174,13 +174,13 @@ public class Character : MonoBehaviour
     if (SlidingFrame < CalculatedSlideLength)
     {
       SlidingFrame++;
-      if (SlidingFrame >= SlideAnimatorPauseAt) animator.speed = 0;
+      //if (SlidingFrame >= SlideAnimatorPauseAt) animator.speed = 0;
       Collider.size = new Vector3(DefaultColliderSize.x, 0.02f, DefaultColliderSize.z);
       Collider.center = new Vector3(DefaultColliderCenter.x, 0.015f, DefaultColliderCenter.z);
     }
     else
     {
-      animator.speed = TempAnimatorSpeed;
+      //animator.speed = TempAnimatorSpeed;
       Collider.size = DefaultColliderSize;
       Collider.center = DefaultColliderCenter;
       Sliding = false;

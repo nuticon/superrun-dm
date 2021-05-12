@@ -7,9 +7,11 @@ public class Game : MonoBehaviour
 {
   public static bool Over = false;
   public static int Point = 0;
+  public static int Coin = 0;
   public static bool GameStarted = false;
   public Text PointText;
   public Text GameOverText;
+  public Text CoinText;
   public Text GameOverPointText;
   public Button PlayButton;
   public Button RetryButton;
@@ -26,7 +28,10 @@ public class Game : MonoBehaviour
   void Update()
   {
     if (GameStarted)
+    {
       PointText.text = "Point " + Point.ToString();
+      CoinText.text = "Coin " + Coin.ToString();
+    }
     if (GameStarted && Over)
       TriggerGameOver();
   }
@@ -50,7 +55,12 @@ public class Game : MonoBehaviour
   {
     GameStarted = false;
     GameOverText.gameObject.SetActive(true);
-    GameOverPointText.text = PointText.text;
+    GameOverPointText.text = "Points " 
+      + Point.ToString() 
+      + "\nCoins " 
+      + Coin.ToString() 
+      + "\nTotal " 
+      + (Point + Coin).ToString();
     GameOverPointText.gameObject.SetActive(true);
     RetryButton.gameObject.SetActive(true);
   }
