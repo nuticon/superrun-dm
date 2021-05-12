@@ -16,13 +16,8 @@ public class Road : MonoBehaviour
     {
       Instantiate(Coin, new Vector3(Len, CoinPositionXOffset, (transform.position.z + 10) + (i * 10)), Quaternion.identity);
     }
+    TrackController.LastTilePosition = transform.position;
   }
-  // Update is called once per frame
-  void Update()
-  {
-
-  }
-
   private int GetRandomLanes()
   {
     int start2 = Random.Range(0, Lanes.Length);
