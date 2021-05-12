@@ -161,6 +161,7 @@ public class Character : MonoBehaviour
     StopJump();
     StopSlide();
     animator.SetTrigger("IsOver");
+    animator.speed = TempAnimatorSpeed;
   }
   private void Run()
   {
