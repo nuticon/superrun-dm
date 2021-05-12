@@ -1870,6 +1870,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+      propertyPath: JumpSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: SlideLength
       value: 2
       objectReference: {fileID: 0}
@@ -1885,7 +1889,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoyColorFull
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4114432544190819403, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
 --- !u!1001 &8181203738197145782
 PrefabInstance:
