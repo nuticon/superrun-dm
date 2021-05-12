@@ -44,6 +44,7 @@ public class Game : MonoBehaviour
   {
     Character.RequireRestart = true;
     Point = 0;
+    Coin = 0;
     GameStarted = true;
     Over = false;
     PlayButton.onClick.AddListener(StartGame);
