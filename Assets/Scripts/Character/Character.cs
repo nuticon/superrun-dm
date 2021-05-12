@@ -13,7 +13,7 @@ public class Character : MonoBehaviour
   public float MinSpeed = 1.0f;
   public float MaxSpeed = 10.0f;
   public float PointDelay = 0.5f;
-  public float LensOffset = 7.0f;
+  public float LanesOffset = 7.0f;
   public float SideWaySpeed = 1.0f;
 
   //Helper Value
@@ -28,6 +28,7 @@ public class Character : MonoBehaviour
   private int SlidingFrame = 0;
   private float CalculatedSideWaySpeed;
   private float TempAnimatorSpeed;
+  private Vector2 StartTouch;
   private float Timer;
   /**
     * -1 left
@@ -35,9 +36,10 @@ public class Character : MonoBehaviour
     * 1 center
     */
   [Range(-1, 1)]
-  private int Lens = 0;
+  private int Lanes = 0;
   public static bool IsMoving = false;
   private float TargetLenOffset;
+  private bool IsSwiping;
   public static bool RequireRestart = false;
   //Instance
   private Animator animator;
@@ -69,15 +71,68 @@ public class Character : MonoBehaviour
     //On Moving
     if (IsMoving && !Game.Over)
     {
+
       if (Sliding) CheckSlidingFrame();
       if (Jumping) CheckJumpingFrame();
       Run();
       if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) Jump();
       if (Input.GetKeyDown(KeyCode.DownArrow)) Slide();
-      if (Input.GetKeyDown(KeyCode.RightArrow)) ChangeLensRight();
-      if (Input.GetKeyDown(KeyCode.LeftArrow)) ChangeLensLeft();
-    }
+      if (Input.GetKeyDown(KeyCode.RightArrow)) ChangeLanesRight();
+      if (Input.GetKeyDown(KeyCode.LeftArrow)) ChangeLanesLeft();
+      // Use touch input on mobile
+      if (Input.touchCount == 1)
+      {
+        if (IsSwiping)
+        {
+          Vector2 diff = Input.GetTouch(0).position - StartTouch;
 
+          // Put difference in Screen ratio, but using only width, so the ratio is the same on both
+          // axes (otherwise we would have to swipe more vertically...)
+          diff = new Vector2(diff.x / Screen.width, diff.y / Screen.width);
+
+          if (diff.magnitude > 0.01f) //we set the swip distance to trigger movement to 1% of the screen width
+          {
+            if (Mathf.Abs(diff.y) > Mathf.Abs(diff.x))
+            {
+              if (diff.y < 0)
+              {
+                Slide();
+              }
+              else
+              {
+                Jump();
+              }
+            }
+            else
+            {
+              if (diff.x < 0)
+              {
+                ChangeLanesLeft();
+              }
+              else
+              {
+                ChangeLanesRight();
+              }
+            }
+
+            IsSwiping = false;
+          }
+        }
+
+        // Input check is AFTER the swip test, that way if TouchPhase.Ended happen a single frame after the Began Phase
+        // a swipe can still be registered (otherwise, IsSwiping will be set to false and the test wouldn't happen for that began-Ended pair)
+        if (Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+          StartTouch = Input.GetTouch(0).position;
+          IsSwiping = true;
+        }
+        else if (Input.GetTouch(0).phase == TouchPhase.Ended)
+        {
+          IsSwiping = false;
+        }
+      }
+
+    }
     //On Game Over
     if (IsMoving && Game.Over) Over();
     if (!IsMoving && Game.GameStarted && !RequireRestart) StartMoving();
@@ -197,20 +252,20 @@ public class Character : MonoBehaviour
     IsMoving = false;
     animator.SetBool("IsMoving", false);
   }
-  private void ChangeLensRight()
+  private void ChangeLanesRight()
   {
-    if (Lens < 1)
+    if (Lanes < 1)
     {
-      Lens++;
-      TargetLenOffset = Lens * LensOffset;
+      Lanes++;
+      TargetLenOffset = Lanes * LanesOffset;
     }
   }
-  private void ChangeLensLeft()
+  private void ChangeLanesLeft()
   {
-    if (Lens > -1)
+    if (Lanes > -1)
     {
-      Lens--;
-      TargetLenOffset = Lens * LensOffset;
+      Lanes--;
+      TargetLenOffset = Lanes * LanesOffset;
     }
   }
 }

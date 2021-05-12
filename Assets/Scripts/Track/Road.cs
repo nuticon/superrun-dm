@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Road : MonoBehaviour
 {
-  public GameObject Coin;
-  public int[] Lens = new[]{ -7, 0, 7 };
+  private GameObject Coin;
+  public float CoinPositionXOffset;
+  private int[] Lanes = new[]{ -7, 0, 7 };
   // Start is called before the first frame update
   void Start()
   {
     Coin = Resources.Load("coinGold") as GameObject;
-    int Len = GetRandomLens();
+    int Len = GetRandomLanes();
     for (int i = 0; i <= 5; i++)
     {
-      Instantiate(Coin, new Vector3(Len, transform.position.y, (transform.position.z + 10) + (i * 10)), Quaternion.identity);
+      Instantiate(Coin, new Vector3(Len, CoinPositionXOffset, (transform.position.z + 10) + (i * 10)), Quaternion.identity);
     }
   }
   // Update is called once per frame
@@ -22,9 +23,9 @@ public class Road : MonoBehaviour
 
   }
 
-  private int GetRandomLens()
+  private int GetRandomLanes()
   {
-    int start2 = Random.Range(0, Lens.Length);
-    return Lens[start2];
+    int start2 = Random.Range(0, Lanes.Length);
+    return Lanes[start2];
   }
 }
