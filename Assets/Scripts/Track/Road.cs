@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Road : MonoBehaviour
 {
-  public GameObject Coin;
-  public int[] Lanes = new[]{ -7, 0, 7 };
+  private GameObject Coin;
+  public float CoinPositionXOffset;
+  private int[] Lanes = new[]{ -7, 0, 7 };
   // Start is called before the first frame update
   void Start()
   {
@@ -13,7 +14,7 @@ public class Road : MonoBehaviour
     int Len = GetRandomLanes();
     for (int i = 0; i <= 5; i++)
     {
-      Instantiate(Coin, new Vector3(Len, transform.position.y, (transform.position.z + 10) + (i * 10)), Quaternion.identity);
+      Instantiate(Coin, new Vector3(Len, CoinPositionXOffset, (transform.position.z + 10) + (i * 10)), Quaternion.identity);
     }
   }
   // Update is called once per frame

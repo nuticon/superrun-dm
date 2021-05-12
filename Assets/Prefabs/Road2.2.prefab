@@ -176,6 +176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d30e932ab87104eb19e447b4096994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CoinPositionXOffset: 1.5
+  Lanes: f9ffffff0000000007000000
 --- !u!1 &2339865772708313405
 GameObject:
   m_ObjectHideFlags: 0
