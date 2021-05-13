@@ -2067,7 +2067,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7640877960485620641}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.8, y: 1.34, z: 0}
   m_LocalScale: {x: 163.79587, y: 163.79587, z: 163.79587}
   m_Children:
   - {fileID: 8375935323039512965}
@@ -2154,10 +2154,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JumpStrength: 1.5
   SlideLength: 1
+  JumpSpeed: 1
   MinSpeed: 1.5
   MaxSpeed: 5
   PointDelay: 0.5
-  LensOffset: 7
+  LanesOffset: 7
   SideWaySpeed: 1
 --- !u!65 &4114432544190819403
 BoxCollider:
