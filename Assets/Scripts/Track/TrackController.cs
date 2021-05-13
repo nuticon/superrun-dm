@@ -18,7 +18,9 @@ public class TrackController : MonoBehaviour
       if (Timer >= TileLoadDelay)
       {
         GameObject SelectedTile = GetRandomTile();
-        Instantiate(SelectedTile, new Vector3(0, 0, LastTilePosition.z + TileDistanceOffset), Quaternion.identity);
+        GameObject TileSet = GameObject.Find("TileSet");
+        var ChildTile = Instantiate(SelectedTile, new Vector3(0, 0, LastTilePosition.z + TileDistanceOffset), Quaternion.identity);
+        ChildTile.transform.parent = TileSet.transform; 
         Timer = 0;
       }
     }
