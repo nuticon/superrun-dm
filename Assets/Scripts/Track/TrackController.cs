@@ -12,7 +12,6 @@ public class TrackController : MonoBehaviour
   public float TileSpawnDistanceLimit = 1000f;
   public static Vector3 LastTilePosition = new Vector3(0, 0, 0);
   private float Timer = 0;
-  private float LocalTileOffset = 0;
   private void Update()
   {
     if (!Game.Over)
