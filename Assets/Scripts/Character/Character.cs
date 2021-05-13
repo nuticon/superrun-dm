@@ -138,16 +138,17 @@ public class Character : MonoBehaviour
     }
     //On Game Over
     if (IsMoving && Game.Over) Over();
-    if (!IsMoving && Game.GameStarted && !RequireRestart) StartMoving();
+    if (!IsMoving && Game.GameStarted && !RequireRestart && Game.CountDownEnded) StartMoving();
   }
   private void ResetState()
   {
+
+    animator.SetTrigger("IsIdle");
     transform.position = new Vector3(0, 0, 0);
     Lanes = 0;
     TargetLenOffset = 0;
     Position = transform.position;
     Speed = MinSpeed;
-    StartMoving();
     RequireRestart = false;
   }
   private bool IsNotMaxSpeed()
