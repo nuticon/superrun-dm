@@ -6,8 +6,7 @@ public class Road : MonoBehaviour
 {
   private GameObject Coin;
   public float CoinPositionXOffset;
-  private int[] Lanes = new[]{ -7, 0, 7 };
-  // Start is called before the first frame update
+  private int[] Lanes = new[] { -7, 0, 7 };
   void Start()
   {
     Coin = Resources.Load("coinGold") as GameObject;
