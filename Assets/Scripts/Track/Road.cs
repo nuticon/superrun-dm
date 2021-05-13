@@ -13,9 +13,9 @@ public class Road : MonoBehaviour
     int Len = GetRandomLanes();
     for (int i = 0; i <= 5; i++)
     {
-      Instantiate(Coin, new Vector3(Len, CoinPositionXOffset, (transform.position.z + 10) + (i * 10)), Quaternion.identity);
+      var ChildCoin = Instantiate(Coin, new Vector3(Len, CoinPositionXOffset, (transform.position.z + 10) + (i * 10)), Quaternion.identity);
+      ChildCoin.transform.parent = this.gameObject.transform;
     }
-    TrackController.LastTilePosition = transform.position;
   }
   private int GetRandomLanes()
   {
