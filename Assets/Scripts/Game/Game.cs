@@ -16,6 +16,7 @@ public class Game : MonoBehaviour
   public Button PlayButton;
   public Button RetryButton;
   private float Timer;
+  protected GameObject TileSet;
   void Start()
   {
     PlayButton.onClick.AddListener(StartGame);
@@ -23,6 +24,7 @@ public class Game : MonoBehaviour
     GameOverPointText.gameObject.SetActive(false);
     RetryButton.gameObject.SetActive(false);
     RetryButton.onClick.AddListener(RestartGame);
+    TileSet = new GameObject("TileSet");
   }
   void Update()
   {
@@ -41,11 +43,14 @@ public class Game : MonoBehaviour
   }
   private void RestartGame()
   {
+    Object.Destroy(TileSet.gameObject);
     Character.RequireRestart = true;
     Point = 0;
     Coin = 0;
     GameStarted = true;
     Over = false;
+    TileSet = new GameObject("TileSet");
+    TrackController.LastTilePosition = new Vector3(0, 0, 0);
     PlayButton.onClick.AddListener(StartGame);
     GameOverText.gameObject.SetActive(false);
     GameOverPointText.gameObject.SetActive(false);
