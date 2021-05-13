@@ -273,6 +273,8 @@ MonoBehaviour:
   - {fileID: 9208062103856242509, guid: 928b8d55d90fb144a94f33111954581a, type: 3}
   TileLoadDelay: 0.3
   TileDistanceOffset: 73.7
+  TilePerRound: 6
+  TileSpawnDistanceLimit: 1000
 --- !u!1 &303101872
 GameObject:
   m_ObjectHideFlags: 0
