@@ -109,3 +109,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e4b023b54bca249baab8a474f54d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CoinSound: {fileID: 8300000, guid: 07d968da79f73bf45bfcc59245bfa62a, type: 3}
