@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Sound : MonoBehaviour
 {
-  //public AudioClip CoinSound;
   public static AudioSource Source;
   private void Start()
   {
