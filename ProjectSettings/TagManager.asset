@@ -9,6 +9,7 @@ TagManager:
   - JumpObstracle
   - SlideObstracle
   - Coin
+  - Audio
   layers:
   - Default
   - TransparentFX
