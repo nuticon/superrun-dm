@@ -153,7 +153,7 @@ public class Character : MonoBehaviour
   }
   private bool IsNotMaxSpeed()
   {
-    if (Speed != MaxSpeed) return true;
+    if (Speed <= MaxSpeed) return true;
     return false;
   }
   private void Over()
