@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Obstracle : MonoBehaviour
 {
+  public AudioClip ObstracleSound;
   private void OnTriggerEnter(Collider other)
   {
     if (other.gameObject.tag == "Player")
     {
+      Sound.Source.PlayOneShot(ObstracleSound, 1f);
       Game.Over = true;
     }
     if (other.gameObject.tag == "Coin")
