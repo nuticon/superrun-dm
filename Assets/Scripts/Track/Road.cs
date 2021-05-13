@@ -6,8 +6,7 @@ public class Road : MonoBehaviour
 {
   private GameObject Coin;
   public float CoinPositionXOffset;
-  private int[] Lanes = new[]{ -7, 0, 7 };
-  // Start is called before the first frame update
+  private int[] Lanes = new[] { -7, 0, 7 };
   void Start()
   {
     Coin = Resources.Load("coinGold") as GameObject;
@@ -16,13 +15,8 @@ public class Road : MonoBehaviour
     {
       Instantiate(Coin, new Vector3(Len, CoinPositionXOffset, (transform.position.z + 10) + (i * 10)), Quaternion.identity);
     }
+    TrackController.LastTilePosition = transform.position;
   }
-  // Update is called once per frame
-  void Update()
-  {
-
-  }
-
   private int GetRandomLanes()
   {
     int start2 = Random.Range(0, Lanes.Length);

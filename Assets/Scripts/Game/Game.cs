@@ -16,7 +16,6 @@ public class Game : MonoBehaviour
   public Button PlayButton;
   public Button RetryButton;
   private float Timer;
-
   void Start()
   {
     PlayButton.onClick.AddListener(StartGame);
