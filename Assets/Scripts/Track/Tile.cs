@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-  public float DeclayDelay = 1;
+  private float DeclayDelay = 5;
   void Update()
   {
     if (transform.position.z + (DeclayDelay * 10) < Character.Position.z)
