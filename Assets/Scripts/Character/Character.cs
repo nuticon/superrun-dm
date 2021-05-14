@@ -61,7 +61,7 @@ public class Character : MonoBehaviour
     CalculatedSlideLength = SlideLength * 46;
     CalculatedSideWaySpeed = SideWaySpeed * 25;
     CalculatedJumpSpeed = JumpSpeed * 10;
-    SlideAnimatorPauseAt = CalculatedSlideLength / SlideLength;
+    SlideAnimatorPauseAt = 20;
     transform.position = new Vector3(0, 0, 0);
     Position = transform.position;
     DefaultColliderCenter = Collider.center;
@@ -238,15 +238,15 @@ public class Character : MonoBehaviour
     if (SlidingFrame < CalculatedSlideLength)
     {
       SlidingFrame++;
-      //if (SlidingFrame >= SlideAnimatorPauseAt) animator.speed = 0;
-       Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
+      if (SlidingFrame >= SlideAnimatorPauseAt) animator.speed = 0;
+      Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
       transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * CalculatedJumpSpeed);
       Collider.size = new Vector3(DefaultColliderSize.x, 0.02f, DefaultColliderSize.z);
       Collider.center = new Vector3(DefaultColliderCenter.x, 0.015f, DefaultColliderCenter.z);
     }
     else
     {
-      //animator.speed = TempAnimatorSpeed;
+      animator.speed = TempAnimatorSpeed;
       Collider.size = DefaultColliderSize;
       Collider.center = DefaultColliderCenter;
       Sliding = false;
