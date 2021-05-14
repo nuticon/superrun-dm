@@ -61,7 +61,6 @@ public class Character : MonoBehaviour
     CalculatedSlideLength = SlideLength * 46;
     CalculatedSideWaySpeed = SideWaySpeed * 25;
     CalculatedJumpSpeed = JumpSpeed * 10;
-    SlideAnimatorPauseAt = 20;
     transform.position = new Vector3(0, 0, 0);
     Position = transform.position;
     DefaultColliderCenter = Collider.center;
@@ -174,6 +173,11 @@ public class Character : MonoBehaviour
       Vector3 interpolPostion = new Vector3(TargetLenOffset, transform.position.y, transform.position.z);
       transform.position = Vector3.Lerp(transform.position, interpolPostion, Time.deltaTime * CalculatedSideWaySpeed);
     }
+    if(!Jumping)
+    {
+      Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
+      transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * CalculatedJumpSpeed);
+    }
     Position = transform.position;
     if (IsNotMaxSpeed()) Speed += 0.001f;
     if (animator.speed < 1.5f && !Jumping && !Sliding)
@@ -196,14 +200,15 @@ public class Character : MonoBehaviour
   {
     if (!Jumping)
     {
-      if (Sliding) StopSlide();
       animator.SetTrigger("IsJumpping");
       Jumping = true;
+      if (Sliding) StopSlide();
     }
   }
   private void StopJump()
   {
     animator.speed = TempAnimatorSpeed;
+    if(!Sliding) animator.SetTrigger("IsRunning");
     Jumping = false;
     JumpingFrame = 0;
   }
@@ -223,20 +228,20 @@ public class Character : MonoBehaviour
     if (JumpingFrame >= CalculatedJumpStrength * 2)
     {
       StopJump();
-      transform.position = new Vector3(transform.position.x, 0, transform.position.z);
       return;
     }
     JumpingFrame++;
   }
   private void Slide()
   {
-    if (Jumping) StopJump();
     animator.SetTrigger("IsSlide");
     Sliding = true;
+    if (Jumping) StopJump();
   }
   private void StopSlide()
   {
     animator.speed = TempAnimatorSpeed;
+    if(!Jumping) animator.SetTrigger("IsRunning");
     Collider.size = DefaultColliderSize;
     Collider.center = DefaultColliderCenter;
     Sliding = false;
@@ -247,7 +252,6 @@ public class Character : MonoBehaviour
     animator.speed = 1;
     if (SlidingFrame < CalculatedSlideLength)
     {
-      if (SlidingFrame >= SlideAnimatorPauseAt) animator.speed = 0;
       Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
       transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * CalculatedJumpSpeed);
       Collider.size = new Vector3(DefaultColliderSize.x, 0.02f, DefaultColliderSize.z);
