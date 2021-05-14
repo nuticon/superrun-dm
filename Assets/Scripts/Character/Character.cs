@@ -25,9 +25,9 @@ public class Character : MonoBehaviour
   private float SlideAnimatorPauseAt;
   private bool Jumping = false;
   private float CalculatedJumpStrength;
-  private int JumpingFrame = 0;
+  private float JumpingFrame = 0;
   private bool Sliding = false;
-  private int SlidingFrame = 0;
+  private float SlidingFrame = 0;
   private float CalculatedSideWaySpeed;
   private float TempAnimatorSpeed;
   private Vector2 StartTouch;
@@ -141,7 +141,6 @@ public class Character : MonoBehaviour
   }
   private void ResetState()
   {
-
     animator.SetTrigger("IsIdle");
     transform.position = new Vector3(0, 0, 0);
     Lanes = 0;
@@ -230,7 +229,7 @@ public class Character : MonoBehaviour
       StopJump();
       return;
     }
-    JumpingFrame++;
+    JumpingFrame += Time.deltaTime * 100;
   }
   private void Slide()
   {
@@ -262,7 +261,7 @@ public class Character : MonoBehaviour
       StopSlide();
       return;
     }
-    SlidingFrame++;
+    SlidingFrame += Time.deltaTime * 100;
   }
   private void StartMoving()
   {
