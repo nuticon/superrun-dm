@@ -5,7 +5,7 @@ using UnityEngine;
 public class Road : MonoBehaviour
 {
   private GameObject Coin;
-  public float CoinPositionXOffset;
+  public float CoinPositionXOffset = 1.5f;
   private int[] Lanes = new[] { -7, 0, 7 };
   void Start()
   {
@@ -13,7 +13,7 @@ public class Road : MonoBehaviour
     int Len = GetRandomLanes();
     for (int i = 0; i <= 5; i++)
     {
-      var ChildCoin = Instantiate(Coin, new Vector3(Len, CoinPositionXOffset,transform.position.z + (i * 10)), Quaternion.identity);
+      var ChildCoin = Instantiate(Coin, new Vector3(Len, CoinPositionXOffset,(transform.position.z - 73) + (i * 10)), Quaternion.identity);
       ChildCoin.transform.parent = this.gameObject.transform;
     }
   }

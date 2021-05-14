@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b1968fd6b80d547a894af25c7c90ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CoinPositionXOffset: 1.5
 --- !u!1001 &543690492692291284
 PrefabInstance:
   m_ObjectHideFlags: 0
