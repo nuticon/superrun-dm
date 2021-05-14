@@ -4,9 +4,33 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+  public Vector3 RunningCameraPosition;
+  public Quaternion RunningCameraRotation;
+  public Vector3 StartCameraPosition;
+  public Quaternion StartCameraRotation;
+  private void Start()
+  {
+    transform.position = StartCameraPosition;
+    transform.rotation = StartCameraRotation;
+  }
   void Update()
   {
-    Vector3 TargetPosition = new Vector3(transform.position.x, transform.position.y, Character.Position.z - 36.97f);
-    transform.position = Vector3.Lerp(transform.position, TargetPosition, Time.deltaTime * Character.Speed * Character.SpeedMultiplier);
+    if (Game.GameStarted && !Game.Over && !Game.CountDownEnded)
+    {
+      Vector3 TargetPosition = new Vector3(RunningCameraPosition.x, RunningCameraPosition.y, Character.Position.z + RunningCameraPosition.z);
+      transform.position = Vector3.Lerp(transform.position, TargetPosition, Time.deltaTime * 1.5f);
+      Quaternion TargetRotation = Quaternion.Euler(RunningCameraRotation.x, RunningCameraRotation.y, RunningCameraRotation.z);
+      transform.rotation = Quaternion.Slerp(transform.rotation, TargetRotation, Time.deltaTime * 1.5f);
+    }
+    if (Game.GameStarted && !Game.Over && Game.CountDownEnded)
+    {
+      if (transform.rotation != RunningCameraRotation)
+      {
+        Quaternion TargetRotation = Quaternion.Euler(RunningCameraRotation.x, RunningCameraRotation.y, RunningCameraRotation.z);
+        transform.rotation = Quaternion.Slerp(transform.rotation, TargetRotation, Time.deltaTime * 1.5f);
+      }
+      Vector3 TargetPosition = new Vector3(RunningCameraPosition.x, RunningCameraPosition.y, Character.Position.z + RunningCameraPosition.z);
+      transform.position = Vector3.Lerp(transform.position, TargetPosition, Time.deltaTime * Character.Speed * Character.SpeedMultiplier);
+    }
   }
 }
