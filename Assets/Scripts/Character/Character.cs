@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-  [Header("Character")]
+  [Header("Character Settings")]
 
   public float JumpStrength = 1.2f;
   public float SlideLength = 1.0f;
   public float JumpSpeed = 1;
-
-  [Header("Game")]
   public float MinSpeed = 1.0f;
   public float MaxSpeed = 10.0f;
-  public float PointDelay = 0.5f;
   public float LanesOffset = 7.0f;
   public float SideWaySpeed = 1.0f;
 
@@ -31,7 +28,6 @@ public class Character : MonoBehaviour
   private float CalculatedSideWaySpeed;
   private float TempAnimatorSpeed;
   private Vector2 StartTouch;
-  private float Timer;
   /**
     * -1 left
     * 0 center
@@ -51,13 +47,10 @@ public class Character : MonoBehaviour
   private Vector3 DefaultColliderSize;
   void Start()
   {
-    //Get Component
     animator = GetComponent<Animator>();
     Collider = GetComponent<BoxCollider>();
-
-    //Set default value
     Speed = MinSpeed;
-    CalculatedJumpStrength = JumpStrength * 20; //Base on animation used frame
+    CalculatedJumpStrength = JumpStrength * 20;
     CalculatedSlideLength = SlideLength * 46;
     CalculatedSideWaySpeed = SideWaySpeed * 25;
     CalculatedJumpSpeed = JumpSpeed * 10;
@@ -70,10 +63,8 @@ public class Character : MonoBehaviour
   void Update()
   {
     if (!IsMoving && RequireRestart) ResetState();
-    //On Moving
     if (IsMoving && !Game.Over)
     {
-
       if (Sliding) CheckSlidingFrame();
       if (Jumping) CheckJumpingFrame();
       Run();
@@ -81,18 +72,15 @@ public class Character : MonoBehaviour
       if (Input.GetKeyDown(KeyCode.DownArrow)) Slide();
       if (Input.GetKeyDown(KeyCode.RightArrow)) ChangeLanesRight();
       if (Input.GetKeyDown(KeyCode.LeftArrow)) ChangeLanesLeft();
-      // Use touch input on mobile
       if (Input.touchCount == 1)
       {
         if (IsSwiping)
         {
           Vector2 diff = Input.GetTouch(0).position - StartTouch;
 
-          // Put difference in Screen ratio, but using only width, so the ratio is the same on both
-          // axes (otherwise we would have to swipe more vertically...)
           diff = new Vector2(diff.x / Screen.width, diff.y / Screen.width);
 
-          if (diff.magnitude > 0.01f) //we set the swip distance to trigger movement to 1% of the screen width
+          if (diff.magnitude > 0.01f)
           {
             if (Mathf.Abs(diff.y) > Mathf.Abs(diff.x))
             {
@@ -120,9 +108,6 @@ public class Character : MonoBehaviour
             IsSwiping = false;
           }
         }
-
-        // Input check is AFTER the swip test, that way if TouchPhase.Ended happen a single frame after the Began Phase
-        // a swipe can still be registered (otherwise, IsSwiping will be set to false and the test wouldn't happen for that began-Ended pair)
         if (Input.GetTouch(0).phase == TouchPhase.Began)
         {
           StartTouch = Input.GetTouch(0).position;
@@ -135,7 +120,6 @@ public class Character : MonoBehaviour
       }
 
     }
-    //On Game Over
     if (IsMoving && Game.Over) Over();
     if (!IsMoving && Game.GameStarted && !RequireRestart && Game.CountDownEnded) StartMoving();
   }
@@ -172,7 +156,7 @@ public class Character : MonoBehaviour
       Vector3 interpolPostion = new Vector3(TargetLenOffset, transform.position.y, transform.position.z);
       transform.position = Vector3.Lerp(transform.position, interpolPostion, Time.deltaTime * CalculatedSideWaySpeed);
     }
-    if(!Jumping)
+    if (!Jumping)
     {
       Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
       transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * CalculatedJumpSpeed);
@@ -183,16 +167,6 @@ public class Character : MonoBehaviour
     {
       animator.speed += Time.deltaTime;
       TempAnimatorSpeed = animator.speed;
-    }
-    CountPoint();
-  }
-  private void CountPoint()
-  {
-    Timer += Time.deltaTime;
-    if (Timer >= PointDelay)
-    {
-      Game.Point++;
-      Timer = 0;
     }
   }
   private void Jump()
@@ -207,7 +181,7 @@ public class Character : MonoBehaviour
   private void StopJump()
   {
     animator.speed = TempAnimatorSpeed;
-    if(!Sliding) animator.SetTrigger("IsRunning");
+    if (!Sliding) animator.SetTrigger("IsRunning");
     Jumping = false;
     JumpingFrame = 0;
   }
@@ -240,7 +214,7 @@ public class Character : MonoBehaviour
   private void StopSlide()
   {
     animator.speed = TempAnimatorSpeed;
-    if(!Jumping) animator.SetTrigger("IsRunning");
+    if (!Jumping) animator.SetTrigger("IsRunning");
     Collider.size = DefaultColliderSize;
     Collider.center = DefaultColliderCenter;
     Sliding = false;

@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 223252400}
   - component: {fileID: 223252399}
   - component: {fileID: 223252398}
-  - component: {fileID: 223252402}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -222,33 +221,14 @@ RectTransform:
   - {fileID: 1227892825}
   - {fileID: 1647302292}
   - {fileID: 496774467}
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 537401579}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &223252402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223252397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f60afa29cc8979a41b8e0abb6dd35856, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PointText: {fileID: 380350687}
-  GameOverText: {fileID: 1647302293}
-  CoinText: {fileID: 885639465}
-  GameOverPointText: {fileID: 496774468}
-  CountDownText: {fileID: 744125686}
-  PlayButton: {fileID: 1227892826}
-  RetryButton: {fileID: 827237335}
 --- !u!1 &303101872
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +483,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496774466}
   m_CullTransparentMesh: 1
+--- !u!1 &537401577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 537401579}
+  - component: {fileID: 537401578}
+  m_Layer: 0
+  m_Name: Game
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &537401578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537401577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f60afa29cc8979a41b8e0abb6dd35856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PointText: {fileID: 380350687}
+  GameOverText: {fileID: 1647302293}
+  CoinText: {fileID: 885639465}
+  GameOverPointText: {fileID: 496774468}
+  CountDownText: {fileID: 744125686}
+  PlayButton: {fileID: 1227892826}
+  RetryButton: {fileID: 827237335}
+  PointCountDelay: 0.05
+--- !u!4 &537401579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537401577}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 204.90268, y: 215.77058, z: -40.564682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 223252401}
+  - {fileID: 1900745489}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &652496986
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,12 +1565,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900745487}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 204.90268, y: 215.77058, z: -40.564682}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 537401579}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1397825549776367973
 PrefabInstance:
@@ -1679,6 +1712,10 @@ PrefabInstance:
     - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: JumpSpeed
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+      propertyPath: PointDelay
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: SlideLength

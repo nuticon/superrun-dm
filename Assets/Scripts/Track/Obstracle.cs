@@ -14,7 +14,7 @@ public class Obstracle : MonoBehaviour
     }
     if (other.gameObject.tag == "Coin")
     {
-        if(this.gameObject.tag == "JumpObstracle") other.transform.position += Vector3.up * 2;
+        if(this.gameObject.tag == "JumpObstracle") other.transform.position += Vector3.up * 3;
         if(this.gameObject.tag == "NoPassObstracle") Object.Destroy(other.gameObject);
     }
   }

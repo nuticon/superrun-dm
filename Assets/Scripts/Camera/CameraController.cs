@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-  // Update is called once per frame
   void Update()
   {
     Vector3 TargetPosition = new Vector3(transform.position.x, transform.position.y, Character.Position.z - 36.97f);
