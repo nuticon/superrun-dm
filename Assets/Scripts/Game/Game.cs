@@ -25,9 +25,11 @@ public class Game : MonoBehaviour
   private float PointCountTimer;
   private int CountDown = 3;
   protected GameObject TileSet;
+  protected Player player1;
   void Start()
   {
     PlayButton.onClick.AddListener(StartGame);
+    player1 = GetPlayer();
     GetHighScroll();
     SetDefaultState();
     TileSet = new GameObject("TileSet");
@@ -45,6 +47,7 @@ public class Game : MonoBehaviour
   }
   private void SetDefaultState()
   {
+    PlayButton.gameObject.SetActive(true);
     GameOverText.gameObject.SetActive(false);
     GameOverPointText.gameObject.SetActive(false);
     CountDownText.gameObject.SetActive(false);
@@ -53,6 +56,8 @@ public class Game : MonoBehaviour
     HighScrollText.gameObject.SetActive(true);
     Point = 0;
     Coin = 0;
+    if (player1 != null) Coin = player1.Coin;
+    CoinText.text = "Coin " + Coin.ToString();
     Over = false;
     CountDownEnded = false;
   }
@@ -69,7 +74,6 @@ public class Game : MonoBehaviour
     PlayButton.gameObject.SetActive(false);
     HighScrollText.gameObject.SetActive(false);
     PointText.gameObject.SetActive(true);
-    CoinText.gameObject.SetActive(true);
   }
   private void RestartGame()
   {
@@ -80,21 +84,23 @@ public class Game : MonoBehaviour
     GetHighScroll();
     RetryButton.gameObject.SetActive(false);
   }
-  void SetHighScroll(int Scroll)
+  void SavePlayer(int Scroll)
+  {
+    if (player1 == null) player1 = new Player(Scroll, Coin);
+    if (Scroll > player1.HighScroll) player1.HighScroll = Scroll;
+    player1.Coin = Coin;
+    Storage.SavePlayer(player1);
+  }
+  Player GetPlayer()
   {
     Player player = Storage.LoadPlayer();
-    if (player == null)
-    {
-      Storage.SavePlayer(new Player(Scroll));
-      return;
-    }
-    if (Scroll > player.HighScroll) Storage.SavePlayer(new Player(Scroll));
+    if (player != null) return player;
+    return null;
   }
   void GetHighScroll()
   {
-    Player player = Storage.LoadPlayer();
-    if (player != null)
-      HighScrollText.text = "HighScroll\n" + player.HighScroll.ToString();
+    if (player1 != null)
+      HighScrollText.text = "HighScroll\n" + player1.HighScroll.ToString();
     else
       HighScrollText.text = "HighScroll\n0";
 
@@ -103,18 +109,11 @@ public class Game : MonoBehaviour
   {
     GameStarted = false;
     GameOverText.gameObject.SetActive(true);
-    int TotalPoint = Point + Coin;
-    GameOverPointText.text = "Points "
-      + Point.ToString()
-      + "\nCoins "
-      + Coin.ToString()
-      + "\nTotal "
-      + TotalPoint.ToString();
-    SetHighScroll(TotalPoint);
+    GameOverPointText.text = "Points " + Point.ToString();
+    SavePlayer(Point);
     GameOverPointText.gameObject.SetActive(true);
     RetryButton.gameObject.SetActive(true);
     PointText.gameObject.SetActive(false);
-    CoinText.gameObject.SetActive(false);
   }
   private void CountPoint()
   {

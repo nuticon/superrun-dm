@@ -6,9 +6,10 @@ using UnityEngine;
 public class Player
 {
   public int HighScroll;
-
-  public Player(int HighScroll)
+  public int Coin;
+  public Player(int HighScroll,int Coin)
   {
     this.HighScroll = HighScroll;
+    this.Coin = Coin;
   }
 }

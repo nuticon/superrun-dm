@@ -525,7 +525,7 @@ MonoBehaviour:
   HighScrollText: {fileID: 1524846637}
   PlayButton: {fileID: 1227892826}
   RetryButton: {fileID: 827237335}
-  PointCountDelay: 0.05
+  PointCountDelay: 0.03
 --- !u!4 &537401579
 Transform:
   m_ObjectHideFlags: 0
@@ -1154,10 +1154,10 @@ RectTransform:
   m_Father: {fileID: 223252401}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.00031661987, y: 215.57}
-  m_SizeDelta: {x: 719.75, y: 431.14}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.00031661987, y: 0.000061035}
+  m_SizeDelta: {x: 719.75, y: 1280}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1227892826
 MonoBehaviour:
@@ -1355,7 +1355,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3}
+  m_AnchoredPosition: {x: 0, y: -442}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1531956785
