@@ -54,7 +54,9 @@ public class Game : MonoBehaviour
     RetryButton.gameObject.SetActive(false);
     RetryButton.onClick.AddListener(RestartGame);
     HighScrollText.gameObject.SetActive(true);
+    PointText.gameObject.SetActive(false);
     Point = 0;
+    PointText.text = "Point " + Point.ToString();
     Coin = 0;
     if (player1 != null) Coin = player1.Coin;
     CoinText.text = "Coin " + Coin.ToString();
