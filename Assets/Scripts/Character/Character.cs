@@ -201,6 +201,7 @@ public class Character : MonoBehaviour
   private void StopJump()
   {
     Jumping = false;
+    JumpingFrame = 0;
   }
   private void CheckJumpingFrame()
   {
@@ -226,6 +227,7 @@ public class Character : MonoBehaviour
   {
     animator.SetTrigger("IsSlide");
     Sliding = true;
+    if(Jumping) StopJump();
   }
   private void StopSlide()
   {
@@ -237,6 +239,8 @@ public class Character : MonoBehaviour
     {
       SlidingFrame++;
       //if (SlidingFrame >= SlideAnimatorPauseAt) animator.speed = 0;
+       Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
+      transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * CalculatedJumpSpeed);
       Collider.size = new Vector3(DefaultColliderSize.x, 0.02f, DefaultColliderSize.z);
       Collider.center = new Vector3(DefaultColliderCenter.x, 0.015f, DefaultColliderCenter.z);
     }
