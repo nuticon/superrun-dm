@@ -397,8 +397,8 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 
 --- !u!222 &380350688
@@ -525,7 +525,7 @@ MonoBehaviour:
   HighScrollText: {fileID: 1524846637}
   PlayButton: {fileID: 1227892826}
   RetryButton: {fileID: 827237335}
-  PointCountDelay: 0.03
+  PointCountDelay: 0.01
 --- !u!4 &537401579
 Transform:
   m_ObjectHideFlags: 0
@@ -1089,8 +1089,8 @@ MonoBehaviour:
     m_Alignment: 2
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 
 --- !u!222 &885639466
