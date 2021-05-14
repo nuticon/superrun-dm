@@ -57,12 +57,13 @@ public class Game : MonoBehaviour
     CountDownEnded = false;
     CountDownText.gameObject.SetActive(true);
     Character.RequireRestart = true;
+    TileSet = new GameObject("TileSet");
+    TrackController.LastTilePosition = new Vector3(0, 0, 0);
+    CameraController.RequestCameraReset = true;
     Point = 0;
     Coin = 0;
     GameStarted = true;
     Over = false;
-    TileSet = new GameObject("TileSet");
-    TrackController.LastTilePosition = new Vector3(0, 0, 0);
     PlayButton.onClick.AddListener(StartGame);
     GameOverText.gameObject.SetActive(false);
     GameOverPointText.gameObject.SetActive(false);
