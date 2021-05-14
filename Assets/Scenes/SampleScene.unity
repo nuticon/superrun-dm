@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 223252399}
   - component: {fileID: 223252398}
   - component: {fileID: 223252402}
-  - component: {fileID: 223252403}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -250,33 +249,6 @@ MonoBehaviour:
   CountDownText: {fileID: 744125686}
   PlayButton: {fileID: 1227892826}
   RetryButton: {fileID: 827237335}
---- !u!114 &223252403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223252397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eb9301c0e35b50438c87ce717aefb82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tile:
-  - {fileID: 6933418437860140697, guid: 5ff9fed01c744bf4e9812b9e5b8360b1, type: 3}
-  - {fileID: 6943364695003457638, guid: ee8a1aa980cd47c44ae2b588267583c6, type: 3}
-  - {fileID: 4536932880458313697, guid: 1c80dfe370f8dba47a8de06998f6fbb9, type: 3}
-  - {fileID: 105039764228819905, guid: e111f903446aadb4698f0d4a9fd78378, type: 3}
-  - {fileID: 5583020010035981478, guid: 0dcbc7ebbc4781046b98398de0e0ade7, type: 3}
-  - {fileID: 236376875852816612, guid: f332b4b196d0ef248bdd2d29fca67ea0, type: 3}
-  - {fileID: 8617483711725434186, guid: 568cf025655c87c40b2de4389bcec416, type: 3}
-  - {fileID: 8688649852944306552, guid: 47edaa0d8c1a37e49afa94c85875ac92, type: 3}
-  - {fileID: 6085710957191249475, guid: 5bfbe9e4a02afea4eb8f6cd394538e30, type: 3}
-  - {fileID: 9208062103856242509, guid: 928b8d55d90fb144a94f33111954581a, type: 3}
-  TileLoadDelay: 0.3
-  TileDistanceOffset: 73.7
-  TilePerRound: 6
-  TileSpawnDistanceLimit: 1000
 --- !u!1 &303101872
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,6 +1481,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843700061}
   m_CullTransparentMesh: 1
+--- !u!1 &1900745487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1900745489}
+  - component: {fileID: 1900745488}
+  m_Layer: 0
+  m_Name: TrackController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1900745488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900745487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb9301c0e35b50438c87ce717aefb82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tile:
+  - {fileID: 6933418437860140697, guid: 5ff9fed01c744bf4e9812b9e5b8360b1, type: 3}
+  - {fileID: 6943364695003457638, guid: ee8a1aa980cd47c44ae2b588267583c6, type: 3}
+  - {fileID: 4536932880458313697, guid: 1c80dfe370f8dba47a8de06998f6fbb9, type: 3}
+  - {fileID: 105039764228819905, guid: e111f903446aadb4698f0d4a9fd78378, type: 3}
+  - {fileID: 5583020010035981478, guid: 0dcbc7ebbc4781046b98398de0e0ade7, type: 3}
+  - {fileID: 236376875852816612, guid: f332b4b196d0ef248bdd2d29fca67ea0, type: 3}
+  - {fileID: 8617483711725434186, guid: 568cf025655c87c40b2de4389bcec416, type: 3}
+  - {fileID: 8688649852944306552, guid: 47edaa0d8c1a37e49afa94c85875ac92, type: 3}
+  - {fileID: 6085710957191249475, guid: 5bfbe9e4a02afea4eb8f6cd394538e30, type: 3}
+  - {fileID: 9208062103856242509, guid: 928b8d55d90fb144a94f33111954581a, type: 3}
+  TileLoadDelay: 0.3
+  TileDistanceOffset: 73.7
+  TilePerRound: 6
+  TileSpawnDistanceLimit: 1000
+--- !u!4 &1900745489
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900745487}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 204.90268, y: 215.77058, z: -40.564682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1397825549776367973
 PrefabInstance:
   m_ObjectHideFlags: 0
