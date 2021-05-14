@@ -10,6 +10,7 @@ public class Game : MonoBehaviour
   public static int Coin = 0;
   public static bool GameStarted = false;
   public static bool CountDownEnded = false;
+  [Header("UI Component")]
   public Text PointText;
   public Text GameOverText;
   public Text CoinText;
@@ -17,7 +18,10 @@ public class Game : MonoBehaviour
   public Text CountDownText;
   public Button PlayButton;
   public Button RetryButton;
-  private float Timer;
+  [Header("Settings")]
+  public float PointCountDelay = 0.05f;
+  private float CountDownTimer;
+  private float PointCountTimer;
   private int CountDown = 3;
   protected GameObject TileSet;
   void Start()
@@ -34,6 +38,7 @@ public class Game : MonoBehaviour
   {
     if (GameStarted && CountDownEnd())
     {
+      CountPoint();
       PointText.text = "Point " + Point.ToString();
       CoinText.text = "Coin " + Coin.ToString();
     }
@@ -76,7 +81,15 @@ public class Game : MonoBehaviour
     GameOverPointText.gameObject.SetActive(true);
     RetryButton.gameObject.SetActive(true);
   }
-
+  private void CountPoint()
+  {
+    PointCountTimer += Time.deltaTime;
+    if (PointCountTimer >= PointCountDelay)
+    {
+      Point++;
+      PointCountTimer = 0;
+    }
+  }
   private bool CountDownEnd()
   {
     if (CountDownEnded) return true;
@@ -88,10 +101,10 @@ public class Game : MonoBehaviour
       CountDownText.text = CountDown.ToString();
       return true;
     }
-    Timer += Time.deltaTime;
-    if (Timer >= 1)
+    CountDownTimer += Time.deltaTime;
+    if (CountDownTimer >= 1)
     {
-      Timer = 0;
+      CountDownTimer = 0;
       CountDown--;
       CountDownText.text = CountDown.ToString();
     }
