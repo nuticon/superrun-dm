@@ -65,8 +65,10 @@ public class Game : MonoBehaviour
   }
   private void ResetTile()
   {
-    Object.Destroy(TileSet.gameObject);
-    TileSet = new GameObject("TileSet");
+    foreach (Transform Tile in TileSet.transform)
+    {
+        Object.Destroy(Tile.gameObject);
+    }
     TrackController.LastTilePosition = new Vector3(0, 0, 0);
   }
   private void StartGame()
