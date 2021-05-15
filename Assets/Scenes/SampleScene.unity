@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.8235294, g: 0.9176362, b: 1, a: 1}
+  m_AmbientSkyColor: {r: 0.9811321, g: 0.93871564, b: 0.80897117, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -1720,6 +1720,7 @@ MonoBehaviour:
   - {fileID: 8688649852944306552, guid: 47edaa0d8c1a37e49afa94c85875ac92, type: 3}
   - {fileID: 6085710957191249475, guid: 5bfbe9e4a02afea4eb8f6cd394538e30, type: 3}
   - {fileID: 9208062103856242509, guid: 928b8d55d90fb144a94f33111954581a, type: 3}
+  - {fileID: 3914754531031993950, guid: e28e149e886bf80478b7d9290a5b6fa0, type: 3}
   TileLoadDelay: 0.3
   TileDistanceOffset: 73.7
   TilePerRound: 6
