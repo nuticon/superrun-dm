@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Game : MonoBehaviour
 {
@@ -13,15 +14,14 @@ public class Game : MonoBehaviour
   [Header("UI Component")]
   public Text PointText;
   public Text GameOverText;
-  public Text PlayerCoinText;
-  public Text InGameCoinText;
+  public TMP_Text PlayerCoinText;
+  public TMP_Text InGameCoinText;
   public Text GameOverPointText;
   public Text CountDownText;
   public Text HighScrollText;
+  public TMP_Text GameOverCoinText;
   public Button PlayButton;
   public Button RetryButton;
-  [Header("Settings")]
-  public float PointCountDelay = 0.05f;
   private float CountDownTimer;
   private float PointCountTimer;
   private int CountDown = 3;
@@ -40,8 +40,8 @@ public class Game : MonoBehaviour
     if (GameStarted && CountDownEnd())
     {
       CountPoint();
-      PointText.text = "Point " + Point.ToString();
-      InGameCoinText.text = "Coin " + Coin.ToString();
+      PointText.text = "M " + Point.ToString();
+      InGameCoinText.SetText("<sprite=0>" + Coin.ToString());
     }
     if (GameStarted && Over)
       TriggerGameOver();
@@ -50,18 +50,17 @@ public class Game : MonoBehaviour
   {
     PlayButton.gameObject.SetActive(true);
     GameOverText.gameObject.SetActive(false);
-    GameOverPointText.gameObject.SetActive(false);
     CountDownText.gameObject.SetActive(false);
     RetryButton.gameObject.SetActive(false);
     RetryButton.onClick.AddListener(RestartGame);
     HighScrollText.gameObject.SetActive(true);
     PointText.gameObject.SetActive(false);
     Point = 0;
-    PointText.text = "Point " + Point.ToString();
+    PointText.text = "M " + Point.ToString();
     Coin = 0;
-    InGameCoinText.text = "Coin " + Coin.ToString();
+    InGameCoinText.SetText("<sprite=0>" + Coin.ToString());
     InGameCoinText.gameObject.SetActive(false);
-    PlayerCoinText.text = "Coin " + player1.Coin.ToString();
+    PlayerCoinText.SetText(player1.Coin.ToString() + "<sprite=0>");
     PlayerCoinText.gameObject.SetActive(true);
     Over = false;
     CountDownEnded = false;
@@ -70,7 +69,7 @@ public class Game : MonoBehaviour
   {
     foreach (Transform Tile in TileSet.transform)
     {
-        Object.Destroy(Tile.gameObject);
+      Object.Destroy(Tile.gameObject);
     }
     TrackController.LastTilePosition = new Vector3(0, 0, 0);
   }
@@ -109,30 +108,25 @@ public class Game : MonoBehaviour
   void GetHighScroll()
   {
     if (player1 != null)
-      HighScrollText.text = "HighScroll\n" + player1.HighScroll.ToString();
+      HighScrollText.text = "HighScroll\n" + player1.HighScroll.ToString() + " M.";
     else
-      HighScrollText.text = "HighScroll\n0";
+      HighScrollText.text = "HighScroll\n0 M.";
 
   }
   private void TriggerGameOver()
   {
     GameStarted = false;
     GameOverText.gameObject.SetActive(true);
-    GameOverPointText.text = "Points " + Point.ToString() + "\nCoin " + Coin.ToString();
+    GameOverPointText.text = Point.ToString() + "M.";
+    GameOverCoinText.SetText(Coin.ToString() + "<sprite=0>");
     SavePlayer(Point);
-    GameOverPointText.gameObject.SetActive(true);
     RetryButton.gameObject.SetActive(true);
     PointText.gameObject.SetActive(false);
     InGameCoinText.gameObject.SetActive(false);
   }
   private void CountPoint()
   {
-    PointCountTimer += Time.deltaTime;
-    if (PointCountTimer >= PointCountDelay)
-    {
-      Point++;
-      PointCountTimer = 0;
-    }
+    Point = (int)(Character.Position.z / 10);
   }
   private bool CountDownEnd()
   {
