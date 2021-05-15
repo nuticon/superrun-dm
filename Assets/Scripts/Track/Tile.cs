@@ -5,16 +5,18 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
   private float DeclayDelay = 5;
-  private GameObject Coin;
+
+  public GameObject CoinModel;
+  public Quaternion CoinRotation;
+  public float CoinLaneOffset = 0;
   public float CoinPositionXOffset;
   private int[] Lanes = new[] { -7, 0, 7 };
   void Start()
   {
-    Coin = Resources.Load("coinGold") as GameObject;
     int Len = GetRandomLanes();
     for (int i = 0; i <= 5; i++)
     {
-      var ChildCoin = Instantiate(Coin, new Vector3(Len, CoinPositionXOffset, transform.position.z + (i * 10)), Quaternion.identity);
+      var ChildCoin = Instantiate(CoinModel, new Vector3(Len - CoinLaneOffset, CoinPositionXOffset, transform.position.z + (i * 10)), CoinRotation);
       ChildCoin.transform.parent = this.gameObject.transform;
     }
   }
