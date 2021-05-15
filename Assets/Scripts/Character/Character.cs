@@ -180,14 +180,12 @@ public class Character : MonoBehaviour
   }
   private void StopJump()
   {
-    animator.speed = TempAnimatorSpeed;
     if (!Sliding && !Game.Over) animator.SetTrigger("IsRunning");
     Jumping = false;
     JumpingFrame = 0;
   }
   private void CheckJumpingFrame()
   {
-    animator.speed = 1;
     if (JumpingFrame < CalculatedJumpStrength)
     {
       Vector3 interpolPostionUp = new Vector3(transform.position.x, CalculatedJumpStrength / 2, transform.position.z);
@@ -213,7 +211,6 @@ public class Character : MonoBehaviour
   }
   private void StopSlide()
   {
-    animator.speed = TempAnimatorSpeed;
     if (!Jumping  && !Game.Over) animator.SetTrigger("IsRunning");
     Collider.size = DefaultColliderSize;
     Collider.center = DefaultColliderCenter;
@@ -222,7 +219,6 @@ public class Character : MonoBehaviour
   }
   private void CheckSlidingFrame()
   {
-    animator.speed = 1;
     if (SlidingFrame < CalculatedSlideLength)
     {
       Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
