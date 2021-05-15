@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b1968fd6b80d547a894af25c7c90ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CoinModel: {fileID: 3102237173399515602, guid: bb3fdb19c4b4c2e4c8752e8c871dec97, type: 3}
+  CoinRotation: {x: 0.18301274, y: 0.68301266, z: -0.18301274, w: 0.68301266}
+  CoinLaneOffset: 1.25
   CoinPositionXOffset: 1.5
 --- !u!1001 &3034594949680449490
 PrefabInstance:
