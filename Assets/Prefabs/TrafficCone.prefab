@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3796221896334814058}
   - component: {fileID: 3878090696912467658}
   - component: {fileID: 5443844672601924076}
-  - component: {fileID: 4617041845560045317}
+  - component: {fileID: 2372138461068921087}
   m_Layer: 0
   m_Name: TrafficCone
   m_TagString: JumpObstracle
@@ -129,7 +129,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &4617041845560045317
+--- !u!65 &2372138461068921087
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
