@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: VCOL
-    second: {fileID: 2926557707537190794, guid: 39101f4a3dd309c429c2f92e2c04ad06, type: 3}
+    second: {fileID: 2100000, guid: 2f9b7f849748ff84c81669205b7526aa, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
