@@ -181,7 +181,7 @@ public class Character : MonoBehaviour
   private void StopJump()
   {
     animator.speed = TempAnimatorSpeed;
-    if (!Sliding) animator.SetTrigger("IsRunning");
+    if (!Sliding && !Game.Over) animator.SetTrigger("IsRunning");
     Jumping = false;
     JumpingFrame = 0;
   }
@@ -214,7 +214,7 @@ public class Character : MonoBehaviour
   private void StopSlide()
   {
     animator.speed = TempAnimatorSpeed;
-    if (!Jumping) animator.SetTrigger("IsRunning");
+    if (!Jumping  && !Game.Over) animator.SetTrigger("IsRunning");
     Collider.size = DefaultColliderSize;
     Collider.center = DefaultColliderCenter;
     Sliding = false;
