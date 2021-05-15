@@ -13,7 +13,8 @@ public class Game : MonoBehaviour
   [Header("UI Component")]
   public Text PointText;
   public Text GameOverText;
-  public Text CoinText;
+  public Text PlayerCoinText;
+  public Text InGameCoinText;
   public Text GameOverPointText;
   public Text CountDownText;
   public Text HighScrollText;
@@ -40,7 +41,7 @@ public class Game : MonoBehaviour
     {
       CountPoint();
       PointText.text = "Point " + Point.ToString();
-      CoinText.text = "Coin " + Coin.ToString();
+      InGameCoinText.text = "Coin " + Coin.ToString();
     }
     if (GameStarted && Over)
       TriggerGameOver();
@@ -58,8 +59,10 @@ public class Game : MonoBehaviour
     Point = 0;
     PointText.text = "Point " + Point.ToString();
     Coin = 0;
-    if (player1 != null) Coin = player1.Coin;
-    CoinText.text = "Coin " + Coin.ToString();
+    InGameCoinText.text = "Coin " + Coin.ToString();
+    InGameCoinText.gameObject.SetActive(false);
+    PlayerCoinText.text = "Coin " + player1.Coin.ToString();
+    PlayerCoinText.gameObject.SetActive(true);
     Over = false;
     CountDownEnded = false;
   }
@@ -78,6 +81,8 @@ public class Game : MonoBehaviour
     PlayButton.gameObject.SetActive(false);
     HighScrollText.gameObject.SetActive(false);
     PointText.gameObject.SetActive(true);
+    InGameCoinText.gameObject.SetActive(true);
+    PlayerCoinText.gameObject.SetActive(false);
   }
   private void RestartGame()
   {
@@ -90,9 +95,9 @@ public class Game : MonoBehaviour
   }
   void SavePlayer(int Scroll)
   {
-    if (player1 == null) player1 = new Player(Scroll, Coin);
+    if (player1 == null) player1 = new Player(Scroll, 0);
     if (Scroll > player1.HighScroll) player1.HighScroll = Scroll;
-    player1.Coin = Coin;
+    player1.Coin += Coin;
     Storage.SavePlayer(player1);
   }
   Player GetPlayer()
@@ -113,11 +118,12 @@ public class Game : MonoBehaviour
   {
     GameStarted = false;
     GameOverText.gameObject.SetActive(true);
-    GameOverPointText.text = "Points " + Point.ToString();
+    GameOverPointText.text = "Points " + Point.ToString() + "\nCoin " + Coin.ToString();
     SavePlayer(Point);
     GameOverPointText.gameObject.SetActive(true);
     RetryButton.gameObject.SetActive(true);
     PointText.gameObject.SetActive(false);
+    InGameCoinText.gameObject.SetActive(false);
   }
   private void CountPoint()
   {
