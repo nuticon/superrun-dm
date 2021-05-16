@@ -7,53 +7,56 @@ public class CharacterInputController : MonoBehaviour
   private Vector2 StartTouch;
   private void Update()
   {
-    if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) characterMovement.Jump();
-    if (Input.GetKeyDown(KeyCode.DownArrow)) characterMovement.Slide();
-    if (Input.GetKeyDown(KeyCode.RightArrow)) characterMovement.ChangeLanesRight();
-    if (Input.GetKeyDown(KeyCode.LeftArrow)) characterMovement.ChangeLanesLeft();
-    if (Input.touchCount == 1)
+    if (CharacterMovement.IsMoving)
     {
-      if (IsSwiping)
+      if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) characterMovement.Jump();
+      if (Input.GetKeyDown(KeyCode.DownArrow)) characterMovement.Slide();
+      if (Input.GetKeyDown(KeyCode.RightArrow)) characterMovement.ChangeLanesRight();
+      if (Input.GetKeyDown(KeyCode.LeftArrow)) characterMovement.ChangeLanesLeft();
+      if (Input.touchCount == 1)
       {
-        Vector2 diff = Input.GetTouch(0).position - StartTouch;
-
-        diff = new Vector2(diff.x / Screen.width, diff.y / Screen.width);
-
-        if (diff.magnitude > 0.01f)
+        if (IsSwiping)
         {
-          if (Mathf.Abs(diff.y) > Mathf.Abs(diff.x))
+          Vector2 diff = Input.GetTouch(0).position - StartTouch;
+
+          diff = new Vector2(diff.x / Screen.width, diff.y / Screen.width);
+
+          if (diff.magnitude > 0.01f)
           {
-            if (diff.y < 0)
+            if (Mathf.Abs(diff.y) > Mathf.Abs(diff.x))
             {
-              characterMovement.Slide();
+              if (diff.y < 0)
+              {
+                characterMovement.Slide();
+              }
+              else
+              {
+                characterMovement.Jump();
+              }
             }
             else
             {
-              characterMovement.Jump();
+              if (diff.x < 0)
+              {
+                characterMovement.ChangeLanesLeft();
+              }
+              else
+              {
+                characterMovement.ChangeLanesRight();
+              }
             }
+            IsSwiping = false;
           }
-          else
-          {
-            if (diff.x < 0)
-            {
-              characterMovement.ChangeLanesLeft();
-            }
-            else
-            {
-              characterMovement.ChangeLanesRight();
-            }
-          }
+        }
+        if (Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+          StartTouch = Input.GetTouch(0).position;
+          IsSwiping = true;
+        }
+        else if (Input.GetTouch(0).phase == TouchPhase.Ended)
+        {
           IsSwiping = false;
         }
-      }
-      if (Input.GetTouch(0).phase == TouchPhase.Began)
-      {
-        StartTouch = Input.GetTouch(0).position;
-        IsSwiping = true;
-      }
-      else if (Input.GetTouch(0).phase == TouchPhase.Ended)
-      {
-        IsSwiping = false;
       }
     }
   }
