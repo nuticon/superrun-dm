@@ -13,6 +13,7 @@ public class Character : MonoBehaviour
   public float MaxSpeed = 10.0f;
   public float LanesOffset = 7.0f;
   public float SideWaySpeed = 1.0f;
+  public Vector3 DefaultModelScale;
 
   //Helper Value
   public static float Speed;
@@ -43,6 +44,11 @@ public class Character : MonoBehaviour
   private Animator animator;
   private BoxCollider Collider;
   public static Vector3 Position;
+  public static int Life = 3;
+  public static bool Invincible = false;
+  private float InvinibleTimer = 0;
+  private float BlinkTimer = 0;
+  private bool BlinkState = false;
   private Vector3 DefaultColliderCenter;
   private Vector3 DefaultColliderSize;
   void Start()
@@ -122,6 +128,7 @@ public class Character : MonoBehaviour
     }
     if (IsMoving && Game.Over) Over();
     if (!IsMoving && Game.GameStarted && !RequireRestart && Game.CountDownEnded) StartMoving();
+    if (Invincible) Blink();
   }
   private void ResetState()
   {
@@ -139,6 +146,27 @@ public class Character : MonoBehaviour
   {
     if (Speed <= MaxSpeed) return true;
     return false;
+  }
+  private void Blink()
+  {
+    if (BlinkState) transform.localScale = Vector3.zero;
+    else transform.localScale = DefaultModelScale;
+    InvinibleTimer += Time.deltaTime;
+    if (InvinibleTimer >= 2f)
+    {
+      InvinibleTimer = 0;
+      BlinkTimer = 0;
+      Invincible = false;
+      BlinkState = false;
+      transform.localScale = DefaultModelScale;
+      return;
+    }
+    BlinkTimer += Time.deltaTime;
+    if (BlinkTimer >= 0.05f)
+    {
+      BlinkTimer = 0;
+      BlinkState = !BlinkState;
+    }
   }
   private void Over()
   {
@@ -211,7 +239,7 @@ public class Character : MonoBehaviour
   }
   private void StopSlide()
   {
-    if (!Jumping  && !Game.Over) animator.SetTrigger("IsRunning");
+    if (!Jumping && !Game.Over) animator.SetTrigger("IsRunning");
     Collider.size = DefaultColliderSize;
     Collider.center = DefaultColliderCenter;
     Sliding = false;

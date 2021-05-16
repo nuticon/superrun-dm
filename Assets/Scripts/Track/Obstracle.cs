@@ -7,10 +7,11 @@ public class Obstracle : MonoBehaviour
   public AudioClip ObstracleSound;
   private void OnTriggerEnter(Collider other)
   {
-    if (other.gameObject.tag == "Player")
+    if (other.gameObject.tag == "Player" && !Character.Invincible)
     {
       Sound.Source.PlayOneShot(ObstracleSound, 1f);
-      Game.Over = true;
+      Character.Life--;
+      if(Character.Life > 0) Character.Invincible = true;
     }
     if (other.gameObject.tag == "Coin")
     {

@@ -43,7 +43,7 @@ public class Game : MonoBehaviour
       PointText.text = "M " + Point.ToString();
       InGameCoinText.SetText("<sprite=0>" + Coin.ToString());
     }
-    if (GameStarted && Over)
+    if (GameStarted && Character.Life <= 0)
       TriggerGameOver();
   }
   private void SetDefaultState()
@@ -116,6 +116,7 @@ public class Game : MonoBehaviour
   private void TriggerGameOver()
   {
     GameStarted = false;
+    Over = true;
     GameOverText.gameObject.SetActive(true);
     GameOverPointText.text = Point.ToString() + "M.";
     GameOverCoinText.SetText(Coin.ToString() + "<sprite=0>");

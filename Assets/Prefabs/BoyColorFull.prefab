@@ -2157,7 +2157,6 @@ MonoBehaviour:
   JumpSpeed: 1
   MinSpeed: 1.5
   MaxSpeed: 5
-  PointDelay: 0.5
   LanesOffset: 7
   SideWaySpeed: 1
 --- !u!65 &4114432544190819403

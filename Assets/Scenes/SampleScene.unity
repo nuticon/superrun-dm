@@ -2065,6 +2065,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1600543567056978285, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600543567056978285, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600543567056978285, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4114432544190819403, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2136,6 +2148,18 @@ PrefabInstance:
     - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: JumpStrength
       value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+      propertyPath: DefaultModelScale.x
+      value: 163.79587
+      objectReference: {fileID: 0}
+    - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+      propertyPath: DefaultModelScale.y
+      value: 163.79587
+      objectReference: {fileID: 0}
+    - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+      propertyPath: DefaultModelScale.z
+      value: 163.79587
       objectReference: {fileID: 0}
     - target: {fileID: 7406367311458304646, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: m_UseGravity
