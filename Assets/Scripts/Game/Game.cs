@@ -11,7 +11,6 @@ public class Game : MonoBehaviour
   public static bool CountDownEnded = false;
   public static int CurrentHighScroll;
   private float CountDownTimer;
-  private float PointCountTimer;
   private int CountDown = 3;
   internal Player player1;
   private bool IsDouble = false;
