@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f2e0dece04db84db428cd413ba0ef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObstracleSound: {fileID: 8300000, guid: 0d9e50755a43a614a8233233466a4e80, type: 3}
+  ObstracleSound: {fileID: 8300000, guid: 9ed08397b3fef21418662ed63130d301, type: 3}
 --- !u!54 &5443844672601924076
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -12,6 +12,11 @@ public class TrackController : MonoBehaviour
   public float TileSpawnDistanceLimit = 1000f;
   public static Vector3 LastTilePosition = new Vector3(0, 0, 0);
   private float Timer = 0;
+  private GameObject TileSet;
+  private void Start()
+  {
+    TileSet = new GameObject("TileSet");
+  }
   private void Update()
   {
     if (!Game.Over)
@@ -39,5 +44,17 @@ public class TrackController : MonoBehaviour
   {
     int index = Random.Range(0, Tile.Length);
     return Tile[index];
+  }
+  public void RefreshTile()
+  {
+    foreach (Transform Tile in TileSet.transform)
+    {
+      Object.Destroy(Tile.gameObject);
+    }
+    TrackController.LastTilePosition = new Vector3(0, 0, 0); foreach (Transform Tile in TileSet.transform)
+    {
+      Object.Destroy(Tile.gameObject);
+    }
+    TrackController.LastTilePosition = new Vector3(0, 0, 0);
   }
 }
