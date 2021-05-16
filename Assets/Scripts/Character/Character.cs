@@ -13,6 +13,7 @@ public class Character : MonoBehaviour
   public float MaxSpeed = 10.0f;
   public float LanesOffset = 7.0f;
   public float SideWaySpeed = 1.0f;
+  public int MaxLife;
   public Vector3 DefaultModelScale;
 
   //Helper Value
@@ -44,7 +45,7 @@ public class Character : MonoBehaviour
   private Animator animator;
   private BoxCollider Collider;
   public static Vector3 Position;
-  public static int Life = 3;
+  public static int Life;
   public static bool Invincible = false;
   private float InvinibleTimer = 0;
   private float BlinkTimer = 0;
@@ -65,6 +66,7 @@ public class Character : MonoBehaviour
     DefaultColliderCenter = Collider.center;
     DefaultColliderSize = Collider.size;
     TempAnimatorSpeed = animator.speed;
+    Life = MaxLife;
   }
   void Update()
   {
@@ -140,6 +142,7 @@ public class Character : MonoBehaviour
     Speed = MinSpeed;
     animator.speed = 1;
     TempAnimatorSpeed = 1;
+    Life = MaxLife;
     RequireRestart = false;
   }
   private bool IsNotMaxSpeed()
