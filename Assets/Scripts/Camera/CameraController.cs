@@ -46,6 +46,6 @@ public class CameraController : MonoBehaviour
       transform.rotation = Quaternion.Slerp(transform.rotation, TargetRotation, Time.deltaTime * 1.5f);
     }
     Vector3 TargetPosition = new Vector3(RunningCameraPosition.x, RunningCameraPosition.y, Character.Position.z + RunningCameraPosition.z);
-    transform.position = Vector3.Lerp(transform.position, TargetPosition, Time.deltaTime * Character.Speed * Character.SpeedMultiplier);
+    transform.position = Vector3.Lerp(transform.position, TargetPosition, Time.deltaTime * CharacterMovement.Speed * CharacterMovement.SpeedMultiplier);
   }
 }
