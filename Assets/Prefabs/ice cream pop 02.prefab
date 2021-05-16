@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7581139084207086514}
   - component: {fileID: -4561408487537062806}
   m_Layer: 0
-  m_Name: 02
+  m_Name: ice cream pop 02
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
