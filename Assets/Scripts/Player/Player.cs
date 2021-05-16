@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -11,5 +9,19 @@ public class Player
   {
     this.HighScroll = HighScroll;
     this.Coin = Coin;
+  }
+  public Player()
+  {
+
+  }
+  public void Save()
+  {
+    Storage.SavePlayer(this);
+  }
+  public void Load()
+  {
+    Player player = Storage.LoadPlayer();
+    this.HighScroll = player.HighScroll;
+    this.Coin = player.Coin;
   }
 }

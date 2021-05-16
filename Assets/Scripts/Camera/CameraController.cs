@@ -8,7 +8,6 @@ public class CameraController : MonoBehaviour
   public Quaternion RunningCameraRotation;
   public Vector3 StartCameraPosition;
   public Quaternion StartCameraRotation;
-  public static bool RequestCameraReset = false;
   private void Start()
   {
     transform.position = StartCameraPosition;
@@ -16,20 +15,14 @@ public class CameraController : MonoBehaviour
   }
   void Update()
   {
-    if (RequestCameraReset)
-    {
-      SetDefaultCamera();
-      return;
-    }
     if (Game.GameStarted && !Game.Over && !Game.CountDownEnded) RotateCamera();
     if (Game.GameStarted && !Game.Over && Game.CountDownEnded) MoveCamera();
   }
 
-  void SetDefaultCamera()
+  public void SetDefaultCamera()
   {
     transform.position = StartCameraPosition;
     transform.rotation = StartCameraRotation;
-    RequestCameraReset = false;
   }
   void RotateCamera()
   {

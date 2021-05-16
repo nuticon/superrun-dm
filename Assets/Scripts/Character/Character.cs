@@ -15,7 +15,7 @@ public class Character : MonoBehaviour
   public float SideWaySpeed = 1.0f;
   public int MaxLife;
   public Vector3 DefaultModelScale;
-  public static bool RequireRestart = false;
+
   //Instance
   internal Animator animator;
   internal BoxCollider Collider;
@@ -39,24 +39,19 @@ public class Character : MonoBehaviour
   }
   void Update()
   {
-    if (RequireRestart)
-    {
-      ResetState();
-      return;
-    }
     if (CharacterMovement.IsMoving && Game.Over)
     {
       Over();
       return;
     }
-    if (!CharacterMovement.IsMoving && Game.GameStarted && !RequireRestart && Game.CountDownEnded)
+    if (!CharacterMovement.IsMoving && Game.GameStarted && Game.CountDownEnded)
     {
       characterMovement.StartMoving();
       return;
     }
     if (Invincible) Blink();
   }
-  private void ResetState()
+  public void ResetState()
   {
     animator.SetTrigger("IsIdle");
     transform.position = new Vector3(0, 0, 0);
@@ -66,7 +61,6 @@ public class Character : MonoBehaviour
     CharacterMovement.Speed = MinSpeed;
     animator.speed = 1;
     Life = MaxLife;
-    RequireRestart = false;
   }
   public void Over()
   {
