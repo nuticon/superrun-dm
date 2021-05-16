@@ -25,8 +25,9 @@ public class Game : MonoBehaviour
   private float CountDownTimer;
   private float PointCountTimer;
   private int CountDown = 3;
-  protected GameObject TileSet;
-  protected Player player1;
+  private GameObject TileSet;
+  private Player player1;
+  private bool IsDouble = false;
   void Start()
   {
     PlayButton.onClick.AddListener(StartGame);
@@ -127,7 +128,14 @@ public class Game : MonoBehaviour
   }
   private void CountPoint()
   {
-    Point = (int)(Character.Position.z / 10);
+    int zPoint = (int)Character.Position.z / 10;
+    if (IsDouble)
+    {
+      Point += (zPoint - Point) * 2;
+      return;
+    }
+    Point += zPoint - Point;
+
   }
   private bool CountDownEnd()
   {
