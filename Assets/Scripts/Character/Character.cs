@@ -5,16 +5,15 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
   [Header("Character Settings")]
-
-  public float JumpStrength = 1.2f;
-  public float SlideLength = 1.0f;
-  public float JumpSpeed = 1;
-  public float MinSpeed = 1.0f;
-  public float MaxSpeed = 10.0f;
-  public float LanesOffset = 7.0f;
-  public float SideWaySpeed = 1.0f;
-  public int MaxLife;
   public Vector3 DefaultModelScale;
+  public float JumpSpeed = 1;
+  public float JumpStrength = 1.2f;
+  public float LanesOffset = 7.0f;
+  public float MaxSpeed = 10.0f;
+  public float MinSpeed = 1.0f;
+  public float SideWaySpeed = 1.0f;
+  public float SlideLength = 1.0f;
+  public int MaxLife;
 
   //Instance
   internal Animator animator;
@@ -28,6 +27,8 @@ public class Character : MonoBehaviour
   internal Vector3 DefaultColliderCenter;
   internal Vector3 DefaultColliderSize;
   public CharacterMovement characterMovement;
+  public CharacterParticle characterParticle;
+  private int LocalLife;
   void Start()
   {
     animator = GetComponent<Animator>();
@@ -36,6 +37,7 @@ public class Character : MonoBehaviour
     DefaultColliderCenter = Collider.center;
     DefaultColliderSize = Collider.size;
     Life = MaxLife;
+    LocalLife = Life;
   }
   void Update()
   {
@@ -50,6 +52,7 @@ public class Character : MonoBehaviour
       return;
     }
     if (Invincible) Blink();
+    WatchLife();
   }
   public void ResetState()
   {
@@ -90,5 +93,17 @@ public class Character : MonoBehaviour
       BlinkTimer = 0;
       BlinkState = !BlinkState;
     }
+  }
+  private void WatchLife()
+  {
+    if (LocalLife > Life)
+    {
+      characterParticle.PlayHitParticle();
+      LocalLife = Life;
+    }
+  }
+  public void CoinUp()
+  {
+    characterParticle.PlayCoinParticle();
   }
 }

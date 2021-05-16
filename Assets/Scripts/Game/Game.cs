@@ -17,6 +17,7 @@ public class Game : MonoBehaviour
   public Character character;
   public CameraController cameraController;
   public UI ui;
+  private int LocalCoin = 0;
   void Awake()
   {
     player1 = new Player();
@@ -29,6 +30,7 @@ public class Game : MonoBehaviour
     if (GameStarted && CountDownEnd())
     {
       CountPoint();
+      WatchCoin();
     }
     if (GameStarted && Character.Life <= 0)
       TriggerGameOver();
@@ -109,5 +111,14 @@ public class Game : MonoBehaviour
   {
     if(player1 != null) return player1.Coin;
     return 0;
+  }
+
+  public void WatchCoin()
+  {
+    if(Coin > LocalCoin)
+    {
+      character.CoinUp();
+      LocalCoin = Coin;
+    }
   }
 }

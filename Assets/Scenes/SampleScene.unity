@@ -2318,6 +2318,10 @@ PrefabInstance:
       value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+      propertyPath: HitParticle
+      value: 
+      objectReference: {fileID: 1037864198121816, guid: 638c8ca438a11c54987de876e500ed02, type: 3}
+    - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: SlideLength
       value: 1
       objectReference: {fileID: 0}
