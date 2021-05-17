@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-  private float DeclayDelay = 5;
+  public float DeclayDelay = 5;
 
   public GameObject CoinModel;
   public Quaternion CoinRotation;

@@ -712,6 +712,7 @@ Transform:
   - {fileID: 1900745489}
   - {fileID: 144009766}
   - {fileID: 303101873}
+  - {fileID: 699567398}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -902,11 +903,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 699567396}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6700001, y: 25.21, z: -36.97}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -204.23268, y: -190.56058, z: 3.5946808}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 537401579}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &699567399
@@ -921,6 +922,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df0a0ae10a784c143a6a192c09551ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Source: {fileID: 699567397}
+  ObstracleHitSound: {fileID: 8300000, guid: 9ed08397b3fef21418662ed63130d301, type: 3}
+  CoinCollectSound: {fileID: 8300000, guid: ff0a0329d93c32f4abd909fb3094695f, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,7 +1996,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb9301c0e35b50438c87ce717aefb82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tile:
+  Landmarks: []
+  Props:
+  - {fileID: 7084844556159937263, guid: b27bf205f8a7bc2449803ba8d2857d28, type: 3}
+  - {fileID: 6997199802878177498, guid: f26cf9fd8e37ea548b2a35e7f52ac1f1, type: 3}
+  - {fileID: 1105527913366134301, guid: 0c675162b3fa16c4e8a1c2efbf59886d, type: 3}
+  - {fileID: 3947855275081314518, guid: 36eb3bd931b247b42a8476df48bea92f, type: 3}
+  - {fileID: 6918205044058670250, guid: 410fbeca20075d644a6b8238e75b4044, type: 3}
+  - {fileID: 6606674113544259058, guid: da2cb4db8d96d1d4aa7c5c07a678d5a1, type: 3}
+  - {fileID: 848873001747807780, guid: 17b93446fc6fcda409a303562945b4ca, type: 3}
+  - {fileID: 542304283832732819, guid: 6b520b727a07e514eb598ce4c3124a19, type: 3}
+  Tiles:
   - {fileID: 6933418437860140697, guid: 5ff9fed01c744bf4e9812b9e5b8360b1, type: 3}
   - {fileID: 6943364695003457638, guid: ee8a1aa980cd47c44ae2b588267583c6, type: 3}
   - {fileID: 4536932880458313697, guid: 1c80dfe370f8dba47a8de06998f6fbb9, type: 3}
@@ -2004,10 +2018,11 @@ MonoBehaviour:
   - {fileID: 6085710957191249475, guid: 5bfbe9e4a02afea4eb8f6cd394538e30, type: 3}
   - {fileID: 9208062103856242509, guid: 928b8d55d90fb144a94f33111954581a, type: 3}
   - {fileID: 3914754531031993950, guid: e28e149e886bf80478b7d9290a5b6fa0, type: 3}
-  TileLoadDelay: 0.3
   TileDistanceOffset: 73.7
-  TilePerRound: 6
+  TileLoadDelay: 0.3
   TileSpawnDistanceLimit: 1000
+  PropsPopulation: 3
+  TilePerRound: 6
 --- !u!4 &1900745489
 Transform:
   m_ObjectHideFlags: 0
@@ -2297,6 +2312,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 699567399}
     - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: MaxLife
       value: 3

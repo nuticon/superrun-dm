@@ -28,6 +28,7 @@ public class Character : MonoBehaviour
   internal Vector3 DefaultColliderSize;
   public CharacterMovement characterMovement;
   public CharacterParticle characterParticle;
+  public Sound sound;
   private int LocalLife;
   void Start()
   {
@@ -99,11 +100,13 @@ public class Character : MonoBehaviour
     if (LocalLife > Life)
     {
       characterParticle.PlayHitParticle();
+      sound.PlayObstracleHitSound();
       LocalLife = Life;
     }
   }
   public void CoinUp()
   {
     characterParticle.PlayCoinParticle();
+    sound.PlayCoinCollectSound();
   }
 }
