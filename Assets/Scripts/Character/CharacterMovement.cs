@@ -107,9 +107,12 @@ public class CharacterMovement : MonoBehaviour
   }
   public void Slide()
   {
-    character.animator.SetTrigger("IsSlide");
-    Sliding = true;
-    if (Jumping) StopJump();
+    if (!Sliding)
+    {
+      character.animator.SetTrigger("IsSlide");
+      Sliding = true;
+      if (Jumping) StopJump();
+    }
   }
   public void StopSlide()
   {
