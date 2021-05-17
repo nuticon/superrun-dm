@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e4b023b54bca249baab8a474f54d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoinRotationSpeed: 0.9
+  CoinRotationSpeed: 0.3
 --- !u!65 &4753971018227013240
 BoxCollider:
   m_ObjectHideFlags: 0
