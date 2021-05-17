@@ -23,6 +23,7 @@ public class CharacterMovement : MonoBehaviour
   public static bool IsMoving = false;
   internal float TargetLenOffset;
   public Character character;
+  private float SpeedTimer = 0;
   private void Start()
   {
     Speed = character.MinSpeed;
@@ -46,10 +47,17 @@ public class CharacterMovement : MonoBehaviour
       return;
     }
   }
-  private bool IsNotMaxSpeed()
+  private void SpeedIncrease()
   {
-    if (Speed <= character.MaxSpeed) return true;
-    return false;
+    if (Speed <= character.MaxSpeed)
+    {
+      SpeedTimer += Time.deltaTime;
+      if (SpeedTimer >= character.SpeedIncreaseDelay)
+      {
+        Speed += 0.05f;
+        SpeedTimer = 0;
+      }
+    }
   }
   public void Run()
   {
@@ -65,7 +73,7 @@ public class CharacterMovement : MonoBehaviour
       transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * CalculatedJumpSpeed);
     }
     Character.Position = transform.position;
-    if (IsNotMaxSpeed()) Speed += 0.001f;
+    SpeedIncrease();
     if (character.animator.speed < 1.5f && !Jumping && !Sliding)
     {
       character.animator.speed += Time.deltaTime;
