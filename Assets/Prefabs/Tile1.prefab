@@ -51,7 +51,6 @@ MonoBehaviour:
   CoinRotation: {x: 0, y: 0, z: 0, w: 0}
   CoinLaneOffset: 0
   CoinPositionXOffset: 1.5
-  CoinRotationSpeed: 3
 --- !u!1001 &126080025071042502
 PrefabInstance:
   m_ObjectHideFlags: 0
