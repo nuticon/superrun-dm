@@ -12,10 +12,10 @@ public class TrackController : MonoBehaviour
   public GameObject[] Props;
   public GameObject[] Tiles;
   public float TileDistanceOffset = 73.7f;
-  public float TileLoadDelay = 0.3f;
-  public float TileSpawnDistanceLimit = 1000f;
+  public float TileLoadDelay;
+  public float TileSpawnDistanceLimit;
   public int PropsPopulation;
-  public int TilePerRound = 6;
+  public int TilePerRound;
   public static Vector3 LastTilePosition = new Vector3(0, 0, 0);
   private void Start()
   {

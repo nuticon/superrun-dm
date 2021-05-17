@@ -381,6 +381,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8790326592364164122, guid: be1ae911ee2717748a99cd22f9ba5975, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -84679041371989365, guid: f37081906440cbf488690a7243fa80b3, type: 3}
+    - target: {fileID: 8790326592364164122, guid: be1ae911ee2717748a99cd22f9ba5975, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8868803860452817203, guid: be1ae911ee2717748a99cd22f9ba5975, type: 3}
       propertyPath: m_Name
       value: LowPolyGroundSS
@@ -454,6 +462,10 @@ PrefabInstance:
     - target: {fileID: 8097334364076467081, guid: be1ae911ee2717748a99cd22f9ba5975, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 8790326592364164122, guid: be1ae911ee2717748a99cd22f9ba5975, type: 3}
+      propertyPath: m_Convex
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8868803860452817203, guid: be1ae911ee2717748a99cd22f9ba5975, type: 3}
       propertyPath: m_Name

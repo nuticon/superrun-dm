@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 1, g: 0.9098039, b: 0.68235296, a: 1}
+  m_FogColor: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.07061059, g: 0.35376522, b: 0.97078264, a: 1}
+  m_IndirectSpecularColor: {r: 0.070616275, g: 0.35369283, b: 0.96990246, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2082,8 +2082,8 @@ MonoBehaviour:
   - {fileID: 9208062103856242509, guid: 928b8d55d90fb144a94f33111954581a, type: 3}
   - {fileID: 3914754531031993950, guid: e28e149e886bf80478b7d9290a5b6fa0, type: 3}
   TileDistanceOffset: 73.7
-  TileLoadDelay: 0.3
-  TileSpawnDistanceLimit: 1500
+  TileLoadDelay: 0
+  TileSpawnDistanceLimit: 1000
   PropsPopulation: 3
   TilePerRound: 6
 --- !u!4 &1900745489
