@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 8097334364076467081}
   - component: {fileID: 5183741193403001900}
   - component: {fileID: 6923350320857258214}
+  - component: {fileID: 8790326592364164122}
   m_Layer: 0
   m_Name: LowPolyGroundSS
   m_TagString: Untagged
@@ -112,3 +113,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8790326592364164122
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8868803860452817203}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -84679041371989365, guid: f37081906440cbf488690a7243fa80b3, type: 3}
