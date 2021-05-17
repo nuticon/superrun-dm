@@ -2083,7 +2083,7 @@ MonoBehaviour:
   - {fileID: 3914754531031993950, guid: e28e149e886bf80478b7d9290a5b6fa0, type: 3}
   TileDistanceOffset: 73.7
   TileLoadDelay: 0.3
-  TileSpawnDistanceLimit: 1000
+  TileSpawnDistanceLimit: 1500
   PropsPopulation: 3
   TilePerRound: 6
 --- !u!4 &1900745489
