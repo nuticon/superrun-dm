@@ -25,7 +25,7 @@ public class Tile : MonoBehaviour
     {
       var ChildCoin = Instantiate(CoinModel, new Vector3(Len - CoinLaneOffset, CoinPositionXOffset, transform.position.z + (i * 10)), Quaternion.identity);
       ChildCoin.transform.parent = CoinSet.transform;
-      yield return new WaitForSeconds(1f);
+      yield return new WaitForSeconds(0.3f);
     }
   }
   private int GetRandomLanes()
