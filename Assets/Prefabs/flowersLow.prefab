@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8798890548457050383}
   - component: {fileID: 645176366738247157}
   - component: {fileID: 6701767209905330443}
+  - component: {fileID: -5594403101223547824}
   m_Layer: 0
   m_Name: flowersLow
-  m_TagString: Untagged
+  m_TagString: Props
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,3 +117,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &-5594403101223547824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6997199802878177498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bad43980c005c84c9f6a4e8de170fc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
