@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8805137548597615280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8805137548597615283}
+  - component: {fileID: -3623025598599533763}
+  - component: {fileID: 4753971018227013240}
+  - component: {fileID: 4456339045151445248}
+  m_Layer: 0
+  m_Name: PopRotated
+  m_TagString: Coin
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8805137548597615283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8805137548597615280}
+  m_LocalRotation: {x: 0, y: 0, z: -0, w: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6518024895139138923}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 360, z: 0}
+--- !u!114 &-3623025598599533763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8805137548597615280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e4b023b54bca249baab8a474f54d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoinRotationSpeed: 0.9
+--- !u!65 &4753971018227013240
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8805137548597615280}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.059575, y: 5.1609116, z: 1}
+  m_Center: {x: 1.209106, y: 2.155468, z: 0}
+--- !u!95 &4456339045151445248
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8805137548597615280}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c489d89e00f507d4987bab8afcf23aea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &8805137548690515459
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8805137548597615283}
+    m_Modifications:
+    - target: {fileID: 2325701191076227944, guid: bb3fdb19c4b4c2e4c8752e8c871dec97, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2325701191076227944, guid: bb3fdb19c4b4c2e4c8752e8c871dec97, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2325701191076227944, guid: bb3fdb19c4b4c2e4c8752e8c871dec97, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2325701191076227944, guid: bb3fdb19c4b4c2e4c8752e8c871dec97, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2325701191076227944, guid: bb3fdb19c4b4c2e4c8752e8c871dec97, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6830127
+      objectReference: {fileID: 0}
+    - target: {fileID: 2325701191076227944, guid: bb3fdb19c4b4c2e4c8752e8c871dec97, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.18301274
+      objectReference: {fileID: 0}
+    - target: {fileID: 2325701191076227944, guid: bb3fdb19c4b4c2e4c8752e8c871dec97, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6830127
+      objectReference: {fileID: 0}
+    - target: {fileID: 2325701191076227944, guid: bb3fdb19c4b4c2e4c8752e8c871dec97, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.18301274
+      objectReference: {fileID: 0}
+    - target: {fileID: 2325701191076227944, guid: bb3fdb19c4b4c2e4c8752e8c871dec97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2325701191076227944, guid: bb3fdb19c4b4c2e4c8752e8c871dec97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2325701191076227944, guid: bb3fdb19c4b4c2e4c8752e8c871dec97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102237173399515602, guid: bb3fdb19c4b4c2e4c8752e8c871dec97, type: 3}
+      propertyPath: m_Name
+      value: ice cream pop 02
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bb3fdb19c4b4c2e4c8752e8c871dec97, type: 3}
+--- !u!4 &6518024895139138923 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2325701191076227944, guid: bb3fdb19c4b4c2e4c8752e8c871dec97, type: 3}
+  m_PrefabInstance: {fileID: 8805137548690515459}
+  m_PrefabAsset: {fileID: 0}

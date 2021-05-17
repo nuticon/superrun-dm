@@ -39,6 +39,7 @@ public class Game : MonoBehaviour
   {
     Point = 0;
     Coin = 0;
+    LocalCoin = Coin;
     Over = false;
     CountDownEnded = false;
   }

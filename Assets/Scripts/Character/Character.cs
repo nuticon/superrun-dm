@@ -65,6 +65,7 @@ public class Character : MonoBehaviour
     CharacterMovement.Speed = MinSpeed;
     animator.speed = 1;
     Life = MaxLife;
+    LocalLife = Life;
   }
   public void Over()
   {

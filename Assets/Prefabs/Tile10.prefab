@@ -47,10 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeclayDelay: 10
-  CoinModel: {fileID: 3102237173399515602, guid: bb3fdb19c4b4c2e4c8752e8c871dec97, type: 3}
-  CoinRotation: {x: 0.18301274, y: 0.68301266, z: -0.18301274, w: 0.68301266}
-  CoinLaneOffset: 1.25
+  CoinModel: {fileID: 8805137548597615280, guid: a45cd01b79b55e44e89cfb1625913642, type: 3}
+  CoinRotation: {x: 0, y: 0, z: 0, w: 0}
+  CoinLaneOffset: 0
   CoinPositionXOffset: 1.5
+  CoinRotationSpeed: 3
 --- !u!1001 &2626829026124834137
 PrefabInstance:
   m_ObjectHideFlags: 0
