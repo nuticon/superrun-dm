@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class Sound : MonoBehaviour
 {
-  public static AudioSource Source;
-  private void Start()
+  public AudioSource Source;
+  public AudioClip ObstracleHitSound;
+  public AudioClip CoinCollectSound;
+
+  public void PlayObstracleHitSound()
   {
-    Source = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioSource>();
+    Source.PlayOneShot(ObstracleHitSound, 1);
+  }
+  public void PlayCoinCollectSound()
+  {
+    Source.PlayOneShot(CoinCollectSound, 1);
   }
 }

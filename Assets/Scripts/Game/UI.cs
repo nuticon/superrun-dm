@@ -4,17 +4,20 @@ using TMPro;
 public class UI : MonoBehaviour
 {
   [Header("UI Component")]
-  public Text PointText;
-  public Text GameOverText;
-  public TMP_Text PlayerCoinText;
-  public TMP_Text InGameCoinText;
-  public Text GameOverPointText;
-  public Text CountDownText;
-  public Text HighScrollText;
-  public TMP_Text GameOverCoinText;
   public Button PlayButton;
   public Button RetryButton;
   public Game game;
+  public TMP_Text GameOverCoinText;
+  public TMP_Text InGameCoinText;
+  public TMP_Text PlayerCoinText;
+  public TMP_Text PlayerLifeText;
+  public Text CountDownText;
+  public Text GameOverPointText;
+  public Text GameOverText;
+  public Text HighScrollText;
+  public Text PointText;
+
+  [Header("Other")]
   public TrackController trackController;
   private void Start()
   {
@@ -24,8 +27,9 @@ public class UI : MonoBehaviour
   }
   private void Update()
   {
-    PointText.text = "M " + Game.Point.ToString();
     InGameCoinText.SetText("<sprite=0>" + Game.Coin.ToString());
+    PlayerLifeText.SetText("<sprite=0>" + Character.Life.ToString());
+    PointText.text = "M " + Game.Point.ToString();
   }
   private void StartTrigger()
   {
@@ -40,36 +44,36 @@ public class UI : MonoBehaviour
   }
   public void SetGameOverUI()
   {
-    GameOverText.gameObject.SetActive(true);
-    GameOverPointText.text = Game.Point.ToString() + "M.";
     GameOverCoinText.SetText(Game.Coin.ToString() + "<sprite=0>");
-    RetryButton.gameObject.SetActive(true);
-    PointText.gameObject.SetActive(false);
+    GameOverPointText.text = Game.Point.ToString() + "M.";
+    GameOverText.gameObject.SetActive(true);
     InGameCoinText.gameObject.SetActive(false);
+    PointText.gameObject.SetActive(false);
+    RetryButton.gameObject.SetActive(true);
   }
   private void ResetUI()
   {
-    PlayButton.gameObject.SetActive(true);
-    RetryButton.gameObject.SetActive(false);
-    GameOverText.gameObject.SetActive(false);
     CountDownText.gameObject.SetActive(false);
-    RetryButton.gameObject.SetActive(false);
+    GameOverText.gameObject.SetActive(false);
     HighScrollText.gameObject.SetActive(true);
-    PointText.gameObject.SetActive(false);
-    PointText.text = "M " + Game.Point.ToString();
-    InGameCoinText.SetText("<sprite=0>" + Game.Coin.ToString());
+    HighScrollText.text = "HighScroll\n" + Game.CurrentHighScroll.ToString() + " M.";
     InGameCoinText.gameObject.SetActive(false);
+    PlayButton.gameObject.SetActive(true);
     PlayerCoinText.SetText(game.GetPlayerCoin().ToString() + "<sprite=0>");
     PlayerCoinText.gameObject.SetActive(true);
-    HighScrollText.text = "HighScroll\n" + Game.CurrentHighScroll.ToString() + " M.";
+    PlayerLifeText.gameObject.SetActive(false);
+    PointText.gameObject.SetActive(false);
+    RetryButton.gameObject.SetActive(false);
+    RetryButton.gameObject.SetActive(false);
   }
   private void SetPlayingUI()
   {
     CountDownText.gameObject.SetActive(true);
-    PlayButton.gameObject.SetActive(false);
     HighScrollText.gameObject.SetActive(false);
-    PointText.gameObject.SetActive(true);
     InGameCoinText.gameObject.SetActive(true);
+    PlayButton.gameObject.SetActive(false);
     PlayerCoinText.gameObject.SetActive(false);
+    PlayerLifeText.gameObject.SetActive(true);
+    PointText.gameObject.SetActive(true);
   }
 }
