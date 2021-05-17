@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5106957354826093011}
   - component: {fileID: 788082064994541147}
   m_Layer: 0
-  m_Name: TilCorridor
+  m_Name: TileCorridor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

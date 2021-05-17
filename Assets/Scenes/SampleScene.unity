@@ -2059,6 +2059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb9301c0e35b50438c87ce717aefb82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CorridorTile: {fileID: 5106957354826093010, guid: efb59c64f2e7e0e4297b40d068947564, type: 3}
   Landmarks: []
   Props:
   - {fileID: 7084844556159937263, guid: b27bf205f8a7bc2449803ba8d2857d28, type: 3}
@@ -2085,6 +2086,8 @@ MonoBehaviour:
   TileDistanceOffset: 73.7
   TileLoadDelay: 0
   TileSpawnDistanceLimit: 1000
+  TimeToChangeZone: 30
+  CorridorTileAmount: 10
   PropsPopulation: 3
   TilePerRound: 6
 --- !u!4 &1900745489
@@ -2312,7 +2315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: MaxSpeed
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: MinSpeed
@@ -2340,7 +2343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: SpeedIncreaseDelay
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: DefaultModelScale.x

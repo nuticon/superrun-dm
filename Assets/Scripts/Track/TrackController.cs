@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class TrackController : MonoBehaviour
 {
-  [Header("Track Setting")]
   private GameObject TileSet;
+  private float TimeToChangeZoneTimer = 0;
   private float Timer = 0;
   private int[] PropsOffset = new[] { -40, 20 };
+  public GameObject CorridorTile;
   public GameObject[] Landmarks;
   public GameObject[] Props;
   public GameObject[] Tiles;
   public float TileDistanceOffset = 73.7f;
   public float TileLoadDelay;
   public float TileSpawnDistanceLimit;
+  public float TimeToChangeZone;
+  public int CorridorTileAmount;
   public int PropsPopulation;
   public int TilePerRound;
   public static Vector3 LastTilePosition = new Vector3(0, 0, 0);
@@ -25,6 +28,13 @@ public class TrackController : MonoBehaviour
   {
     if (!Game.Over)
     {
+      TimeToChangeZoneTimer += Time.deltaTime;
+      if (TimeToChangeZoneTimer >= TimeToChangeZone)
+      {
+        SpawnCorridorTile();
+        TimeToChangeZoneTimer = 0;
+        return;
+      }
       Timer += Time.deltaTime;
       if (Timer >= TileLoadDelay)
       {
@@ -46,6 +56,16 @@ public class TrackController : MonoBehaviour
         LastTilePosition = ChildTile.transform.position;
         SpawnProps(ChildTile);
       }
+    }
+  }
+  private void SpawnCorridorTile()
+  {
+    for (int i = 0; i < CorridorTileAmount; i++)
+    {
+      var ChildTile = Instantiate(CorridorTile, new Vector3(0, 0, LastTilePosition.z + TileDistanceOffset), Quaternion.identity);
+      ChildTile.transform.parent = TileSet.transform;
+      LastTilePosition = ChildTile.transform.position;
+      SpawnProps(ChildTile);
     }
   }
   private void SpawnProps(GameObject Parent)
