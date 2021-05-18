@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.070616275, g: 0.35369283, b: 0.96990246, a: 1}
+  m_IndirectSpecularColor: {r: 0.07060633, g: 0.3537628, b: 0.9707842, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -959,7 +959,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Source: {fileID: 699567397}
   ObstracleHitSound: {fileID: 8300000, guid: 9ed08397b3fef21418662ed63130d301, type: 3}
-  CoinCollectSound: {fileID: 8300000, guid: ff0a0329d93c32f4abd909fb3094695f, type: 3}
+  CoinCollectSound: {fileID: 8300000, guid: 7e5ef2708de23d841bc636521785ff85, type: 3}
   MenuMusic: {fileID: 8300000, guid: c5f9967b1c0d51942b45180d992afda5, type: 3}
   InGameMusic: {fileID: 8300000, guid: 992eaa57bad8f724f8ca27dfa6719680, type: 3}
 --- !u!1 &705507993
