@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
   public float LanesOffset = 7.0f;
   public float MaxSpeed = 10.0f;
   public float MinSpeed = 1.0f;
+  public float SpeedIncreaseDelay;
   public float SideWaySpeed = 1.0f;
   public float SlideLength = 1.0f;
   public int MaxLife;

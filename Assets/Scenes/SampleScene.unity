@@ -696,6 +696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 144009767}
   cameraController: {fileID: 303101876}
+  sound: {fileID: 699567399}
   ui: {fileID: 223252402}
 --- !u!4 &537401579
 Transform:
@@ -926,6 +927,8 @@ MonoBehaviour:
   Source: {fileID: 699567397}
   ObstracleHitSound: {fileID: 8300000, guid: 9ed08397b3fef21418662ed63130d301, type: 3}
   CoinCollectSound: {fileID: 8300000, guid: ff0a0329d93c32f4abd909fb3094695f, type: 3}
+  MenuMusic: {fileID: 8300000, guid: c5f9967b1c0d51942b45180d992afda5, type: 3}
+  InGameMusic: {fileID: 8300000, guid: 992eaa57bad8f724f8ca27dfa6719680, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2059,6 +2062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb9301c0e35b50438c87ce717aefb82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CorridorTile: {fileID: 5106957354826093010, guid: efb59c64f2e7e0e4297b40d068947564, type: 3}
   Landmarks: []
   Props:
   - {fileID: 7084844556159937263, guid: b27bf205f8a7bc2449803ba8d2857d28, type: 3}
@@ -2069,6 +2073,7 @@ MonoBehaviour:
   - {fileID: 6606674113544259058, guid: da2cb4db8d96d1d4aa7c5c07a678d5a1, type: 3}
   - {fileID: 848873001747807780, guid: 17b93446fc6fcda409a303562945b4ca, type: 3}
   - {fileID: 542304283832732819, guid: 6b520b727a07e514eb598ce4c3124a19, type: 3}
+  - {fileID: 582177462946037689, guid: 7f9f66038e1760f4b863852765841d51, type: 3}
   Tiles:
   - {fileID: 6933418437860140697, guid: 5ff9fed01c744bf4e9812b9e5b8360b1, type: 3}
   - {fileID: 6943364695003457638, guid: ee8a1aa980cd47c44ae2b588267583c6, type: 3}
@@ -2084,6 +2089,8 @@ MonoBehaviour:
   TileDistanceOffset: 73.7
   TileLoadDelay: 0
   TileSpawnDistanceLimit: 1000
+  TimeToChangeZone: 30
+  CorridorTileAmount: 10
   PropsPopulation: 3
   TilePerRound: 6
 --- !u!4 &1900745489
@@ -2311,11 +2318,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: MaxSpeed
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: MinSpeed
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: JumpSpeed
@@ -2336,6 +2343,10 @@ PrefabInstance:
     - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: JumpStrength
       value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+      propertyPath: SpeedIncreaseDelay
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: DefaultModelScale.x

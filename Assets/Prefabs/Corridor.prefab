@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6517119646760442949}
   m_Layer: 0
   m_Name: Corridor
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,6 +33,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &8465019173753131641
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031358558211814182}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8860821459023702858, guid: 5c4f9db6c58e7544f9ed560947081f7c, type: 3}
+--- !u!64 &5680283307988627692
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3231998111223713862}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8493847667141215224, guid: d9eeb65aa328e8245b41acaeb2079fe3, type: 3}
+--- !u!64 &2230712998420268705
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5921112967270192353}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8860821459023702858, guid: 5c4f9db6c58e7544f9ed560947081f7c, type: 3}
 --- !u!1001 &1220963722942942839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96,12 +138,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5c4f9db6c58e7544f9ed560947081f7c, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5c4f9db6c58e7544f9ed560947081f7c, type: 3}
       propertyPath: m_Name
       value: corridor_wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c4f9db6c58e7544f9ed560947081f7c, type: 3}
+--- !u!1 &2031358558211814182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5c4f9db6c58e7544f9ed560947081f7c, type: 3}
+  m_PrefabInstance: {fileID: 1220963722942942839}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1691952080834161052 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5c4f9db6c58e7544f9ed560947081f7c, type: 3}
@@ -170,12 +221,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d9eeb65aa328e8245b41acaeb2079fe3, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d9eeb65aa328e8245b41acaeb2079fe3, type: 3}
       propertyPath: m_Name
       value: corridor_roof
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9eeb65aa328e8245b41acaeb2079fe3, type: 3}
+--- !u!1 &3231998111223713862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d9eeb65aa328e8245b41acaeb2079fe3, type: 3}
+  m_PrefabInstance: {fileID: 2313501079283969303}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2851215637656193788 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d9eeb65aa328e8245b41acaeb2079fe3, type: 3}
@@ -244,12 +304,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5c4f9db6c58e7544f9ed560947081f7c, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5c4f9db6c58e7544f9ed560947081f7c, type: 3}
       propertyPath: m_Name
       value: corridor_wall (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c4f9db6c58e7544f9ed560947081f7c, type: 3}
+--- !u!1 &5921112967270192353 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5c4f9db6c58e7544f9ed560947081f7c, type: 3}
+  m_PrefabInstance: {fileID: 6840243318980635056}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6442351385779965531 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5c4f9db6c58e7544f9ed560947081f7c, type: 3}

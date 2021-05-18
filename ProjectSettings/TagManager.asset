@@ -10,6 +10,9 @@ TagManager:
   - SlideObstracle
   - Coin
   - Audio
+  - FxTemporaire
+  - Props
+  - Building
   layers:
   - Default
   - TransparentFX

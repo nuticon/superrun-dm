@@ -9,10 +9,10 @@ public class CharacterInputController : MonoBehaviour
   {
     if (CharacterMovement.IsMoving)
     {
-      if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) characterMovement.Jump();
-      if (Input.GetKeyDown(KeyCode.DownArrow)) characterMovement.Slide();
-      if (Input.GetKeyDown(KeyCode.RightArrow)) characterMovement.ChangeLanesRight();
-      if (Input.GetKeyDown(KeyCode.LeftArrow)) characterMovement.ChangeLanesLeft();
+      if (Input.GetButtonDown("Jump") || Input.GetAxis("Vertical") > 0) characterMovement.Jump();
+      if (Input.GetAxis("Vertical") < 0) characterMovement.Slide();
+      if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) characterMovement.ChangeLanesRight();
+      if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) characterMovement.ChangeLanesLeft();
       if (Input.touchCount == 1)
       {
         if (IsSwiping)

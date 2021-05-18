@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 594999039789922699}
   - component: {fileID: 581694144855699614}
   - component: {fileID: 581694144855699613}
+  - component: {fileID: 6165144267808847389}
   m_Layer: 0
   m_Name: LowPoly - Rock A
-  m_TagString: Untagged
+  m_TagString: Props
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,3 +114,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 26fb55e8ae34728499f6f45cd0527c73, type: 3}
+--- !u!114 &6165144267808847389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582177462946037689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bad43980c005c84c9f6a4e8de170fc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
