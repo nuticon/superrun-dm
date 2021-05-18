@@ -696,6 +696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 144009767}
   cameraController: {fileID: 303101876}
+  sound: {fileID: 699567399}
   ui: {fileID: 223252402}
 --- !u!4 &537401579
 Transform:
@@ -926,6 +927,8 @@ MonoBehaviour:
   Source: {fileID: 699567397}
   ObstracleHitSound: {fileID: 8300000, guid: 9ed08397b3fef21418662ed63130d301, type: 3}
   CoinCollectSound: {fileID: 8300000, guid: ff0a0329d93c32f4abd909fb3094695f, type: 3}
+  MenuMusic: {fileID: 8300000, guid: c5f9967b1c0d51942b45180d992afda5, type: 3}
+  InGameMusic: {fileID: 8300000, guid: 992eaa57bad8f724f8ca27dfa6719680, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

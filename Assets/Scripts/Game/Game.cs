@@ -16,6 +16,7 @@ public class Game : MonoBehaviour
   private bool IsDouble = false;
   public Character character;
   public CameraController cameraController;
+  public Sound sound;
   public UI ui;
   private int LocalCoin = 0;
   void Awake()
@@ -37,6 +38,7 @@ public class Game : MonoBehaviour
   }
   private void SetDefaultState()
   {
+    sound.PlayMenuMusic();
     Point = 0;
     Coin = 0;
     LocalCoin = Coin;
@@ -46,6 +48,7 @@ public class Game : MonoBehaviour
   public void StartGame()
   {
     GameStarted = true;
+    sound.PlayInGameMusic();
   }
   public void RestartGame()
   {
