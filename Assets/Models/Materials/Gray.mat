@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Gray
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: -6465566751694194690, guid: b61b452e0bfaffc40af6c6fd41b3b38a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -33,6 +33,10 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_4131cd6d7b3848d487c949ef3a9ca12f:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_b72007014a6d4c599b752ba35f995347:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -112,6 +116,7 @@ Material:
     - Vector1_82db9563e7d44315a91384ec40bb8bae: -0.9
     - Vector1_86886e9190b1441ba28cda7cf4772bf3: -0.9
     - Vector1_f027da87fb644885974798bb68d1fab5: 0.005
+    - Vector1_f613bf544f2d4b3ab6507b54ed4aac70: 0.0001
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -146,7 +151,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - Color_e32636924b2247e8a9701284840e8b5f: {r: 0.5372549, g: 0.5372549, b: 0.5372549, a: 1}
+    - _BaseColor: {r: 0.53773576, g: 0.53773576, b: 0.53773576, a: 1}
     - _Color: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
