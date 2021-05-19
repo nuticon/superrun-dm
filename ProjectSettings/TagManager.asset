@@ -13,6 +13,7 @@ TagManager:
   - FxTemporaire
   - Props
   - Building
+  - Water
   layers:
   - Default
   - TransparentFX

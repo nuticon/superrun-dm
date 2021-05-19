@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7642712164443169044}
   m_Layer: 0
   m_Name: Tile9
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,6 +61,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road2.2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 366870292726833982, guid: f1c22ede69621684abbf78b870c817f8, type: 3}
+      propertyPath: m_TagString
+      value: Water
+      objectReference: {fileID: 0}
     - target: {fileID: 1034897980828694916, guid: f1c22ede69621684abbf78b870c817f8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -104,6 +108,14 @@ PrefabInstance:
     - target: {fileID: 1034897980828694916, guid: f1c22ede69621684abbf78b870c817f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410073862960779503, guid: f1c22ede69621684abbf78b870c817f8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 21437e8b12931104b9ed9d2279ae875e, type: 2}
+    - target: {fileID: 8547535463604349824, guid: f1c22ede69621684abbf78b870c817f8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1c22ede69621684abbf78b870c817f8, type: 3}
