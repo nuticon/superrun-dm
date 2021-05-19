@@ -2,47 +2,72 @@ using UnityEngine;
 
 public class Power : MonoBehaviour
 {
-  private bool IsDouble = false;
-  private float DoubleTimer = 0;
-  private int DoubleLevel;
-  private bool IsMagnet = false;
-  private float MagnetTimer = 0;
-  private int MagnetLevel;
+  public PowerModel Magnet;
+  public PowerModel Double;
   private PowerData powerData;
-  private void Start() {
+  private string TempPower = "";
+  public static string GlobalPower = "";
+  private void Start()
+  {
     powerData = new PowerData();
+    Magnet = new PowerModel(powerData.GetMagnetLevel());
+    Double = new PowerModel(powerData.GetDoubleLevel());
+  }
+  private void Update()
+  {
+    WatchGlobalPower();
   }
   public void SetActivePower(string PowerName)
   {
     switch (PowerName)
     {
-        case "Double" :
-          ActivateDouble();
-          break;
-        case "Magnet" :
-          ActivateMagnet();
-          break;
+      case "Double":
+        ActivateDouble();
+        break;
+      case "Multiply":
+        ActivateDouble();
+        break;
+      case "Magnet":
+        ActivateMagnet();
+        break;
     }
   }
   private void ActivateDouble()
   {
-    DoubleTimer = 0;
-    IsDouble = true;
+    Double.Enable();
   }
-   private void ActivateMagnet()
+  private void ActivateMagnet()
   {
-    MagnetTimer = 0;
-    IsMagnet = true;
+    Magnet.Enable();
   }
   public bool DoubleActivating()
   {
-    if (!IsDouble) return false;
-    DoubleTimer += Time.deltaTime;
-    if(DoubleTimer >= 5 * powerData.GetDoubleLevel())
+    if (!Double.IsEnable) return false;
+    Double.Timer += Time.deltaTime;
+    Double.TimeLeft = (int) (Double.MaxTime - Double.Timer);
+    if (Double.Timer >= Double.MaxTime)
     {
-      IsDouble = false;
-      DoubleTimer = 0;
+      Double.Disable();
     }
     return true;
+  }
+  public bool MagnetActivating()
+  {
+    if (!Magnet.IsEnable) return false;
+    Magnet.Timer += Time.deltaTime;
+    Magnet.TimeLeft = (int) (Magnet.MaxTime - Magnet.Timer);
+    if (Magnet.Timer >= Magnet.MaxTime)
+    {
+      Magnet.Disable();
+    }
+    return true;
+  }
+  private void WatchGlobalPower()
+  {
+    if (GlobalPower != TempPower)
+    {
+      SetActivePower(GlobalPower);
+      GlobalPower = TempPower;
+    }
   }
 }

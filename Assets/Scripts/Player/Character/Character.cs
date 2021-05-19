@@ -31,6 +31,7 @@ public class Character : MonoBehaviour
   public CharacterParticle characterParticle;
   public Sound sound;
   private int LocalLife;
+  public Power power;
   void Start()
   {
     animator = GetComponent<Animator>();
@@ -67,6 +68,7 @@ public class Character : MonoBehaviour
     animator.speed = 1;
     Life = MaxLife;
     LocalLife = Life;
+    characterMovement.TempDistance = 0;
   }
   public void Over()
   {

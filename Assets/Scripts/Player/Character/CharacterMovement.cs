@@ -24,6 +24,8 @@ public class CharacterMovement : MonoBehaviour
   internal float TargetLenOffset;
   public Character character;
   private float SpeedTimer = 0;
+  internal float TempDistance = 0;
+  public Power power;
   private void Start()
   {
     Speed = character.MinSpeed;
@@ -77,6 +79,12 @@ public class CharacterMovement : MonoBehaviour
     if (character.animator.speed < 1.5f && !Jumping && !Sliding)
     {
       character.animator.speed += Time.deltaTime;
+    }
+    if(transform.position.z - TempDistance >= 10)
+    {
+      TempDistance = transform.position.z;
+      Game.Point ++;
+      if (power.DoubleActivating()) Game.Point ++;
     }
   }
   public void Jump()

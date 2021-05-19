@@ -14,6 +14,8 @@ TagManager:
   - Props
   - Building
   - Water
+  - Magnet
+  - Multiply
   layers:
   - Default
   - TransparentFX

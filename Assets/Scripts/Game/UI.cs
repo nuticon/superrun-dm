@@ -11,6 +11,7 @@ public class UI : MonoBehaviour
   public TMP_Text InGameCoinText;
   public TMP_Text PlayerCoinText;
   public TMP_Text PlayerLifeText;
+  public TMP_Text PowerUpSet;
   public Text CountDownText;
   public Text GameOverPointText;
   public Text GameOverText;
@@ -65,6 +66,7 @@ public class UI : MonoBehaviour
     PointText.gameObject.SetActive(false);
     RetryButton.gameObject.SetActive(false);
     RetryButton.gameObject.SetActive(false);
+    PowerUpSet.gameObject.SetActive(false);
   }
   private void SetPlayingUI()
   {
@@ -75,5 +77,6 @@ public class UI : MonoBehaviour
     PlayerCoinText.gameObject.SetActive(false);
     PlayerLifeText.gameObject.SetActive(true);
     PointText.gameObject.SetActive(true);
+    PowerUpSet.gameObject.SetActive(true);
   }
 }
