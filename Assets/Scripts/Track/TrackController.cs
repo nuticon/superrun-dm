@@ -8,10 +8,14 @@ public class TrackController : MonoBehaviour
   private float TimeToChangeZoneTimer = 0;
   private float Timer = 0;
   private int[] PropsOffset = new[] { -40, 20 };
+  private int[] Lanes = new[] { -7, 0, 7 };
   public GameObject CorridorTile;
   public GameObject[] Landmarks;
   public GameObject[] Props;
   public GameObject[] Tiles;
+  public GameObject[] PowerUps;
+  public float PowerUpFrequency;
+  private int LocalTileCounter = 0;
   public float TileDistanceOffset = 73.7f;
   public float TileLoadDelay;
   public float TileSpawnDistanceLimit;
@@ -55,6 +59,12 @@ public class TrackController : MonoBehaviour
         ChildTile.transform.parent = TileSet.transform;
         LastTilePosition = ChildTile.transform.position;
         SpawnProps(ChildTile);
+        LocalTileCounter++;
+        if (LocalTileCounter >= PowerUpFrequency)
+        {
+          SpawnPowerUp(ChildTile, ChildTile.transform.position.z - (TileDistanceOffset / 2));
+          LocalTileCounter = 0;
+        }
       }
     }
   }
@@ -66,6 +76,12 @@ public class TrackController : MonoBehaviour
       ChildTile.transform.parent = TileSet.transform;
       LastTilePosition = ChildTile.transform.position;
       SpawnProps(ChildTile);
+      LocalTileCounter++;
+      if (LocalTileCounter >= PowerUpFrequency)
+      {
+        SpawnPowerUp(ChildTile, ChildTile.transform.position.z - (TileDistanceOffset / 2));
+        LocalTileCounter = 0;
+      }
     }
   }
   private void SpawnProps(GameObject Parent)
@@ -78,6 +94,19 @@ public class TrackController : MonoBehaviour
       var ChildProp = Instantiate(SelectedProps, new Vector3(RandomPropOffset, 0, LastTilePosition.z + TileDistanceOffset + RandomPropOffset), Quaternion.identity);
       ChildProp.transform.parent = Parent.transform;
     }
+  }
+  private void SpawnPowerUp(GameObject Parent, float PositionZ)
+  {
+    GameObject power = GetRandomPowerUp();
+    int index = Random.Range(0, Lanes.Length);
+    int lane = Lanes[index];
+    var spawnedPower = Instantiate(power, new Vector3(lane, 5, PositionZ), Quaternion.identity);
+    spawnedPower.transform.parent = Parent.transform;
+  }
+  private GameObject GetRandomPowerUp()
+  {
+    int index = Random.Range(0, PowerUps.Length);
+    return PowerUps[index];
   }
   private GameObject GetRandomTile()
   {

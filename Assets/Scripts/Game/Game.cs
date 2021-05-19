@@ -13,12 +13,15 @@ public class Game : MonoBehaviour
   private float CountDownTimer;
   private int CountDown = 3;
   internal Player player1;
-  private bool IsDouble = false;
   public Character character;
+  public Power power;
   public CameraController cameraController;
   public Sound sound;
   public UI ui;
   private int LocalCoin = 0;
+
+  private string TempPowerUpText;
+  public static bool MagnetActive;
   void Awake()
   {
     player1 = new Player();
@@ -30,8 +33,8 @@ public class Game : MonoBehaviour
   {
     if (GameStarted && CountDownEnd())
     {
-      CountPoint();
       WatchCoin();
+      WatchPowerUp();
     }
     if (GameStarted && Character.Life <= 0)
       TriggerGameOver();
@@ -56,6 +59,8 @@ public class Game : MonoBehaviour
     GetHighScroll();
     character.ResetState();
     cameraController.SetDefaultCamera();
+    power.Double.Disable();
+    power.Magnet.Disable();
   }
   void SavePlayer(int Scroll)
   {
@@ -70,7 +75,6 @@ public class Game : MonoBehaviour
       CurrentHighScroll = player1.HighScroll;
     else
       CurrentHighScroll = 0;
-
   }
   private void TriggerGameOver()
   {
@@ -78,17 +82,6 @@ public class Game : MonoBehaviour
     Over = true;
     ui.SetGameOverUI();
     SavePlayer(Point);
-  }
-  private void CountPoint()
-  {
-    int zPoint = (int)Character.Position.z / 10;
-    if (IsDouble)
-    {
-      Point += (zPoint - Point) * 2;
-      return;
-    }
-    Point += zPoint - Point;
-
   }
   private bool CountDownEnd()
   {
@@ -113,16 +106,24 @@ public class Game : MonoBehaviour
 
   public int GetPlayerCoin()
   {
-    if(player1 != null) return player1.Coin;
+    if (player1 != null) return player1.Coin;
     return 0;
   }
 
   public void WatchCoin()
   {
-    if(Coin > LocalCoin)
+    if (Coin > LocalCoin)
     {
       character.CoinUp();
       LocalCoin = Coin;
     }
+  }
+  private void WatchPowerUp()
+  {
+    MagnetActive = power.MagnetActivating();
+    TempPowerUpText = "";
+    if (power.DoubleActivating()) TempPowerUpText += "x2 " + power.Double.TimeLeft + "s\n";
+    if (power.MagnetActivating()) TempPowerUpText += "Magnet " + power.Magnet.TimeLeft + "s\n";
+    ui.PowerUpSet.SetText(TempPowerUpText);
   }
 }

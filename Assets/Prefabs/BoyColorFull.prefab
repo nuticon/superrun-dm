@@ -2054,6 +2054,7 @@ GameObject:
   - component: {fileID: 3807453993878164422}
   - component: {fileID: 3905961768561678999}
   - component: {fileID: 1917993094098936569}
+  - component: {fileID: 7596282839721313445}
   - component: {fileID: 4114432544190819403}
   m_Layer: 0
   m_Name: BoyColorFull
@@ -2161,11 +2162,13 @@ MonoBehaviour:
   LanesOffset: 7
   MaxSpeed: 5
   MinSpeed: 1.5
+  SpeedIncreaseDelay: 0
   SideWaySpeed: 1
   SlideLength: 1
   MaxLife: 3
   characterMovement: {fileID: 3905961768561678999}
   characterParticle: {fileID: 1917993094098936569}
+  sound: {fileID: 0}
 --- !u!114 &3807453993878164422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2207,6 +2210,18 @@ MonoBehaviour:
   character: {fileID: 7406367311458304641}
   CoinParticle: {fileID: 1037864198121816, guid: 638c8ca438a11c54987de876e500ed02, type: 3}
   HitParticle: {fileID: 1742013225946848, guid: b3d8264aa7d2d824a8a503e45291ddf4, type: 3}
+--- !u!114 &7596282839721313445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7640877960485620641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a980b731fb49c74eb6f709cf17d3bd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &4114432544190819403
 BoxCollider:
   m_ObjectHideFlags: 0
