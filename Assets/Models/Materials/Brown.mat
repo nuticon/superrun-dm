@@ -8,18 +8,21 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Brown
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: b61b452e0bfaffc40af6c6fd41b3b38a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_b72007014a6d4c599b752ba35f995347:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -77,6 +80,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_21dbfb2d6a744da6a72d7a31a7099e94: 0.0001
+    - Vector1_b0f7f542e35c442186764f1113127716: 0.0003
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -106,6 +111,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_e32636924b2247e8a9701284840e8b5f: {r: 0.5566038, g: 0.3129016, b: 0.2226415, a: 1}
     - _BaseColor: {r: 0.6509434, g: 0.31880847, b: 0.039302204, a: 1}
     - _Color: {r: 0.6509434, g: 0.3188085, b: 0.039302204, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
