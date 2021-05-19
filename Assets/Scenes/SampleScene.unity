@@ -1448,7 +1448,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f2c79da3fc2e44da466d609dda90cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materials: []
+  materials:
+  - {fileID: 2100000, guid: c64c38055ade52049b67c2a8abab2feb, type: 2}
+  - {fileID: 2100000, guid: 5a21f007adfd70b4a8b83e2f2fc0ebf3, type: 2}
+  - {fileID: 2100000, guid: dfae6332d1eab5342860079ad1eeeca2, type: 2}
+  - {fileID: 2100000, guid: 1555c19e570baa649b1faec16f8d16de, type: 2}
+  - {fileID: 2100000, guid: c26f000bb4d4b154c81f61d7703ad447, type: 2}
+  - {fileID: 2100000, guid: bb42ccda86984eb428d1fc5aae713477, type: 2}
   CurveX: 0.0003
   CurveY: 0.0001
 --- !u!1 &1227892824
