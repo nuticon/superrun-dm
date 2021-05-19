@@ -12,6 +12,7 @@ public class TrackController : MonoBehaviour
   public GameObject[] Landmarks;
   public GameObject[] Props;
   public GameObject[] Tiles;
+  public GameObject[] PowerUps;
   public float TileDistanceOffset = 73.7f;
   public float TileLoadDelay;
   public float TileSpawnDistanceLimit;
@@ -78,6 +79,16 @@ public class TrackController : MonoBehaviour
       var ChildProp = Instantiate(SelectedProps, new Vector3(RandomPropOffset, 0, LastTilePosition.z + TileDistanceOffset + RandomPropOffset), Quaternion.identity);
       ChildProp.transform.parent = Parent.transform;
     }
+  }
+  private void SpawnPowerUp()
+  {
+    GameObject power = GetRandomPowerUp();
+    Instantiate(power, new Vector3(0, 0, 0), Quaternion.identity);
+  }
+  private GameObject GetRandomPowerUp()
+  {
+    int index = Random.Range(0, PowerUps.Length);
+    return PowerUps[index];
   }
   private GameObject GetRandomTile()
   {

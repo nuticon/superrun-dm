@@ -728,6 +728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 144009767}
+  power: {fileID: 7406367311748480702}
   cameraController: {fileID: 303101876}
   sound: {fileID: 699567399}
   ui: {fileID: 223252402}
@@ -2187,6 +2188,8 @@ MonoBehaviour:
   - {fileID: 6085710957191249475, guid: 5bfbe9e4a02afea4eb8f6cd394538e30, type: 3}
   - {fileID: 9208062103856242509, guid: 928b8d55d90fb144a94f33111954581a, type: 3}
   - {fileID: 3914754531031993950, guid: e28e149e886bf80478b7d9290a5b6fa0, type: 3}
+  PowerUps:
+  - {fileID: 0}
   TileDistanceOffset: 73.7
   TileLoadDelay: 0
   TileSpawnDistanceLimit: 1000
@@ -2524,3 +2527,14 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4114432544190819403, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+--- !u!114 &7406367311748480702 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7596282839721313445, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+  m_PrefabInstance: {fileID: 7406367311748480701}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a980b731fb49c74eb6f709cf17d3bd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

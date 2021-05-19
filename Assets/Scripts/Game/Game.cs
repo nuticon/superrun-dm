@@ -13,8 +13,8 @@ public class Game : MonoBehaviour
   private float CountDownTimer;
   private int CountDown = 3;
   internal Player player1;
-  private bool IsDouble = false;
   public Character character;
+  public Power power;
   public CameraController cameraController;
   public Sound sound;
   public UI ui;
@@ -82,7 +82,7 @@ public class Game : MonoBehaviour
   private void CountPoint()
   {
     int zPoint = (int)Character.Position.z / 10;
-    if (IsDouble)
+    if (power.DoubleActivating())
     {
       Point += (zPoint - Point) * 2;
       return;
