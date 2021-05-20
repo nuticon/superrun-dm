@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 708766393466214683}
   - component: {fileID: 6061565594550909377}
   - component: {fileID: 6014117983615169074}
+  - component: {fileID: 1650557161514289049}
   m_Layer: 0
   m_Name: pCube1
   m_TagString: Building
@@ -129,6 +130,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &1650557161514289049
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3438003203652412}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4068373912626513877, guid: 28818d5f5ad2c794a830445ab457993f, type: 3}
 --- !u!1 &215073128304750733
 GameObject:
   m_ObjectHideFlags: 0
