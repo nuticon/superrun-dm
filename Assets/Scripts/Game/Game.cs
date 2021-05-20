@@ -22,12 +22,12 @@ public class Game : MonoBehaviour
 
   private string TempPowerUpText;
   public static bool MagnetActive;
-  void Awake()
+  void Start()
   {
     player1 = new Player();
     player1.Load();
-    GetHighScroll();
     SetDefaultState();
+    ui.ResetUI();
   }
   void Update()
   {
@@ -41,6 +41,7 @@ public class Game : MonoBehaviour
   }
   private void SetDefaultState()
   {
+    GetHighScroll();
     sound.PlayMenuMusic();
     Point = 0;
     Coin = 0;
@@ -56,7 +57,6 @@ public class Game : MonoBehaviour
   public void RestartGame()
   {
     SetDefaultState();
-    GetHighScroll();
     character.ResetState();
     cameraController.SetDefaultCamera();
     power.Double.Disable();

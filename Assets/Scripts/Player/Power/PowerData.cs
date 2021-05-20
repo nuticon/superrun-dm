@@ -13,4 +13,8 @@ public class PowerData
   {
     return MagnetLevel;
   }
+  public void Save()
+  {
+    Storage.SavePowerUpData(this);
+  }
 }

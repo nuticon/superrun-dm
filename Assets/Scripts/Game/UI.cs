@@ -52,7 +52,7 @@ public class UI : MonoBehaviour
     PointText.gameObject.SetActive(false);
     RetryButton.gameObject.SetActive(true);
   }
-  private void ResetUI()
+  public void ResetUI()
   {
     CountDownText.gameObject.SetActive(false);
     GameOverText.gameObject.SetActive(false);
