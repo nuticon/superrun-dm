@@ -17,11 +17,13 @@ public class Player
   public void Save()
   {
     Storage.SavePlayer(this);
+    Debug.Log("Player saved");
   }
   public void Load()
   {
     Player player = Storage.LoadPlayer();
     this.HighScroll = player.HighScroll;
     this.Coin = player.Coin;
+    Debug.Log("Player loaded");
   }
 }

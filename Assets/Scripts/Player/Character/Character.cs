@@ -69,6 +69,7 @@ public class Character : MonoBehaviour
     Life = MaxLife;
     LocalLife = Life;
     characterMovement.TempDistance = 0;
+    Debug.Log("Reseted character");
   }
   public void Over()
   {

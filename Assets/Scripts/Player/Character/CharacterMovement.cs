@@ -38,7 +38,6 @@ public class CharacterMovement : MonoBehaviour
   }
   private void Update()
   {
-    Debug.Log(IsGrounded);
     if (IsMoving && !Game.Over) Run();
     if (Sliding)
     {
@@ -59,6 +58,7 @@ public class CharacterMovement : MonoBehaviour
       if (SpeedTimer >= character.SpeedIncreaseDelay)
       {
         Speed += 0.05f;
+        Debug.Log("Current Speed " + Speed.ToString());
         SpeedTimer = 0;
       }
     }
@@ -93,6 +93,7 @@ public class CharacterMovement : MonoBehaviour
   {
     if (!Jumping && IsGrounded)
     {
+      Debug.Log("Player Jumped");
       character.animator.SetTrigger("IsJumpping");
       Jumping = true;
       if (Sliding) StopSlide();
@@ -119,6 +120,7 @@ public class CharacterMovement : MonoBehaviour
   {
     if (!Sliding)
     {
+      Debug.Log("Player Slided");
       character.animator.SetTrigger("IsSlide");
       Sliding = true;
       if (Jumping) StopJump();
@@ -152,6 +154,7 @@ public class CharacterMovement : MonoBehaviour
   {
     IsMoving = true;
     character.animator.SetBool("IsMoving", true);
+    Debug.Log("Player started run");
   }
   public void StopMoving()
   {
@@ -164,6 +167,7 @@ public class CharacterMovement : MonoBehaviour
     {
       Lanes++;
       TargetLenOffset = Lanes * character.LanesOffset;
+      Debug.Log("Player change to right lane");
     }
   }
   public void ChangeLanesLeft()
@@ -172,6 +176,7 @@ public class CharacterMovement : MonoBehaviour
     {
       Lanes--;
       TargetLenOffset = Lanes * character.LanesOffset;
+      Debug.Log("Player change to left lane");
     }
   }
 }

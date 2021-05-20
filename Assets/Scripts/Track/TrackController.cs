@@ -102,6 +102,7 @@ public class TrackController : MonoBehaviour
     int lane = Lanes[index];
     var spawnedPower = Instantiate(power, new Vector3(lane, 5, PositionZ), Quaternion.identity);
     spawnedPower.transform.parent = Parent.transform;
+    Debug.Log(spawnedPower.gameObject.tag + "spawned");
   }
   private GameObject GetRandomPowerUp()
   {
@@ -134,5 +135,6 @@ public class TrackController : MonoBehaviour
       Object.Destroy(Tile.gameObject);
     }
     TrackController.LastTilePosition = new Vector3(0, 0, 0);
+    Debug.Log("Tile refreshed");
   }
 }

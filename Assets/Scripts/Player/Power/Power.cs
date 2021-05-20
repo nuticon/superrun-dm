@@ -35,10 +35,12 @@ public class Power : MonoBehaviour
   private void ActivateDouble()
   {
     Double.Enable();
+    Debug.Log("Double point activated");
   }
   private void ActivateMagnet()
   {
     Magnet.Enable();
+    Debug.Log("Magnet point activated");
   }
   public bool DoubleActivating()
   {
