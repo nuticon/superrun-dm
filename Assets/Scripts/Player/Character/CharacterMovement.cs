@@ -111,10 +111,19 @@ public class CharacterMovement : MonoBehaviour
     {
       Vector3 interpolPostionUp = new Vector3(transform.position.x, CalculatedJumpStrength / 2, transform.position.z);
       transform.position = Vector3.Lerp(transform.position, interpolPostionUp, Time.deltaTime * CalculatedJumpSpeed);
+    }
+    if (JumpingFrame > CalculatedJumpStrength && JumpingFrame < CalculatedJumpStrength * 2)
+    {
+      Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
+      transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * CalculatedJumpSpeed);
+    }
+    if (JumpingFrame >= CalculatedJumpStrength * 2)
+    {
+      StopJump();
       JumpingFrame += Time.deltaTime * 100;
       return;
     }
-    StopJump();
+    JumpingFrame += Time.deltaTime * 100;
   }
   public void Slide()
   {
