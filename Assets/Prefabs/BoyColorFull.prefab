@@ -2169,6 +2169,7 @@ MonoBehaviour:
   characterMovement: {fileID: 3905961768561678999}
   characterParticle: {fileID: 1917993094098936569}
   sound: {fileID: 0}
+  power: {fileID: 0}
 --- !u!114 &3807453993878164422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2195,6 +2196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 7406367311458304641}
+  power: {fileID: 0}
 --- !u!114 &1917993094098936569
 MonoBehaviour:
   m_ObjectHideFlags: 0

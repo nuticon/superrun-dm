@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4314212658855253204}
   - component: {fileID: 2457573069969053454}
   - component: {fileID: 708766393466214683}
+  - component: {fileID: 6061565594550909377}
   m_Layer: 0
   m_Name: pCube1
-  m_TagString: Building
+  m_TagString: Road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,11 +95,23 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3438003203652412}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.19975208, y: 0.0063110464, z: 0.23816502}
   m_Center: {x: 0.000000006143434, y: -0.0022535978, z: 0.000000012286868}
+--- !u!114 &6061565594550909377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3438003203652412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8869bfa18cabd74089517624211ac2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &215073128304750733
 GameObject:
   m_ObjectHideFlags: 0
