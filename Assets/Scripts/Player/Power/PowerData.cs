@@ -17,4 +17,10 @@ public class PowerData
   {
     Storage.SavePowerUpData(this);
   }
+  public void Load()
+  {
+    PowerData data = Storage.LoadPowerData();
+    this.DoubleLevel = data.DoubleLevel;
+    this.MagnetLevel = data.MagnetLevel;
+  }
 }
