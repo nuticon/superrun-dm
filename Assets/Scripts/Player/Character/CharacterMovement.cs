@@ -65,9 +65,9 @@ public class CharacterMovement : MonoBehaviour
   }
   public void Run()
   {
-    //transform.position += Vector3.forward * Time.deltaTime * Speed * SpeedMultiplier;
-    Vector3 TargetPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1);
-    transform.position = Vector3.Lerp(transform.position, TargetPosition, Time.deltaTime * Speed * SpeedMultiplier);
+    transform.position += Vector3.forward * Time.deltaTime * Speed * SpeedMultiplier;
+    // Vector3 TargetPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1);
+    // transform.position = Vector3.Lerp(transform.position, TargetPosition, Time.deltaTime * Speed * SpeedMultiplier);
     if (transform.position.x != TargetLenOffset)
     {
       Vector3 interpolPostion = new Vector3(TargetLenOffset, transform.position.y, transform.position.z);
