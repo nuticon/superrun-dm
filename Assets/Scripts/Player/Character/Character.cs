@@ -31,7 +31,9 @@ public class Character : MonoBehaviour
   public CharacterParticle characterParticle;
   public Sound sound;
   private int LocalLife;
-  public Power power;
+  public float IdleAnimationChangeTime;
+  private int RandomedAnimation;
+  private float AnimationChangeTimer = 0;
   void Start()
   {
     animator = GetComponent<Animator>();
@@ -41,6 +43,7 @@ public class Character : MonoBehaviour
     DefaultColliderSize = Collider.size;
     Life = MaxLife;
     LocalLife = Life;
+    animator.SetTrigger("IsIdle");
   }
   void Update()
   {
@@ -54,8 +57,9 @@ public class Character : MonoBehaviour
       characterMovement.StartMoving();
       return;
     }
+    if (Game.GameStarted && !Game.Over) WatchLife();
     if (Invincible) Blink();
-    WatchLife();
+    if (!CharacterMovement.IsMoving && !Game.Over) WatchAnimation();
   }
   public void ResetState()
   {
@@ -113,5 +117,24 @@ public class Character : MonoBehaviour
   {
     characterParticle.PlayCoinParticle();
     sound.PlayCoinCollectSound();
+  }
+  private void WatchAnimation()
+  {
+    if (AnimationChangeTimer >= IdleAnimationChangeTime && !animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+    {
+      AnimationChangeTimer = 0;
+      animator.SetInteger("IdleRandom", -1);
+      return;
+    }
+    if (AnimationChangeTimer >= IdleAnimationChangeTime && animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+    {
+      animator.SetInteger("IdleRandom", Random.Range(1, 4));
+      return;
+    }
+    if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle")) 
+    {
+      AnimationChangeTimer += Time.deltaTime;
+      return;
+    }
   }
 }

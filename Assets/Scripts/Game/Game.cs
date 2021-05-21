@@ -52,6 +52,7 @@ public class Game : MonoBehaviour
   public void StartGame()
   {
     GameStarted = true;
+    character.animator.SetTrigger("IsIdle");
     sound.PlayInGameMusic();
     Debug.Log("Game Started");
   }
