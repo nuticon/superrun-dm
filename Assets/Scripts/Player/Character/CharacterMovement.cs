@@ -65,16 +65,19 @@ public class CharacterMovement : MonoBehaviour
   }
   public void Run()
   {
-    transform.position += Vector3.forward * Time.deltaTime * Speed * SpeedMultiplier;
+    //transform.position += Vector3.forward * Time.deltaTime * Speed * SpeedMultiplier;
+    Vector3 TargetPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1);
+    transform.position = Vector3.Lerp(transform.position, TargetPosition, Time.deltaTime * Speed * SpeedMultiplier);
     if (transform.position.x != TargetLenOffset)
     {
       Vector3 interpolPostion = new Vector3(TargetLenOffset, transform.position.y, transform.position.z);
       transform.position = Vector3.Lerp(transform.position, interpolPostion, Time.deltaTime * CalculatedSideWaySpeed);
     }
-    if (!Jumping && !IsGrounded)
+    if (!Jumping && !Sliding && !IsGrounded)
     {
-      Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
-      transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * CalculatedJumpSpeed);
+      transform.position = new Vector3(transform.position.x, transform.position.y - (2 * Time.deltaTime * 14), transform.position.z);
+      // Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
+      // transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * CalculatedJumpSpeed);
     }
     Character.Position = transform.position;
     SpeedIncrease();
@@ -114,13 +117,13 @@ public class CharacterMovement : MonoBehaviour
     }
     if (JumpingFrame > CalculatedJumpStrength && JumpingFrame < CalculatedJumpStrength * 2)
     {
-      Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
-      transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * CalculatedJumpSpeed);
+      transform.position = new Vector3(transform.position.x, transform.position.y - (2 * Time.deltaTime * 14), transform.position.z);
+      // Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
+      // transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * CalculatedJumpSpeed);
     }
     if (JumpingFrame >= CalculatedJumpStrength * 2)
     {
       StopJump();
-      JumpingFrame += Time.deltaTime * 100;
       return;
     }
     JumpingFrame += Time.deltaTime * 100;
@@ -147,8 +150,12 @@ public class CharacterMovement : MonoBehaviour
   {
     if (SlidingFrame < CalculatedSlideLength)
     {
-      Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
-      transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * CalculatedJumpSpeed);
+      if(!IsGrounded)
+      {
+        Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
+        transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * CalculatedJumpSpeed * 2);
+      }
+      //transform.position = new Vector3(transform.position.x, transform.position.y - (2 * Time.deltaTime * 14), transform.position.z);
       character.Collider.size = new Vector3(character.DefaultColliderSize.x, 0.02f, character.DefaultColliderSize.z);
       character.Collider.center = new Vector3(character.DefaultColliderCenter.x, 0.015f, character.DefaultColliderCenter.z);
     }

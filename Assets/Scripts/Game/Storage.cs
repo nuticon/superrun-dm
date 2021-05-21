@@ -36,4 +36,18 @@ public static class Storage
     Formatter.Serialize(stream, power);
     stream.Close();
   }
+
+  public static PowerData LoadPowerData()
+  {
+    string Path = Application.persistentDataPath + "/power.dat";
+    if (File.Exists(Path))
+    {
+      BinaryFormatter formatter = new BinaryFormatter();
+      FileStream stream = new FileStream(Path, FileMode.Open);
+      PowerData data = formatter.Deserialize(stream) as PowerData;
+      stream.Close();
+      return data;
+    }
+    return null;
+  }
 }
