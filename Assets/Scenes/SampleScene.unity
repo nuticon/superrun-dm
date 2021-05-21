@@ -2685,6 +2685,10 @@ PrefabInstance:
       propertyPath: DefaultModelScale.z
       value: 163.79587
       objectReference: {fileID: 0}
+    - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+      propertyPath: IdleAnimationChangeTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7406367311458304646, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: m_UseGravity
       value: 0
