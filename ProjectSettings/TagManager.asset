@@ -16,6 +16,7 @@ TagManager:
   - Water
   - Magnet
   - Multiply
+  - Road
   layers:
   - Default
   - TransparentFX

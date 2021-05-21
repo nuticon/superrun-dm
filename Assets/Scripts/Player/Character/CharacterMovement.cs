@@ -25,6 +25,7 @@ public class CharacterMovement : MonoBehaviour
   public Character character;
   private float SpeedTimer = 0;
   internal float TempDistance = 0;
+  public static bool IsGrounded;
   public Power power;
   private void Start()
   {
@@ -57,6 +58,7 @@ public class CharacterMovement : MonoBehaviour
       if (SpeedTimer >= character.SpeedIncreaseDelay)
       {
         Speed += 0.05f;
+        Debug.Log("Current Speed " + Speed.ToString());
         SpeedTimer = 0;
       }
     }
@@ -69,7 +71,7 @@ public class CharacterMovement : MonoBehaviour
       Vector3 interpolPostion = new Vector3(TargetLenOffset, transform.position.y, transform.position.z);
       transform.position = Vector3.Lerp(transform.position, interpolPostion, Time.deltaTime * CalculatedSideWaySpeed);
     }
-    if (!Jumping)
+    if (!Jumping && !IsGrounded)
     {
       Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
       transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * CalculatedJumpSpeed);
@@ -80,17 +82,18 @@ public class CharacterMovement : MonoBehaviour
     {
       character.animator.speed += Time.deltaTime;
     }
-    if(transform.position.z - TempDistance >= 10)
+    if (transform.position.z - TempDistance >= 10)
     {
       TempDistance = transform.position.z;
-      Game.Point ++;
-      if (power.DoubleActivating()) Game.Point ++;
+      Game.Point++;
+      if (power.DoubleActivating()) Game.Point++;
     }
   }
   public void Jump()
   {
-    if (!Jumping)
+    if (!Jumping && IsGrounded)
     {
+      Debug.Log("Player Jumped");
       character.animator.SetTrigger("IsJumpping");
       Jumping = true;
       if (Sliding) StopSlide();
@@ -117,6 +120,7 @@ public class CharacterMovement : MonoBehaviour
     if (JumpingFrame >= CalculatedJumpStrength * 2)
     {
       StopJump();
+      JumpingFrame += Time.deltaTime * 100;
       return;
     }
     JumpingFrame += Time.deltaTime * 100;
@@ -125,6 +129,7 @@ public class CharacterMovement : MonoBehaviour
   {
     if (!Sliding)
     {
+      Debug.Log("Player Slided");
       character.animator.SetTrigger("IsSlide");
       Sliding = true;
       if (Jumping) StopJump();
@@ -158,6 +163,7 @@ public class CharacterMovement : MonoBehaviour
   {
     IsMoving = true;
     character.animator.SetBool("IsMoving", true);
+    Debug.Log("Player started run");
   }
   public void StopMoving()
   {
@@ -170,6 +176,7 @@ public class CharacterMovement : MonoBehaviour
     {
       Lanes++;
       TargetLenOffset = Lanes * character.LanesOffset;
+      Debug.Log("Player change to right lane");
     }
   }
   public void ChangeLanesLeft()
@@ -178,6 +185,7 @@ public class CharacterMovement : MonoBehaviour
     {
       Lanes--;
       TargetLenOffset = Lanes * character.LanesOffset;
+      Debug.Log("Player change to left lane");
     }
   }
 }

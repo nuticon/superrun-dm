@@ -53,6 +53,7 @@ public class Game : MonoBehaviour
   {
     GameStarted = true;
     sound.PlayInGameMusic();
+    Debug.Log("Game Started");
   }
   public void RestartGame()
   {
@@ -61,6 +62,7 @@ public class Game : MonoBehaviour
     cameraController.SetDefaultCamera();
     power.Double.Disable();
     power.Magnet.Disable();
+    Debug.Log("Game reseted");
   }
   void SavePlayer(int Scroll)
   {

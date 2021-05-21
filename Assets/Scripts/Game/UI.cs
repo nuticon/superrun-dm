@@ -67,6 +67,7 @@ public class UI : MonoBehaviour
     RetryButton.gameObject.SetActive(false);
     RetryButton.gameObject.SetActive(false);
     PowerUpSet.gameObject.SetActive(false);
+    PowerUpSet.SetText("");
   }
   private void SetPlayingUI()
   {

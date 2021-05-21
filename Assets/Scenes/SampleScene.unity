@@ -1096,11 +1096,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df0a0ae10a784c143a6a192c09551ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Source: {fileID: 699567397}
-  ObstracleHitSound: {fileID: 8300000, guid: 9ed08397b3fef21418662ed63130d301, type: 3}
   CoinCollectSound: {fileID: 8300000, guid: 7e5ef2708de23d841bc636521785ff85, type: 3}
-  MenuMusic: {fileID: 8300000, guid: c5f9967b1c0d51942b45180d992afda5, type: 3}
   InGameMusic: {fileID: 8300000, guid: 992eaa57bad8f724f8ca27dfa6719680, type: 3}
+  MenuMusic: {fileID: 8300000, guid: c5f9967b1c0d51942b45180d992afda5, type: 3}
+  ObstracleHitSound: {fileID: 8300000, guid: 9ed08397b3fef21418662ed63130d301, type: 3}
+  PowerUpCollectSound: {fileID: 8300000, guid: 553f1d03da54003479f6ff63d3155919, type: 3}
+  Source: {fileID: 699567397}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2688,6 +2689,10 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7596282839721313445, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 699567399}
     - target: {fileID: 7640877960485620641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: m_Name
       value: BoyColorFull

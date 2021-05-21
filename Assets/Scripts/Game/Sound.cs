@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Sound : MonoBehaviour
 {
-  public AudioSource Source;
-  public AudioClip ObstracleHitSound;
   public AudioClip CoinCollectSound;
-  public AudioClip MenuMusic;
   public AudioClip InGameMusic;
+  public AudioClip MenuMusic;
+  public AudioClip ObstracleHitSound;
+  public AudioClip PowerUpCollectSound;
+  public AudioSource Source;
   private bool Playing = false;
-  private void Update() {
+  private void Update()
+  {
     Source.loop = Playing;
   }
   public void PlayObstracleHitSound()
@@ -20,6 +22,10 @@ public class Sound : MonoBehaviour
   public void PlayCoinCollectSound()
   {
     Source.PlayOneShot(CoinCollectSound, 1);
+  }
+  public void PlayPowerUpCollectSound()
+  {
+    Source.PlayOneShot(PowerUpCollectSound, 1);
   }
   public void PlayMenuMusic()
   {

@@ -5,6 +5,7 @@ public class Power : MonoBehaviour
   public PowerModel Magnet;
   public PowerModel Double;
   private PowerData powerData;
+  public Sound sound;
   private string TempPower = "";
   public static string GlobalPower = "";
   private void Start()
@@ -35,10 +36,12 @@ public class Power : MonoBehaviour
   private void ActivateDouble()
   {
     Double.Enable();
+    Debug.Log("Double point activated");
   }
   private void ActivateMagnet()
   {
     Magnet.Enable();
+    Debug.Log("Magnet point activated");
   }
   public bool DoubleActivating()
   {
@@ -67,6 +70,7 @@ public class Power : MonoBehaviour
     if (GlobalPower != TempPower)
     {
       SetActivePower(GlobalPower);
+      sound.PlayPowerUpCollectSound();
       GlobalPower = TempPower;
     }
   }
