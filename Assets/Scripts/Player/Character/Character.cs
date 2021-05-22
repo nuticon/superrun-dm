@@ -43,7 +43,6 @@ public class Character : MonoBehaviour
     DefaultColliderSize = Collider.size;
     Life = MaxLife;
     LocalLife = Life;
-    animator.SetTrigger("IsIdle");
   }
   void Update()
   {
@@ -77,11 +76,12 @@ public class Character : MonoBehaviour
   }
   public void Over()
   {
+    animator.speed = 1.5f;
+    animator.ResetTrigger("IsIdle");
+    animator.SetTrigger("IsOver");
     characterMovement.StopMoving();
     characterMovement.StopJump();
     characterMovement.StopSlide();
-    animator.speed = 1.5f;
-    animator.SetTrigger("IsOver");
   }
   private void Blink()
   {
