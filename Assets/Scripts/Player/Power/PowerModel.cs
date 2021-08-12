@@ -12,7 +12,7 @@ public class PowerModel
   public PowerModel(int level)
   {
     Level = level;
-    MaxTime = 10 + (float)level;
+    MaxTime = 10 + (float)level + 1;
     TimeLeft = (int)MaxTime;
   }
   public void Enable()
