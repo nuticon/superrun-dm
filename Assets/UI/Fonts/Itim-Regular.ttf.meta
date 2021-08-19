@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 578b52ff1d8032e42a9e3b8adfbb33a3
+guid: e641bc7c714700e418d7f137125c3312
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Kenney Pixel
+  - Itim
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

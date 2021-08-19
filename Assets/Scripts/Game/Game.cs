@@ -125,7 +125,7 @@ public class Game : MonoBehaviour
   {
     MagnetActive = power.MagnetActivating();
     TempPowerUpText = "";
-    if (power.DoubleActivating()) TempPowerUpText += "x2 " + power.Double.TimeLeft + "\n";
+    if (power.DoubleActivating()) TempPowerUpText += "X2 " + power.Double.TimeLeft + "\n";
     if (power.MagnetActivating()) TempPowerUpText += "Magnet " + power.Magnet.TimeLeft + "\n";
     ui.PowerUpSet.SetText(TempPowerUpText);
   }
