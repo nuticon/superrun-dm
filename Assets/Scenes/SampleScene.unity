@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.07060633, g: 0.3537628, b: 0.9707842, a: 1}
+  m_IndirectSpecularColor: {r: 0.07061651, g: 0.3536984, b: 0.9699033, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2753,7 +2753,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb9301c0e35b50438c87ce717aefb82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CorridorTile: {fileID: 5106957354826093010, guid: efb59c64f2e7e0e4297b40d068947564, type: 3}
+  CorridorTiles:
+  - {fileID: 1252329431802434690, guid: e3f168c47836afa41bae40aa0a22c286, type: 3}
+  - {fileID: 1782522786398637724, guid: a64cbb01b546b1944a66e016a61b93af, type: 3}
+  - {fileID: 2591998068809465068, guid: 650bbecf8ba0fe24faf32670cfb1ad08, type: 3}
+  - {fileID: 2122104719812488057, guid: de0ed8d8edbe1644faa7ca5a085001ca, type: 3}
+  - {fileID: 3416347972725044235, guid: f6ebe6062193a3c4aadea7c1b28362de, type: 3}
+  - {fileID: 2122104719812488057, guid: de0ed8d8edbe1644faa7ca5a085001ca, type: 3}
+  - {fileID: 2591998068809465068, guid: 650bbecf8ba0fe24faf32670cfb1ad08, type: 3}
+  - {fileID: 3416347972725044235, guid: f6ebe6062193a3c4aadea7c1b28362de, type: 3}
+  - {fileID: 2122104719812488057, guid: de0ed8d8edbe1644faa7ca5a085001ca, type: 3}
+  - {fileID: 1782522786398637724, guid: a64cbb01b546b1944a66e016a61b93af, type: 3}
   Landmarks:
   - {fileID: 4222984467095685132, guid: bde52bbafc1ce20468a7862005d32d5e, type: 3}
   - {fileID: 5873909012678668509, guid: 8e131b203eeef2a449ee9a5495ca3293, type: 3}
@@ -2787,11 +2797,12 @@ MonoBehaviour:
   PowerUpFrequency: 10
   TileDistanceOffset: 73.7
   TileLoadDelay: 0
-  TileSpawnDistanceLimit: 400
-  TimeToChangeZone: 50
+  TileSpawnDistanceLimit: 1000
+  TimeToChangeZone: 300
   CorridorTileAmount: 6
   PropsPopulation: 1
-  TilePerRound: 3
+  TilePerRound: 6
+  LandmarkSpawnTime: 60
 --- !u!4 &1900745489
 Transform:
   m_ObjectHideFlags: 0
@@ -3031,7 +3042,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1934372607
 MonoBehaviour:
   m_ObjectHideFlags: 0
