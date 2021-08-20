@@ -28,9 +28,9 @@ public class UI : MonoBehaviour
   }
   private void Update()
   {
-    InGameCoinText.SetText("<sprite=0>" + Game.Coin.ToString());
-    PlayerLifeText.SetText("<sprite=0>" + Character.Life.ToString());
-    PointText.text = "M " + Game.Point.ToString();
+    InGameCoinText.SetText("" + Game.Coin.ToString());
+    PlayerLifeText.SetText("" + Character.Life.ToString());
+    PointText.text = "" + Game.Point.ToString();
   }
   private void StartTrigger()
   {
@@ -45,8 +45,8 @@ public class UI : MonoBehaviour
   }
   public void SetGameOverUI()
   {
-    GameOverCoinText.SetText(Game.Coin.ToString() + "<sprite=0>");
-    GameOverPointText.text = Game.Point.ToString() + "M.";
+    GameOverCoinText.SetText(Game.Coin.ToString() + "");
+    GameOverPointText.text = Game.Point.ToString() + "";
     GameOverText.gameObject.SetActive(true);
     InGameCoinText.gameObject.SetActive(false);
     PointText.gameObject.SetActive(false);
@@ -57,10 +57,10 @@ public class UI : MonoBehaviour
     CountDownText.gameObject.SetActive(false);
     GameOverText.gameObject.SetActive(false);
     HighScrollText.gameObject.SetActive(true);
-    HighScrollText.text = "HighScroll\n" + Game.CurrentHighScroll.ToString() + " M.";
+    HighScrollText.text = "Highest Score\n" + Game.CurrentHighScroll.ToString() + " M.";
     InGameCoinText.gameObject.SetActive(false);
     PlayButton.gameObject.SetActive(true);
-    PlayerCoinText.SetText(game.GetPlayerCoin().ToString() + "<sprite=0>");
+    PlayerCoinText.SetText(game.GetPlayerCoin().ToString() + "");
     PlayerCoinText.gameObject.SetActive(true);
     PlayerLifeText.gameObject.SetActive(false);
     PointText.gameObject.SetActive(false);
