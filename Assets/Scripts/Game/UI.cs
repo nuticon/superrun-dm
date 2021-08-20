@@ -60,7 +60,7 @@ public class UI : MonoBehaviour
     HighScrollText.text = "Highest Score\n" + Game.CurrentHighScroll.ToString() + " M.";
     InGameCoinText.gameObject.SetActive(false);
     PlayButton.gameObject.SetActive(true);
-    PlayerCoinText.SetText(game.GetPlayerCoin().ToString() + "<sprite=0>");
+    PlayerCoinText.SetText(game.GetPlayerCoin().ToString() + "");
     PlayerCoinText.gameObject.SetActive(true);
     PlayerLifeText.gameObject.SetActive(false);
     PointText.gameObject.SetActive(false);
