@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.07061014, g: 0.35376436, b: 0.9707826, a: 1}
+  m_IndirectSpecularColor: {r: 0.0705593, g: 0.35366276, b: 0.9699111, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3451,11 +3451,11 @@ MonoBehaviour:
   TileDistanceOffset: 73.7
   TileLoadDelay: 0
   TileSpawnDistanceLimit: 1000
-  TimeToChangeZone: 300
+  TimeToChangeZone: 180
   CorridorTileAmount: 6
   PropsPopulation: 0.5
   TilePerRound: 6
-  LandmarkSpawnTime: 60
+  LandmarkSpawnTime: 30
 --- !u!4 &1900745489
 Transform:
   m_ObjectHideFlags: 0
@@ -3804,7 +3804,7 @@ PrefabInstance:
       objectReference: {fileID: 699567399}
     - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: MaxLife
-      value: 3
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
       propertyPath: MaxSpeed

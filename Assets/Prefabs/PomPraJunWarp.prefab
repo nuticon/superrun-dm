@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2793134601400812742}
   m_Layer: 0
   m_Name: PomPraJunWarp
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

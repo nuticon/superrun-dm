@@ -24,14 +24,18 @@ public class TrackController : MonoBehaviour
   public float PropsPopulation;
   public int TilePerRound;
   public static Vector3 LastTilePosition = new Vector3(0, 0, 0);
+  private GameObject LastTile;
   public float LandmarkSpawnTime;
+  private float LandmarksSpawnTimer = 0;
+  private int LandmarkIndex = 0;
   private void Start()
   {
     TileSet = new GameObject("TileSet");
+    SpawnLandMark();
   }
   private void Update()
   {
-    if (!Game.Over)
+    if (Game.GameStarted && !Game.Over)
     {
       TimeToChangeZoneTimer += Time.deltaTime;
       if (TimeToChangeZoneTimer >= TimeToChangeZone)
@@ -46,6 +50,12 @@ public class TrackController : MonoBehaviour
         SpawnTiles();
         Timer = 0;
       }
+      LandmarksSpawnTimer += Time.deltaTime;
+      if (LandmarksSpawnTimer >= LandmarkSpawnTime)
+      {
+        SpawnLandMark();
+        LandmarksSpawnTimer = 0;
+      }
     }
   }
   private void SpawnTiles()
@@ -59,6 +69,7 @@ public class TrackController : MonoBehaviour
         var ChildTile = Instantiate(SelectedTile, new Vector3(0, 0, LastTilePosition.z + TileDistanceOffset), Quaternion.identity);
         ChildTile.transform.parent = TileSet.transform;
         LastTilePosition = ChildTile.transform.position;
+        LastTile = ChildTile;
         SpawnProps(ChildTile);
         LocalTileCounter++;
         if (LocalTileCounter >= PowerUpFrequency)
@@ -137,5 +148,14 @@ public class TrackController : MonoBehaviour
     }
     TrackController.LastTilePosition = new Vector3(0, 0, 0);
     Debug.Log("Tile refreshed");
+  }
+
+  private void SpawnLandMark()
+  {
+    if (LandmarkIndex >= Landmarks.Length) LandmarkIndex = 0;
+    var Landmark = Instantiate(Landmarks[LandmarkIndex], new Vector3(80, 0, Character.Position.z + 1000), Quaternion.identity);
+    Landmark.transform.parent = LastTile.transform;
+    LandmarkIndex++;
+    Debug.Log("Landmark Spawn");
   }
 }
