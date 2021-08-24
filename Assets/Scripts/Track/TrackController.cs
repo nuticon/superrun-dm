@@ -21,7 +21,7 @@ public class TrackController : MonoBehaviour
   public float TileSpawnDistanceLimit;
   public float TimeToChangeZone;
   public int CorridorTileAmount;
-  public int PropsPopulation;
+  public float PropsPopulation;
   public int TilePerRound;
   public static Vector3 LastTilePosition = new Vector3(0, 0, 0);
   public float LandmarkSpawnTime;

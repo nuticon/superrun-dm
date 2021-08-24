@@ -7,8 +7,8 @@ public class UI : MonoBehaviour
   public Button PlayButton;
   public Button RetryButton;
   public Game game;
-  public TMP_Text GameOverCoinText;
-  public TMP_Text InGameCoinText;
+  public Text GameOverCoinText;
+  public Text InGameCoinText;
   public TMP_Text PlayerCoinText;
   public TMP_Text PlayerLifeText;
   public TMP_Text PowerUpSet;
@@ -17,6 +17,10 @@ public class UI : MonoBehaviour
   public Text GameOverText;
   public Text HighScrollText;
   public Text PointText;
+
+  public GameObject GameOverGroup;
+  public GameObject InGameGroup;
+  public GameObject MainGroup;
 
   [Header("Other")]
   public TrackController trackController;
@@ -28,7 +32,7 @@ public class UI : MonoBehaviour
   }
   private void Update()
   {
-    InGameCoinText.SetText("" + Game.Coin.ToString());
+    InGameCoinText.text = "" + Game.Coin.ToString();
     PlayerLifeText.SetText("" + Character.Life.ToString());
     PointText.text = "" + Game.Point.ToString();
   }
@@ -45,39 +49,26 @@ public class UI : MonoBehaviour
   }
   public void SetGameOverUI()
   {
-    GameOverCoinText.SetText(Game.Coin.ToString() + "");
+    GameOverCoinText.text = Game.Coin.ToString() + "";
     GameOverPointText.text = Game.Point.ToString() + "";
-    GameOverText.gameObject.SetActive(true);
-    InGameCoinText.gameObject.SetActive(false);
-    PointText.gameObject.SetActive(false);
-    RetryButton.gameObject.SetActive(true);
+    GameOverGroup.SetActive(true);
+    InGameGroup.SetActive(false);
   }
   public void ResetUI()
   {
     CountDownText.gameObject.SetActive(false);
-    GameOverText.gameObject.SetActive(false);
-    HighScrollText.gameObject.SetActive(true);
     HighScrollText.text = "Highest Score\n" + Game.CurrentHighScroll.ToString() + " M.";
-    InGameCoinText.gameObject.SetActive(false);
-    PlayButton.gameObject.SetActive(true);
     PlayerCoinText.SetText(game.GetPlayerCoin().ToString() + "");
-    PlayerCoinText.gameObject.SetActive(true);
-    PlayerLifeText.gameObject.SetActive(false);
-    PointText.gameObject.SetActive(false);
-    RetryButton.gameObject.SetActive(false);
-    RetryButton.gameObject.SetActive(false);
-    PowerUpSet.gameObject.SetActive(false);
     PowerUpSet.SetText("");
+    MainGroup.SetActive(true);
+    GameOverGroup.SetActive(false);
+    InGameGroup.SetActive(false);
   }
   private void SetPlayingUI()
   {
     CountDownText.gameObject.SetActive(true);
-    HighScrollText.gameObject.SetActive(false);
-    InGameCoinText.gameObject.SetActive(true);
-    PlayButton.gameObject.SetActive(false);
-    PlayerCoinText.gameObject.SetActive(false);
-    PlayerLifeText.gameObject.SetActive(true);
-    PointText.gameObject.SetActive(true);
-    PowerUpSet.gameObject.SetActive(true);
+    MainGroup.SetActive(false);
+    GameOverGroup.SetActive(false);
+    InGameGroup.SetActive(true);
   }
 }
