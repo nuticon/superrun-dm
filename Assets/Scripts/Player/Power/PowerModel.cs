@@ -8,14 +8,13 @@ public class PowerModel
   public int TimeLeft;
   public int Level;
   public int UpgradePrice;
-
+  private int MaxLevel = 5;
   public PowerModel(int level)
   {
     Level = level;
-    MaxTime = 10 + (float)level;
+    MaxTime = 10 + (float)level + 1;
     TimeLeft = (int)MaxTime;
   }
-
   public void Enable()
   {
     Timer = 0;
@@ -27,5 +26,8 @@ public class PowerModel
     Timer = 0;
     TimeLeft = (int)MaxTime;
     IsEnable = false;
+  }
+  public void LevelUp() {
+    if (this.Level < MaxLevel) Level++;
   }
 }

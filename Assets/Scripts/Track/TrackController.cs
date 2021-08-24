@@ -9,7 +9,7 @@ public class TrackController : MonoBehaviour
   private float Timer = 0;
   private int[] PropsOffset = new[] { -40, 20 };
   private int[] Lanes = new[] { -7, 0, 7 };
-  public GameObject CorridorTile;
+  public GameObject[] CorridorTiles;
   public GameObject[] Landmarks;
   public GameObject[] Props;
   public GameObject[] Tiles;
@@ -21,9 +21,10 @@ public class TrackController : MonoBehaviour
   public float TileSpawnDistanceLimit;
   public float TimeToChangeZone;
   public int CorridorTileAmount;
-  public int PropsPopulation;
+  public float PropsPopulation;
   public int TilePerRound;
   public static Vector3 LastTilePosition = new Vector3(0, 0, 0);
+  public float LandmarkSpawnTime;
   private void Start()
   {
     TileSet = new GameObject("TileSet");
@@ -70,9 +71,9 @@ public class TrackController : MonoBehaviour
   }
   private void SpawnCorridorTile()
   {
-    for (int i = 0; i < CorridorTileAmount; i++)
+    for (int i = 0; i < CorridorTiles.Length; i++)
     {
-      var ChildTile = Instantiate(CorridorTile, new Vector3(0, 0, LastTilePosition.z + TileDistanceOffset), Quaternion.identity);
+      var ChildTile = Instantiate(CorridorTiles[i], new Vector3(0, 0, LastTilePosition.z + TileDistanceOffset), Quaternion.identity);
       ChildTile.transform.parent = TileSet.transform;
       LastTilePosition = ChildTile.transform.position;
       SpawnProps(ChildTile);

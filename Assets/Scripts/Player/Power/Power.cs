@@ -33,6 +33,18 @@ public class Power : MonoBehaviour
         break;
     }
   }
+  public void LevelUpPower(string PowerName)
+  {
+    switch (PowerName)
+    {
+      case "Double":
+        Double.LevelUp();
+        break;
+      case "Magnet":
+        Magnet.LevelUp();
+        break;
+    }
+  }
   private void ActivateDouble()
   {
     Double.Enable();
