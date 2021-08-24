@@ -3451,7 +3451,7 @@ MonoBehaviour:
   TileDistanceOffset: 73.7
   TileLoadDelay: 0
   TileSpawnDistanceLimit: 1000
-  TimeToChangeZone: 300
+  TimeToChangeZone: 360
   CorridorTileAmount: 6
   PropsPopulation: 0.5
   TilePerRound: 6
