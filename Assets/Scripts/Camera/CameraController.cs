@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour
     transform.position = StartCameraPosition;
     transform.rotation = StartCameraRotation;
   }
-  void Update()
+  void FixedUpdate()
   {
     if (Game.GameStarted && !Game.Over && !Game.CountDownEnded) RotateCamera();
     if (Game.GameStarted && !Game.Over && Game.CountDownEnded) MoveCamera();

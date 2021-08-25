@@ -36,7 +36,7 @@ public class CharacterMovement : MonoBehaviour
     CalculatedJumpSpeed = character.JumpSpeed * 10;
     transform.position = new Vector3(0, 0, 0);
   }
-  private void Update()
+  private void FixedUpdate()
   {
     if (IsMoving && !Game.Over) Run();
     if (Sliding)
