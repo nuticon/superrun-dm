@@ -27,6 +27,7 @@ public class TrackController : MonoBehaviour
   private GameObject LastTile;
   public float LandmarkSpawnTime;
   private float LandmarksSpawnTimer = 0;
+  public float LandmarkSpawnOffset = 80;
   private int LandmarkIndex = 0;
   private void Start()
   {
@@ -153,7 +154,7 @@ public class TrackController : MonoBehaviour
   private void SpawnLandMark()
   {
     if (LandmarkIndex >= Landmarks.Length) LandmarkIndex = 0;
-    var Landmark = Instantiate(Landmarks[LandmarkIndex], new Vector3(80, 0, Character.Position.z + 1000), Quaternion.identity);
+    var Landmark = Instantiate(Landmarks[LandmarkIndex], new Vector3(LandmarkSpawnOffset, 0, Character.Position.z + 1000), Quaternion.identity);
     Landmark.transform.parent = LastTile.transform;
     LandmarkIndex++;
     Debug.Log("Landmark Spawn");

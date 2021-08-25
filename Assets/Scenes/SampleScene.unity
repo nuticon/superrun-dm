@@ -3450,12 +3450,13 @@ MonoBehaviour:
   PowerUpFrequency: 10
   TileDistanceOffset: 73.7
   TileLoadDelay: 0
-  TileSpawnDistanceLimit: 1000
+  TileSpawnDistanceLimit: 1500
   TimeToChangeZone: 180
   CorridorTileAmount: 6
-  PropsPopulation: 0.5
+  PropsPopulation: 5
   TilePerRound: 6
   LandmarkSpawnTime: 30
+  LandmarkSpawnOffset: 90
 --- !u!4 &1900745489
 Transform:
   m_ObjectHideFlags: 0
@@ -3703,7 +3704,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934372606}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
