@@ -98,6 +98,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: JD
       objectReference: {fileID: 0}
+    - target: {fileID: 9174187206539650928, guid: fe913b5e54ceba54ba2ddea8d7831c1d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe913b5e54ceba54ba2ddea8d7831c1d, type: 3}
 --- !u!4 &7072942655441064624 stripped
