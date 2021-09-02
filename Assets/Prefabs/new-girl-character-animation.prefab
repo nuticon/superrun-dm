@@ -1060,6 +1060,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8754464941910206333}
+  - component: {fileID: 1300153392870734843}
+  - component: {fileID: 5344536797117204253}
+  - component: {fileID: 3437324305942002379}
+  - component: {fileID: 4011780649063877048}
+  - component: {fileID: 1867851242893277744}
+  - component: {fileID: 7104325542510667784}
+  - component: {fileID: 629570874830529532}
+  - component: {fileID: 1951410196603096769}
   m_Layer: 0
   m_Name: new-girl-character-animation
   m_TagString: Untagged
@@ -1084,6 +1092,135 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1300153392870734843
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229708022119366087}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bb18673dcaa9eca489a963d860aedee7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!54 &5344536797117204253
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229708022119366087}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &3437324305942002379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229708022119366087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9568b98fa8acd3f439a46f841d5ed27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultModelScale: {x: 163.79587, y: 163.79587, z: 163.79587}
+  JumpSpeed: 1
+  JumpStrength: 1.5
+  LanesOffset: 7
+  MaxSpeed: 5
+  MinSpeed: 1.5
+  SpeedIncreaseDelay: 0
+  SideWaySpeed: 1
+  SlideLength: 1
+  MaxLife: 3
+  characterMovement: {fileID: 1867851242893277744}
+  characterParticle: {fileID: 7104325542510667784}
+  sound: {fileID: 0}
+  IdleAnimationChangeTime: 0
+--- !u!114 &4011780649063877048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229708022119366087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d8254a27ccf5924285d8960ac46f897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterMovement: {fileID: 1867851242893277744}
+--- !u!114 &1867851242893277744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229708022119366087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f24cfb30b136cd0428b797dfe956c48a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 3437324305942002379}
+  power: {fileID: 629570874830529532}
+--- !u!114 &7104325542510667784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229708022119366087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 872fd04641a37f444ae030aa10246198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 3437324305942002379}
+  CoinParticle: {fileID: 1037864198121816, guid: 638c8ca438a11c54987de876e500ed02, type: 3}
+  HitParticle: {fileID: 1742013225946848, guid: b3d8264aa7d2d824a8a503e45291ddf4, type: 3}
+--- !u!114 &629570874830529532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229708022119366087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a980b731fb49c74eb6f709cf17d3bd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 0}
+--- !u!65 &1951410196603096769
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229708022119366087}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.029719243, y: 0.06400444, z: 0.031348832}
+  m_Center: {x: 0.0020551714, y: 0.03541599, z: 0.0002217706}
 --- !u!1 &8587977022218413509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,8 +1231,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3201790025701881403}
   - component: {fileID: 3470150038838897742}
-  - component: {fileID: 1900743821331445623}
-  - component: {fileID: 8372643515809825801}
   m_Layer: 0
   m_Name: pCube1
   m_TagString: Untagged
@@ -1200,35 +1335,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.000088997185, y: -0.007267558, z: 0.0010590809}
     m_Extent: {x: 0.027413141, y: 0.02595215, z: 0.011961101}
   m_DirtyAABB: 0
---- !u!65 &1900743821331445623
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8587977022218413509}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.017527852, y: 0.015630916, z: 0.025996478}
-  m_Center: {x: -0.00091350387, y: -0.0059453896, z: 0.0053885574}
---- !u!54 &8372643515809825801
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8587977022218413509}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &9001429557190787792
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,7 +32,7 @@ public class TrackController : MonoBehaviour
   private void Start()
   {
     TileSet = new GameObject("TileSet");
-    SpawnLandMark();
+    //SpawnLandMark();
   }
   private void Update()
   {
@@ -137,6 +137,12 @@ public class TrackController : MonoBehaviour
     int index = Random.Range(0, PropsOffset.Length);
     return PropsOffset[index];
   }
+  void resetState()
+  {
+    TimeToChangeZoneTimer = 0;
+    LandmarksSpawnTimer = 0;
+    Timer = 0;
+  }
   public void RefreshTile()
   {
     foreach (Transform Tile in TileSet.transform)
@@ -148,6 +154,7 @@ public class TrackController : MonoBehaviour
       Object.Destroy(Tile.gameObject);
     }
     TrackController.LastTilePosition = new Vector3(0, 0, 0);
+    resetState();
     Debug.Log("Tile refreshed");
   }
 
