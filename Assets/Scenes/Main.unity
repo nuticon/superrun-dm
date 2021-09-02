@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.07061014, g: 0.35376436, b: 0.9707826, a: 1}
+  m_IndirectSpecularColor: {r: 0.0705593, g: 0.35366276, b: 0.9699111, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -257,6 +257,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayButton: {fileID: 1227892826}
   RetryButton: {fileID: 827237335}
+  ShopButton: {fileID: 1643350563}
+  OverShopButton: {fileID: 603415761}
   game: {fileID: 537401578}
   GameOverCoinText: {fileID: 1897347588}
   InGameCoinText: {fileID: 614240099}
