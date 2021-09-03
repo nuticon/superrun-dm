@@ -33,24 +33,7 @@ public class ShopUi : MonoBehaviour
     EquipBoy.onClick.AddListener(EquipCharacterBoy);
     EquipGirl.onClick.AddListener(EquipCharacterGirl);
     powerData = new PowerData();
-    LoadData();
-  }
-  void LoadData()
-  {
-    try
-    {
-      powerData.Load();
-    }
-    catch (System.Exception)
-    {
-      PowerData data = new PowerData();
-      data.Save();
-      throw;
-    }
-    finally
-    {
-      powerData.Load();
-    }
+    powerData.Load();
   }
   private void Update()
   {

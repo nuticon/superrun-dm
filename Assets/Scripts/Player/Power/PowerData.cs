@@ -36,8 +36,11 @@ public class PowerData
   public void Load()
   {
     PowerData data = Storage.LoadPowerData();
-    this.DoubleLevel = data.DoubleLevel;
-    this.MagnetLevel = data.MagnetLevel;
-    this.LifeLevel = data.LifeLevel;
+    if (data != null)
+    {
+      this.DoubleLevel = data.DoubleLevel;
+      this.MagnetLevel = data.MagnetLevel;
+      this.LifeLevel = data.LifeLevel;
+    }
   }
 }
