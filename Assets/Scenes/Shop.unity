@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.07061263, g: 0.3537832, b: 0.97078633, a: 1}
+  m_IndirectSpecularColor: {r: 0.07094809, g: 0.35402545, b: 0.9698685, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -894,7 +894,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -1237,6 +1237,7 @@ GameObject:
   - component: {fileID: 674139347}
   - component: {fileID: 674139346}
   - component: {fileID: 674139345}
+  - component: {fileID: 674139349}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1325,6 +1326,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &674139349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674139344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60476500a5f34e734a408d47374e9085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MagnetPriceText: {fileID: 764542751}
+  DoublePriceText: {fileID: 1481756851}
+  LifeText: {fileID: 1319322349}
+  MagnetLevelBar: {fileID: 1567600135}
+  DoubleLevelBar: {fileID: 97059906}
+  LifeLevelBar: {fileID: 2066494671}
+  PlayerCoinText: {fileID: 1331191216}
+  MagnetLevelUpBtn: {fileID: 779455718}
+  DoubleLevelUpBtn: {fileID: 1326804529}
+  LifeLevelUpBtn: {fileID: 453054511}
+  BackButton: {fileID: 862962547}
+  EquipBoy: {fileID: 1372246000}
+  EquipGirl: {fileID: 32502361}
 --- !u!1 &764542749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2948,7 +2974,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -3249,7 +3275,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0

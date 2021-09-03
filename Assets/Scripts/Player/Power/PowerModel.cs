@@ -27,7 +27,9 @@ public class PowerModel
     TimeLeft = (int)MaxTime;
     IsEnable = false;
   }
-  public void LevelUp() {
+  public int LevelUp()
+  {
     if (this.Level < MaxLevel) Level++;
+    return this.Level;
   }
 }

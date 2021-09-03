@@ -11,6 +11,11 @@ public class Sound : MonoBehaviour
   public AudioClip PowerUpCollectSound;
   public AudioSource Source;
   private bool Playing = false;
+  public static Sound Instance;
+  private void Awake()
+  {
+      Instance = this;
+  }
   private void Update()
   {
     Source.loop = Playing;

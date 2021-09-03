@@ -27,11 +27,14 @@ public class TrackController : MonoBehaviour
   private GameObject LastTile;
   public float LandmarkSpawnTime;
   private float LandmarksSpawnTimer = 0;
+  public float LandmarkSpawnOffset = 80;
   private int LandmarkIndex = 0;
   private void Start()
   {
     TileSet = new GameObject("TileSet");
-    SpawnLandMark();
+    resetState();
+    RefreshTile();
+    //SpawnLandMark();
   }
   private void Update()
   {
@@ -136,6 +139,12 @@ public class TrackController : MonoBehaviour
     int index = Random.Range(0, PropsOffset.Length);
     return PropsOffset[index];
   }
+  void resetState()
+  {
+    TimeToChangeZoneTimer = 0;
+    LandmarksSpawnTimer = 0;
+    Timer = 0;
+  }
   public void RefreshTile()
   {
     foreach (Transform Tile in TileSet.transform)
@@ -147,13 +156,14 @@ public class TrackController : MonoBehaviour
       Object.Destroy(Tile.gameObject);
     }
     TrackController.LastTilePosition = new Vector3(0, 0, 0);
+    resetState();
     Debug.Log("Tile refreshed");
   }
 
   private void SpawnLandMark()
   {
     if (LandmarkIndex >= Landmarks.Length) LandmarkIndex = 0;
-    var Landmark = Instantiate(Landmarks[LandmarkIndex], new Vector3(80, 0, Character.Position.z + 1000), Quaternion.identity);
+    var Landmark = Instantiate(Landmarks[LandmarkIndex], new Vector3(LandmarkSpawnOffset, 0, Character.Position.z + 1000), Quaternion.identity);
     Landmark.transform.parent = LastTile.transform;
     LandmarkIndex++;
     Debug.Log("Landmark Spawn");

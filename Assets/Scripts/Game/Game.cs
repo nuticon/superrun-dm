@@ -13,8 +13,6 @@ public class Game : MonoBehaviour
   private float CountDownTimer;
   private int CountDown = 3;
   internal Player player1;
-  public Character character;
-  public Power power;
   public CameraController cameraController;
   public Sound sound;
   public UI ui;
@@ -22,12 +20,25 @@ public class Game : MonoBehaviour
 
   private string TempPowerUpText;
   public static bool MagnetActive;
+
+  public GameObject Boy;
+  public GameObject Girl;
   void Start()
   {
     player1 = new Player();
     player1.Load();
     SetDefaultState();
     ui.ResetUI();
+    if (player1.Female)
+    {
+      var character = Instantiate(Girl, transform.position, Quaternion.identity);
+      character.transform.parent = gameObject.transform;
+    }
+    else
+    {
+      var character = Instantiate(Boy, transform.position, Quaternion.identity);
+      character.transform.parent = gameObject.transform;
+    }
   }
   void Update()
   {
@@ -52,17 +63,17 @@ public class Game : MonoBehaviour
   public void StartGame()
   {
     GameStarted = true;
-    character.animator.SetTrigger("IsIdle");
+    Character.Instance.animator.SetTrigger("IsIdle");
     sound.PlayInGameMusic();
     Debug.Log("Game Started");
   }
   public void RestartGame()
   {
     SetDefaultState();
-    character.ResetState();
+    Character.Instance.ResetState();
     cameraController.SetDefaultCamera();
-    power.Double.Disable();
-    power.Magnet.Disable();
+    Power.Instance.Double.Disable();
+    Power.Instance.Magnet.Disable();
     Debug.Log("Game reseted");
   }
   void SavePlayer(int Scroll)
@@ -117,16 +128,16 @@ public class Game : MonoBehaviour
   {
     if (Coin > LocalCoin)
     {
-      character.CoinUp();
+      Character.Instance.CoinUp();
       LocalCoin = Coin;
     }
   }
   private void WatchPowerUp()
   {
-    MagnetActive = power.MagnetActivating();
+    MagnetActive = Power.Instance.MagnetActivating();
     TempPowerUpText = "";
-    if (power.DoubleActivating()) TempPowerUpText += "X2 " + power.Double.TimeLeft + "\n";
-    if (power.MagnetActivating()) TempPowerUpText += "Magnet " + power.Magnet.TimeLeft + "\n";
+    if (Power.Instance.DoubleActivating()) TempPowerUpText += "X2 " + Power.Instance.Double.TimeLeft + "\n";
+    if (Power.Instance.MagnetActivating()) TempPowerUpText += "Magnet " + Power.Instance.Magnet.TimeLeft + "\n";
     ui.PowerUpSet.SetText(TempPowerUpText);
   }
 }

@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class UI : MonoBehaviour
 {
   [Header("UI Component")]
   public Button PlayButton;
   public Button RetryButton;
+  public Button ShopButton;
+  public Button OverShopButton;
   public Game game;
   public Text GameOverCoinText;
   public Text InGameCoinText;
@@ -28,6 +31,8 @@ public class UI : MonoBehaviour
   {
     PlayButton.onClick.AddListener(StartTrigger);
     RetryButton.onClick.AddListener(RestartTrigger);
+    ShopButton.onClick.AddListener(ToShop);
+    OverShopButton.onClick.AddListener(ToShop);
     ResetUI();
   }
   private void Update()
@@ -70,5 +75,9 @@ public class UI : MonoBehaviour
     MainGroup.SetActive(false);
     GameOverGroup.SetActive(false);
     InGameGroup.SetActive(true);
+  }
+  public void ToShop()
+  {
+    SceneManager.LoadScene("Shop", LoadSceneMode.Single);
   }
 }
