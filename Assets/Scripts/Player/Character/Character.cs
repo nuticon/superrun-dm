@@ -29,11 +29,15 @@ public class Character : MonoBehaviour
   internal Vector3 DefaultColliderSize;
   public CharacterMovement characterMovement;
   public CharacterParticle characterParticle;
-  public Sound sound;
   private int LocalLife;
   public float IdleAnimationChangeTime;
   private int RandomedAnimation;
   private float AnimationChangeTimer = 0;
+  public static Character Instance;
+  private void Awake()
+  {
+    Instance = this;
+  }
   void Start()
   {
     animator = GetComponent<Animator>();
@@ -41,6 +45,9 @@ public class Character : MonoBehaviour
     Position = transform.position;
     DefaultColliderCenter = Collider.center;
     DefaultColliderSize = Collider.size;
+    PowerData data = new PowerData();
+    data.Load();
+    MaxLife += data.GetLifeLevel();
     Life = MaxLife;
     LocalLife = Life;
   }
@@ -109,14 +116,14 @@ public class Character : MonoBehaviour
     if (LocalLife > Life)
     {
       characterParticle.PlayHitParticle();
-      sound.PlayObstracleHitSound();
+      Sound.Instance.PlayObstracleHitSound();
       LocalLife = Life;
     }
   }
   public void CoinUp()
   {
     characterParticle.PlayCoinParticle();
-    sound.PlayCoinCollectSound();
+    Sound.Instance.PlayCoinCollectSound();
   }
   private void WatchAnimation()
   {
@@ -131,7 +138,7 @@ public class Character : MonoBehaviour
       animator.SetInteger("IdleRandom", Random.Range(1, 4));
       return;
     }
-    if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle")) 
+    if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
     {
       AnimationChangeTimer += Time.deltaTime;
       return;

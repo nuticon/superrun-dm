@@ -5,7 +5,8 @@ public class Player
 {
   public int HighScroll;
   public int Coin;
-  public Player(int HighScroll,int Coin)
+  public bool Female = false;
+  public Player(int HighScroll, int Coin)
   {
     this.HighScroll = HighScroll;
     this.Coin = Coin;
@@ -24,6 +25,7 @@ public class Player
     Player player = Storage.LoadPlayer();
     this.HighScroll = player.HighScroll;
     this.Coin = player.Coin;
+    this.Female = player.Female;
     Debug.Log("Player loaded");
   }
 }

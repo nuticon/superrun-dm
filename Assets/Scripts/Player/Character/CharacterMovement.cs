@@ -26,7 +26,6 @@ public class CharacterMovement : MonoBehaviour
   private float SpeedTimer = 0;
   internal float TempDistance = 0;
   public static bool IsGrounded;
-  public Power power;
   private void Start()
   {
     Speed = character.MinSpeed;
@@ -34,7 +33,6 @@ public class CharacterMovement : MonoBehaviour
     CalculatedSlideLength = character.SlideLength * 46;
     CalculatedSideWaySpeed = character.SideWaySpeed * 25;
     CalculatedJumpSpeed = character.JumpSpeed * 10;
-    transform.position = new Vector3(0, 0, 0);
   }
   private void FixedUpdate()
   {
@@ -89,7 +87,7 @@ public class CharacterMovement : MonoBehaviour
     {
       TempDistance = transform.position.z;
       Game.Point++;
-      if (power.DoubleActivating()) Game.Point++;
+      if (Power.Instance.DoubleActivating()) Game.Point++;
     }
   }
   public void Jump()
@@ -150,7 +148,7 @@ public class CharacterMovement : MonoBehaviour
   {
     if (SlidingFrame < CalculatedSlideLength)
     {
-      if(!IsGrounded)
+      if (!IsGrounded)
       {
         Vector3 interpolPostionDown = new Vector3(transform.position.x, 0, transform.position.z);
         transform.position = Vector3.Lerp(transform.position, interpolPostionDown, Time.deltaTime * CalculatedJumpSpeed * 2);

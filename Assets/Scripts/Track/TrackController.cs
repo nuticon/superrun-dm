@@ -32,6 +32,8 @@ public class TrackController : MonoBehaviour
   private void Start()
   {
     TileSet = new GameObject("TileSet");
+    resetState();
+    RefreshTile();
     //SpawnLandMark();
   }
   private void Update()

@@ -8,9 +8,15 @@ public class Power : MonoBehaviour
   public Sound sound;
   private string TempPower = "";
   public static string GlobalPower = "";
+  public static Power Instance;
+  private void Awake()
+  {
+    Instance = this;
+  }
   private void Start()
   {
     powerData = new PowerData();
+    powerData.Load();
     Magnet = new PowerModel(powerData.GetMagnetLevel());
     Double = new PowerModel(powerData.GetDoubleLevel());
   }
@@ -33,18 +39,6 @@ public class Power : MonoBehaviour
         break;
     }
   }
-  public void LevelUpPower(string PowerName)
-  {
-    switch (PowerName)
-    {
-      case "Double":
-        Double.LevelUp();
-        break;
-      case "Magnet":
-        Magnet.LevelUp();
-        break;
-    }
-  }
   private void ActivateDouble()
   {
     Double.Enable();
@@ -59,7 +53,7 @@ public class Power : MonoBehaviour
   {
     if (!Double.IsEnable) return false;
     Double.Timer += Time.deltaTime;
-    Double.TimeLeft = (int) (Double.MaxTime - Double.Timer);
+    Double.TimeLeft = (int)(Double.MaxTime - Double.Timer);
     if (Double.Timer >= Double.MaxTime)
     {
       Double.Disable();
@@ -70,7 +64,7 @@ public class Power : MonoBehaviour
   {
     if (!Magnet.IsEnable) return false;
     Magnet.Timer += Time.deltaTime;
-    Magnet.TimeLeft = (int) (Magnet.MaxTime - Magnet.Timer);
+    Magnet.TimeLeft = (int)(Magnet.MaxTime - Magnet.Timer);
     if (Magnet.Timer >= Magnet.MaxTime)
     {
       Magnet.Disable();

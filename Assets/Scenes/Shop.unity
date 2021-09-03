@@ -1338,12 +1338,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60476500a5f34e734a408d47374e9085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MagnetPriceText: {fileID: 0}
-  DoublePriceText: {fileID: 0}
-  LifeText: {fileID: 0}
-  MagnetLevelBar: {fileID: 0}
-  DoubleLevelBar: {fileID: 0}
-  LifeLevelBar: {fileID: 0}
+  MagnetPriceText: {fileID: 764542751}
+  DoublePriceText: {fileID: 1481756851}
+  LifeText: {fileID: 1319322349}
+  MagnetLevelBar: {fileID: 1567600135}
+  DoubleLevelBar: {fileID: 97059906}
+  LifeLevelBar: {fileID: 2066494671}
+  PlayerCoinText: {fileID: 1331191216}
+  MagnetLevelUpBtn: {fileID: 779455718}
+  DoubleLevelUpBtn: {fileID: 1326804529}
+  LifeLevelUpBtn: {fileID: 453054511}
+  BackButton: {fileID: 862962547}
+  EquipBoy: {fileID: 1372246000}
+  EquipGirl: {fileID: 32502361}
 --- !u!1 &764542749
 GameObject:
   m_ObjectHideFlags: 0
