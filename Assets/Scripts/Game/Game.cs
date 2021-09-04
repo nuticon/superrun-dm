@@ -14,7 +14,6 @@ public class Game : MonoBehaviour
   private int CountDown = 3;
   internal Player player1;
   public CameraController cameraController;
-  public Sound sound;
   public UI ui;
   private int LocalCoin = 0;
 
@@ -53,7 +52,7 @@ public class Game : MonoBehaviour
   private void SetDefaultState()
   {
     GetHighScroll();
-    sound.PlayMenuMusic();
+     Music.Instance.PlayMenuMusic();
     Point = 0;
     Coin = 0;
     LocalCoin = Coin;
@@ -64,7 +63,7 @@ public class Game : MonoBehaviour
   {
     GameStarted = true;
     Character.Instance.animator.SetTrigger("IsIdle");
-    sound.PlayInGameMusic();
+    Music.Instance.PlayInGameMusic();
     Debug.Log("Game Started");
   }
   public void RestartGame()

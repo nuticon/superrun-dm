@@ -116,14 +116,14 @@ public class Character : MonoBehaviour
     if (LocalLife > Life)
     {
       characterParticle.PlayHitParticle();
-      Sound.Instance.PlayObstracleHitSound();
+      SFX.Instance.PlayObstracleHitSound();
       LocalLife = Life;
     }
   }
   public void CoinUp()
   {
     characterParticle.PlayCoinParticle();
-    Sound.Instance.PlayCoinCollectSound();
+    SFX.Instance.PlayCoinCollectSound();
   }
   private void WatchAnimation()
   {

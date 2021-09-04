@@ -198,20 +198,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51155540}
   m_CullTransparentMesh: 1
---- !u!4 &144009766
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 7008175691181789467, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1884431138}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &223252397
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +316,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayButton: {fileID: 1227892826}
   RetryButton: {fileID: 827237335}
+  HomeButton: {fileID: 712755861}
+  HomeOverButton: {fileID: 851692769}
   ShopButton: {fileID: 1643350563}
   OverShopButton: {fileID: 603415761}
   game: {fileID: 537401578}
@@ -955,7 +943,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraController: {fileID: 303101876}
-  sound: {fileID: 699567399}
   ui: {fileID: 223252402}
   Boy: {fileID: 7640877960485620641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
   Girl: {fileID: 8229708022119366087, guid: b456601c09e4fc84b8b49b1235409599, type: 3}
@@ -979,7 +966,7 @@ Transform:
   - {fileID: 1676991603}
   - {fileID: 950179162}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &537401580
 MonoBehaviour:
@@ -993,7 +980,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a980b731fb49c74eb6f709cf17d3bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 699567399}
 --- !u!1 &603415759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,7 +1244,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &699567396
 GameObject:
@@ -1270,7 +1256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 699567398}
   - component: {fileID: 699567397}
-  - component: {fileID: 699567399}
+  - component: {fileID: 699567400}
   m_Layer: 0
   m_Name: Music Audio Source
   m_TagString: Audio
@@ -1388,7 +1374,7 @@ Transform:
   m_Father: {fileID: 537401579}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &699567399
+--- !u!114 &699567400
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1397,14 +1383,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 699567396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df0a0ae10a784c143a6a192c09551ab9, type: 3}
+  m_Script: {fileID: 11500000, guid: ba5d04a0b17f6928b9f5ee55c28f9604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoinCollectSound: {fileID: 8300000, guid: 7e5ef2708de23d841bc636521785ff85, type: 3}
   InGameMusic: {fileID: 8300000, guid: 992eaa57bad8f724f8ca27dfa6719680, type: 3}
   MenuMusic: {fileID: 8300000, guid: c5f9967b1c0d51942b45180d992afda5, type: 3}
-  ObstracleHitSound: {fileID: 8300000, guid: 9ed08397b3fef21418662ed63130d301, type: 3}
-  PowerUpCollectSound: {fileID: 8300000, guid: 553f1d03da54003479f6ff63d3155919, type: 3}
   Source: {fileID: 699567397}
 --- !u!1 &705507993
 GameObject:
@@ -1498,7 +1481,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 65, y: 0, z: 0}
 --- !u!114 &705507996
 MonoBehaviour:
@@ -2529,12 +2512,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1496493708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df0a0ae10a784c143a6a192c09551ab9, type: 3}
+  m_Script: {fileID: 11500000, guid: db28ef9cdb9e73106aa2f151a31e6045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CoinCollectSound: {fileID: 8300000, guid: 7e5ef2708de23d841bc636521785ff85, type: 3}
-  InGameMusic: {fileID: 8300000, guid: 992eaa57bad8f724f8ca27dfa6719680, type: 3}
-  MenuMusic: {fileID: 8300000, guid: c5f9967b1c0d51942b45180d992afda5, type: 3}
   ObstracleHitSound: {fileID: 8300000, guid: 9ed08397b3fef21418662ed63130d301, type: 3}
   PowerUpCollectSound: {fileID: 8300000, guid: 553f1d03da54003479f6ff63d3155919, type: 3}
   Source: {fileID: 1496493711}
@@ -3532,22 +3513,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1884431138
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 144009766}
-  m_Layer: 0
-  m_Name: Recovery GameObject (144009766)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1897347586
 GameObject:
   m_ObjectHideFlags: 0

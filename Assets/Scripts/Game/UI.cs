@@ -7,6 +7,8 @@ public class UI : MonoBehaviour
   [Header("UI Component")]
   public Button PlayButton;
   public Button RetryButton;
+  public Button HomeButton;
+  public Button HomeOverButton;
   public Button ShopButton;
   public Button OverShopButton;
   public Game game;
@@ -33,6 +35,8 @@ public class UI : MonoBehaviour
     RetryButton.onClick.AddListener(RestartTrigger);
     ShopButton.onClick.AddListener(ToShop);
     OverShopButton.onClick.AddListener(ToShop);
+    HomeButton.onClick.AddListener(ToMenu);
+    HomeOverButton.onClick.AddListener(ToMenu);
     ResetUI();
   }
   private void Update()
@@ -79,5 +83,9 @@ public class UI : MonoBehaviour
   public void ToShop()
   {
     SceneManager.LoadScene("Shop", LoadSceneMode.Single);
+  }
+  public void ToMenu()
+  {
+    SceneManager.LoadScene("Menu", LoadSceneMode.Single);
   }
 }
