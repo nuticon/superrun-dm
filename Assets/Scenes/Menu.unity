@@ -807,6 +807,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayButton: {fileID: 1736876762}
   QuitButton: {fileID: 223934768}
+  SFXButtonEnableIcon: {fileID: 21300000, guid: 867bafffe6c5b44468f411d7b0191ac5, type: 3}
+  SFXButtonDisabledIcon: {fileID: 21300000, guid: 73ce8fb17a6d4aa41b4fd6db53750004, type: 3}
+  MusicButtonEnableIcon: {fileID: 21300000, guid: 5027529691d54aa45a22ebf63972dcac, type: 3}
+  MusicButtonDisabledIcon: {fileID: 21300000, guid: c125e73e486f7b24b94281e584495ee4, type: 3}
+  MusicButton: {fileID: 518688168}
+  SFXButton: {fileID: 193911186}
 --- !u!1 &874944135
 GameObject:
   m_ObjectHideFlags: 0

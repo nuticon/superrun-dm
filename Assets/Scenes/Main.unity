@@ -943,7 +943,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraController: {fileID: 303101876}
-  sound: {fileID: 699567399}
   ui: {fileID: 223252402}
   Boy: {fileID: 7640877960485620641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
   Girl: {fileID: 8229708022119366087, guid: b456601c09e4fc84b8b49b1235409599, type: 3}
@@ -981,7 +980,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a980b731fb49c74eb6f709cf17d3bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 699567399}
 --- !u!1 &603415759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,7 +1256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 699567398}
   - component: {fileID: 699567397}
-  - component: {fileID: 699567399}
+  - component: {fileID: 699567400}
   m_Layer: 0
   m_Name: Music Audio Source
   m_TagString: Audio
@@ -1376,7 +1374,7 @@ Transform:
   m_Father: {fileID: 537401579}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &699567399
+--- !u!114 &699567400
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1385,14 +1383,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 699567396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df0a0ae10a784c143a6a192c09551ab9, type: 3}
+  m_Script: {fileID: 11500000, guid: ba5d04a0b17f6928b9f5ee55c28f9604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoinCollectSound: {fileID: 8300000, guid: 7e5ef2708de23d841bc636521785ff85, type: 3}
   InGameMusic: {fileID: 8300000, guid: 992eaa57bad8f724f8ca27dfa6719680, type: 3}
   MenuMusic: {fileID: 8300000, guid: c5f9967b1c0d51942b45180d992afda5, type: 3}
-  ObstracleHitSound: {fileID: 8300000, guid: 9ed08397b3fef21418662ed63130d301, type: 3}
-  PowerUpCollectSound: {fileID: 8300000, guid: 553f1d03da54003479f6ff63d3155919, type: 3}
   Source: {fileID: 699567397}
 --- !u!1 &705507993
 GameObject:
@@ -2517,12 +2512,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1496493708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df0a0ae10a784c143a6a192c09551ab9, type: 3}
+  m_Script: {fileID: 11500000, guid: db28ef9cdb9e73106aa2f151a31e6045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CoinCollectSound: {fileID: 8300000, guid: 7e5ef2708de23d841bc636521785ff85, type: 3}
-  InGameMusic: {fileID: 8300000, guid: 992eaa57bad8f724f8ca27dfa6719680, type: 3}
-  MenuMusic: {fileID: 8300000, guid: c5f9967b1c0d51942b45180d992afda5, type: 3}
   ObstracleHitSound: {fileID: 8300000, guid: 9ed08397b3fef21418662ed63130d301, type: 3}
   PowerUpCollectSound: {fileID: 8300000, guid: 553f1d03da54003479f6ff63d3155919, type: 3}
   Source: {fileID: 1496493711}

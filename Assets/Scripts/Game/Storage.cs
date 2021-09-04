@@ -50,4 +50,26 @@ public static class Storage
     }
     return null;
   }
+  public static void SaveSettting(Setting setting)
+  {
+    BinaryFormatter Formatter = new BinaryFormatter();
+    string Path = Application.persistentDataPath + "/setting.dat";
+    FileStream stream = new FileStream(Path, FileMode.Create);
+    Formatter.Serialize(stream, setting);
+    stream.Close();
+  }
+
+  public static Setting LoadSetting()
+  {
+    string Path = Application.persistentDataPath + "/setting.dat";
+    if (File.Exists(Path))
+    {
+      BinaryFormatter formatter = new BinaryFormatter();
+      FileStream stream = new FileStream(Path, FileMode.Open);
+      Setting data = formatter.Deserialize(stream) as Setting;
+      stream.Close();
+      return data;
+    }
+    return null;
+  }
 }

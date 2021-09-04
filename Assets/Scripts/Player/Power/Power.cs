@@ -5,7 +5,6 @@ public class Power : MonoBehaviour
   public PowerModel Magnet;
   public PowerModel Double;
   private PowerData powerData;
-  public Sound sound;
   private string TempPower = "";
   public static string GlobalPower = "";
   public static Power Instance;
@@ -76,7 +75,7 @@ public class Power : MonoBehaviour
     if (GlobalPower != TempPower)
     {
       SetActivePower(GlobalPower);
-      sound.PlayPowerUpCollectSound();
+      SFX.Instance.PlayPowerUpCollectSound();
       GlobalPower = TempPower;
     }
   }
