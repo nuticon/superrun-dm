@@ -29,12 +29,12 @@ public class Game : MonoBehaviour
     ui.ResetUI();
     if (player1.Female)
     {
-      var character = Instantiate(Girl, transform.position, Quaternion.identity);
+      var character = Instantiate(Girl, transform.position + character.Offset, Quaternion.identity);
       character.transform.parent = gameObject.transform;
     }
     else
     {
-      var character = Instantiate(Boy, transform.position, Quaternion.identity);
+      var character = Instantiate(Boy, transform.position + character.Offset, Quaternion.identity);
       character.transform.parent = gameObject.transform;
     }
   }

@@ -34,6 +34,7 @@ public class Character : MonoBehaviour
   private int RandomedAnimation;
   private float AnimationChangeTimer = 0;
   public static Character Instance;
+  public Vector3 Offset;
   private void Awake()
   {
     Instance = this;
