@@ -13,15 +13,11 @@ public class Music : MonoBehaviour
   {
     Instance = this;
   }
-  private void Start()
-  {
-    Setting setting = new Setting();
-    setting.Load();
-    if (!setting.Music) Source.volume = 0;
-  }
   private void Update()
   {
     Source.loop = Playing;
+    if (!SettingCache.Instance.setting.Music) Source.mute = true;
+    else Source.mute = false;
   }
   public void PlayMenuMusic()
   {

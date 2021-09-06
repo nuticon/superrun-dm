@@ -34,6 +34,7 @@ public class ShopUi : MonoBehaviour
     EquipGirl.onClick.AddListener(EquipCharacterGirl);
     powerData = new PowerData();
     powerData.Load();
+    Music.Instance.PlayMenuMusic();
   }
   private void Update()
   {
@@ -89,7 +90,7 @@ public class ShopUi : MonoBehaviour
   {
     int price = GetPrice(powerData.GetMagnetLevel());
     PowerModel magnet = new PowerModel(powerData.GetMagnetLevel());
-    if (player.Coin >= price)
+    if (player.Coin >= price && magnet.Level < magnet.MaxLevel)
     {
       powerData.SetMagnetLevel(magnet.LevelUp());
       player.Coin -= price;
@@ -101,7 +102,7 @@ public class ShopUi : MonoBehaviour
   {
     int price = GetPrice(powerData.GetDoubleLevel());
     PowerModel doubles = new PowerModel(powerData.GetDoubleLevel());
-    if (player.Coin >= price)
+    if (player.Coin >= price && doubles.Level < doubles.MaxLevel)
     {
       powerData.SetDoubleLevel(doubles.LevelUp());
       player.Coin -= price;
@@ -113,7 +114,7 @@ public class ShopUi : MonoBehaviour
   {
     int price = GetPrice(powerData.GetLifeLevel());
     PowerModel life = new PowerModel(powerData.GetLifeLevel());
-    if (player.Coin >= price)
+    if (player.Coin >= price && life.Level < life.MaxLevel)
     {
       powerData.SetLifeLevel(life.LevelUp());
       player.Coin -= price;

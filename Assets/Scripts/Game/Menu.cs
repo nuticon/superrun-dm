@@ -7,8 +7,6 @@ public class Menu : MonoBehaviour
 {
   public Button PlayButton;
   public Button QuitButton;
-  private Setting setting;
-
   public Sprite SFXButtonEnableIcon;
   public Sprite SFXButtonDisabledIcon;
   public Sprite MusicButtonEnableIcon;
@@ -21,13 +19,12 @@ public class Menu : MonoBehaviour
     QuitButton.onClick.AddListener(Application.Quit);
     MusicButton.onClick.AddListener(SwitchMusic);
     SFXButton.onClick.AddListener(SwitchSFX);
-    setting = new Setting();
-    setting.Load();
+    Music.Instance.PlayMenuMusic();
   }
   private void Update()
   {
-    MusicButton.GetComponent<Image>().sprite = setting.Music ? MusicButtonEnableIcon : MusicButtonDisabledIcon;
-    SFXButton.GetComponent<Image>().sprite = setting.SFX ? SFXButtonEnableIcon : SFXButtonDisabledIcon;
+    MusicButton.GetComponent<Image>().sprite =  SettingCache.Instance.setting.Music ? MusicButtonEnableIcon : MusicButtonDisabledIcon;
+    SFXButton.GetComponent<Image>().sprite =  SettingCache.Instance.setting.SFX ? SFXButtonEnableIcon : SFXButtonDisabledIcon;
   }
   void ToGame()
   {
@@ -35,12 +32,12 @@ public class Menu : MonoBehaviour
   }
   void SwitchSFX()
   {
-    setting.SFX = !setting.SFX;
-    setting.Save();
+    SettingCache.Instance.setting.SFX = !SettingCache.Instance.setting.SFX;
+    SettingCache.Instance.setting.Save();
   }
   void SwitchMusic()
   {
-    setting.Music = !setting.Music;
-    setting.Save();
+    SettingCache.Instance.setting.Music = !SettingCache.Instance.setting.Music;
+    SettingCache.Instance.setting.Save();
   }
 }

@@ -29,6 +29,12 @@ public class TrackController : MonoBehaviour
   private float LandmarksSpawnTimer = 0;
   public float LandmarkSpawnOffset = 80;
   private int LandmarkIndex = 0;
+  public float LandmarkNameDistance = 500f;
+  public static TrackController Instance;
+  private void Awake()
+  {
+    Instance = this;
+  }
   private void Start()
   {
     TileSet = new GameObject("TileSet");
