@@ -214,8 +214,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.021119649, y: 0.042226214, z: 0.01625266}
-  m_Center: {x: 0.00043653962, y: 0.021927252, z: 0.0017850699}
+  m_Size: {x: 0.021119649, y: 0.04305814, z: 0.01625266}
+  m_Center: {x: 0.00043653962, y: 0.02151129, z: 0.0017850699}
 --- !u!95 &801459455797288186
 Animator:
   serializedVersion: 3
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 872fd04641a37f444ae030aa10246198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+  character: {fileID: 801459455797288166}
   CoinParticle: {fileID: 1037864198121816, guid: 638c8ca438a11c54987de876e500ed02, type: 3}
   HitParticle: {fileID: 1742013225946848, guid: b3d8264aa7d2d824a8a503e45291ddf4, type: 3}
 --- !u!114 &801459455797288160
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f24cfb30b136cd0428b797dfe956c48a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 7406367311458304641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+  character: {fileID: 801459455797288166}
 --- !u!114 &801459455797288161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d8254a27ccf5924285d8960ac46f897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterMovement: {fileID: 3905961768561678999, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+  characterMovement: {fileID: 801459455797288160}
 --- !u!114 &801459455797288166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,8 +298,8 @@ MonoBehaviour:
   SideWaySpeed: 1
   SlideLength: 1
   MaxLife: 3
-  characterMovement: {fileID: 3905961768561678999, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
-  characterParticle: {fileID: 1917993094098936569, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
+  characterMovement: {fileID: 801459455797288160}
+  characterParticle: {fileID: 801459455797288163}
   IdleAnimationChangeTime: 60
 --- !u!1 &648651779863449408
 GameObject:
