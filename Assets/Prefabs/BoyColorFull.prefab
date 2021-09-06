@@ -2054,7 +2054,6 @@ GameObject:
   - component: {fileID: 3807453993878164422}
   - component: {fileID: 3905961768561678999}
   - component: {fileID: 1917993094098936569}
-  - component: {fileID: 4114432544190819403}
   m_Layer: 0
   m_Name: BoyColorFull
   m_TagString: Player
@@ -2159,8 +2158,8 @@ MonoBehaviour:
   JumpSpeed: 1
   JumpStrength: 1
   LanesOffset: 7
-  MaxSpeed: 5
-  MinSpeed: 3
+  MaxSpeed: 4
+  MinSpeed: 2.2
   SpeedIncreaseDelay: 60
   SideWaySpeed: 1
   SlideLength: 1
@@ -2209,19 +2208,6 @@ MonoBehaviour:
   character: {fileID: 7406367311458304641}
   CoinParticle: {fileID: 1037864198121816, guid: 638c8ca438a11c54987de876e500ed02, type: 3}
   HitParticle: {fileID: 1742013225946848, guid: b3d8264aa7d2d824a8a503e45291ddf4, type: 3}
---- !u!65 &4114432544190819403
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7640877960485620641}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.026095232, y: 0.021172501, z: 0.024925971}
-  m_Center: {x: -0.000024507663, y: 0.05253765, z: 0.0002136986}
 --- !u!1 &7791434876010005752
 GameObject:
   m_ObjectHideFlags: 0

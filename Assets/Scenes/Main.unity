@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0705593, g: 0.35366276, b: 0.9699111, a: 1}
+  m_IndirectSpecularColor: {r: 0.07061014, g: 0.35376436, b: 0.9707826, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -945,7 +945,7 @@ MonoBehaviour:
   cameraController: {fileID: 303101876}
   ui: {fileID: 223252402}
   Boy: {fileID: 7640877960485620641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
-  Girl: {fileID: 8229708022119366087, guid: b456601c09e4fc84b8b49b1235409599, type: 3}
+  Girl: {fileID: 8685024622589948998, guid: d7dafbafe5a68b24ba8e22ce23b8a0bd, type: 3}
 --- !u!4 &537401579
 Transform:
   m_ObjectHideFlags: 0
@@ -2367,7 +2367,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0.00024414062, y: 50}
+  m_AnchoredPosition: {x: 0.00024414062, y: 107}
   m_SizeDelta: {x: 619.75, y: 1280}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1227892826
