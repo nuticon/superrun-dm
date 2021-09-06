@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0705593, g: 0.35366276, b: 0.9699111, a: 1}
+  m_IndirectSpecularColor: {r: 0.07061014, g: 0.35376436, b: 0.9707826, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -993,7 +993,7 @@ MonoBehaviour:
   cameraController: {fileID: 303101876}
   ui: {fileID: 223252402}
   Boy: {fileID: 7640877960485620641, guid: a187d5515d1930b4297da70dd28d3e30, type: 3}
-  Girl: {fileID: 8685024622589948998, guid: d7dafbafe5a68b24ba8e22ce23b8a0bd, type: 3}
+  Girl: {fileID: 566946614522671191, guid: 22d59d1f33b885e489e343af89ec31f2, type: 3}
 --- !u!4 &537401579
 Transform:
   m_ObjectHideFlags: 0
@@ -3686,6 +3686,7 @@ MonoBehaviour:
   - {fileID: 272661785862842825, guid: 928b3bfc52d052949aa76c319052ae9b, type: 3}
   - {fileID: 2251825789558697796, guid: 7250eb88a87583b44a388f009b89a63a, type: 3}
   - {fileID: 3928927460575457828, guid: 914b32a87c783de46bfa7167b99ccb35, type: 3}
+  - {fileID: 956482901051071173, guid: 94ab8f5ba574aff4fa36b53bcb03dc6c, type: 3}
   Props:
   - {fileID: 7084844556159937263, guid: b27bf205f8a7bc2449803ba8d2857d28, type: 3}
   - {fileID: 1105527913366134301, guid: 0c675162b3fa16c4e8a1c2efbf59886d, type: 3}
