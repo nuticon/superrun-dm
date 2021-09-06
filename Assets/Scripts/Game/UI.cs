@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 public class UI : MonoBehaviour
 {
+  public static UI Instance;
   [Header("UI Component")]
   public Button PlayButton;
   public Button RetryButton;
@@ -22,13 +23,17 @@ public class UI : MonoBehaviour
   public Text GameOverText;
   public Text HighScrollText;
   public Text PointText;
-
+  public Text LandmarkName;
   public GameObject GameOverGroup;
   public GameObject InGameGroup;
   public GameObject MainGroup;
 
   [Header("Other")]
   public TrackController trackController;
+  private void Awake()
+  {
+      Instance = this;
+  }
   private void Start()
   {
     PlayButton.onClick.AddListener(StartTrigger);
@@ -37,6 +42,7 @@ public class UI : MonoBehaviour
     OverShopButton.onClick.AddListener(ToShop);
     HomeButton.onClick.AddListener(ToMenu);
     HomeOverButton.onClick.AddListener(ToMenu);
+    LandmarkName.text = "";
     ResetUI();
   }
   private void Update()
