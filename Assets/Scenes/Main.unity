@@ -377,6 +377,7 @@ MonoBehaviour:
   GameOverText: {fileID: 1647302293}
   HighScrollText: {fileID: 1524846637}
   PointText: {fileID: 380350687}
+  LandmarkName: {fileID: 2015320421}
   GameOverGroup: {fileID: 1647302291}
   InGameGroup: {fileID: 474183290}
   MainGroup: {fileID: 531571372}
@@ -3719,6 +3720,7 @@ MonoBehaviour:
   TilePerRound: 6
   LandmarkSpawnTime: 30
   LandmarkSpawnOffset: 90
+  LandmarkNameDistance: 500
 --- !u!4 &1900745489
 Transform:
   m_ObjectHideFlags: 0

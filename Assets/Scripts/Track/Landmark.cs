@@ -7,7 +7,11 @@ public class Landmark : MonoBehaviour
   {
     if (transform.position.z - Character.Position.z < TrackController.Instance.LandmarkNameDistance)
     {
-      Debug.Log(Name);
+      UI.Instance.LandmarkName.text = Name;
+    }
+    if (transform.position.z < Character.Position.z && UI.Instance.LandmarkName.text != "")
+    {
+      UI.Instance.LandmarkName.text = "";
     }
   }
 }
