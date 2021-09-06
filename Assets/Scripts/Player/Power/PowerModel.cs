@@ -8,7 +8,7 @@ public class PowerModel
   public int TimeLeft;
   public int Level;
   public int UpgradePrice;
-  private int MaxLevel = 5;
+  public int MaxLevel = 5;
   public PowerModel(int level)
   {
     Level = level;

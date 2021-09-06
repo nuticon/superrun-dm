@@ -13,11 +13,10 @@ public class SFX : MonoBehaviour
   {
     Instance = this;
   }
-  private void Start()
+  private void Update()
   {
-    Setting setting = new Setting();
-    setting.Load();
-    if (!setting.SFX) Source.volume = 0;
+    if (!SettingCache.Instance.setting.SFX) Source.mute = true;
+    else Source.mute = false;
   }
   public void PlayObstracleHitSound()
   {

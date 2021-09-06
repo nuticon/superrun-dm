@@ -19,7 +19,6 @@ public class Game : MonoBehaviour
 
   private string TempPowerUpText;
   public static bool MagnetActive;
-
   public GameObject Boy;
   public GameObject Girl;
   void Start()
@@ -52,7 +51,7 @@ public class Game : MonoBehaviour
   private void SetDefaultState()
   {
     GetHighScroll();
-     Music.Instance.PlayMenuMusic();
+    Music.Instance.PlayMenuMusic();
     Point = 0;
     Coin = 0;
     LocalCoin = Coin;
