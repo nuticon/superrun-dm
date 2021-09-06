@@ -4283,6 +4283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6551042142634404648}
+  - component: {fileID: 3914103911661172742}
   m_Layer: 0
   m_Name: FrontSignMarket
   m_TagString: Untagged
@@ -4318,6 +4319,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -177.449, z: 0}
+--- !u!114 &3914103911661172742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5882311008212890002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0728b58603ca8847a5ce976998bba22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: "\u0E15\u0E25\u0E32\u0E14\u0E19\u0E49\u0E33\u0E42\u0E1A\u0E23\u0E32\u0E13\u0E1A\u0E32\u0E07\u0E1E\u0E25\u0E35"
 --- !u!1 &5898471210748389320
 GameObject:
   m_ObjectHideFlags: 0
