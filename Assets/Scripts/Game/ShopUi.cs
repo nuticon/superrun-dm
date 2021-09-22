@@ -57,15 +57,15 @@ public class ShopUi : MonoBehaviour
     {
       EquipGirl.interactable = false;
       EquipBoy.interactable = true;
-      EquipGirl.GetComponentInChildren<Text>().text = "Equipped";
-      EquipBoy.GetComponentInChildren<Text>().text = "Equip";
+      EquipGirl.GetComponentInChildren<Text>().text = "สมุทร";
+      EquipBoy.GetComponentInChildren<Text>().text = "ปราการ";
     }
     else
     {
       EquipGirl.interactable = true;
       EquipBoy.interactable = false;
-      EquipGirl.GetComponentInChildren<Text>().text = "Equip";
-      EquipBoy.GetComponentInChildren<Text>().text = "Equipped";
+      EquipGirl.GetComponentInChildren<Text>().text = "สมุทร";
+      EquipBoy.GetComponentInChildren<Text>().text = "ปราการ";
     }
   }
   void EquipCharacterBoy()
