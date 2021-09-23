@@ -79,6 +79,7 @@ public class UI : MonoBehaviour
     MainGroup.SetActive(true);
     GameOverGroup.SetActive(false);
     InGameGroup.SetActive(false);
+    LandmarkGroup.gameObject.SetActive(false);
   }
   private void SetPlayingUI()
   {
