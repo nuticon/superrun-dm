@@ -17,6 +17,7 @@ TagManager:
   - Magnet
   - Multiply
   - Road
+  - Gate
   layers:
   - Default
   - TransparentFX

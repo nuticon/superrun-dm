@@ -946,7 +946,6 @@ GameObject:
   - component: {fileID: 7466205279907368908}
   - component: {fileID: 7831380938373860537}
   - component: {fileID: 1293419859922877467}
-  - component: {fileID: 2248549907862089180}
   m_Layer: 0
   m_Name: polySurface298
   m_TagString: Untagged
@@ -1020,19 +1019,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2248549907862089180
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1422722155094566096}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.54839987, y: 0.02318357, z: 0.021814065}
-  m_Center: {x: -0.2942209, y: -0.034759846, z: -0.0033285236}
 --- !u!1 &1472785520261792161
 GameObject:
   m_ObjectHideFlags: 0
@@ -4283,10 +4269,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6551042142634404648}
-  - component: {fileID: 3914103911661172742}
+  - component: {fileID: 5126843477528060742}
   m_Layer: 0
   m_Name: FrontSignMarket
-  m_TagString: Untagged
+  m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4319,19 +4305,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -177.449, z: 0}
---- !u!114 &3914103911661172742
-MonoBehaviour:
+--- !u!65 &5126843477528060742
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5882311008212890002}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0728b58603ca8847a5ce976998bba22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: "\u0E15\u0E25\u0E32\u0E14\u0E19\u0E49\u0E33"
+  serializedVersion: 2
+  m_Size: {x: 0.114911824, y: 0.11095893, z: 0.29173368}
+  m_Center: {x: 0.0066113514, y: 0.017095981, z: -0.95118797}
 --- !u!1 &5898471210748389320
 GameObject:
   m_ObjectHideFlags: 0
