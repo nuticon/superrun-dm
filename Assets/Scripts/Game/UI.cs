@@ -24,6 +24,7 @@ public class UI : MonoBehaviour
   public Text HighScrollText;
   public Text PointText;
   public Text LandmarkName;
+  public GameObject LandmarkGroup;
   public GameObject GameOverGroup;
   public GameObject InGameGroup;
   public GameObject MainGroup;
